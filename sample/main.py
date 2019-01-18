@@ -35,7 +35,7 @@ if __name__ == "__main__":
 		print(candidates)
 
 	labeler = mi.MetaphorIdentifier(candidates)
-	#labeler.IDMetaphors(sf.testLabelFunction)
+	# labeler.IDMetaphors(sf.testLabelFunction)
 	if utils.M_DARKTHOUGHT:
 		labeler.IDMetaphors(darkthoughtsFunction)
 	elif utils.M_CLUSTERING:
@@ -46,4 +46,3 @@ if __name__ == "__main__":
 
 	
 # read from csv file, take source/targett and keep the rest
-
