@@ -9,8 +9,8 @@ import modules.cand_id as ci
 import modules.met_id as mi
 import modules.sample_functions as sf
 import modules.utils as utils
-from modules.darkthoughts import darkthoughtsFunction
-from modules.cluster_module import clusteringFunction
+from .modules.darkthoughts import darkthoughtsFunction
+from .modules.cluster_module import clusteringFunction
 
 idFunctions = [sf.adjNounFinder, sf.verbNounFinder]
 
