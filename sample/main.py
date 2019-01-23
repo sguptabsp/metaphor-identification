@@ -16,10 +16,10 @@ idFunctions = [sf.adjNounFinder, sf.verbNounFinder]
 
 if __name__ == "__main__":
 
-	data = utils.parseCommandLine()
+	data = utils.parseCommandLine() #Returns the text, either from a text file, from the command line or from the default text, as a string.
 	annotator = an.Annotator(data)
-	annotator.addColumn("POS", sf.posFunction)
-	annotator.addColumn("lemma", sf.lemmatizingFunction)
+	annotator.addColumn("POS", sf.posFunction)           #Set a part-of-speech to each word of the string
+	annotator.addColumn("lemma", sf.lemmatizingFunction) #Set a lemma to each word of the string
 	annotatedText = annotator.getAnnotatedText()
 	annotatedText.writeToCSV(utils.AT_PATH)
 	if utils.VERBOSE:
@@ -41,8 +41,8 @@ if __name__ == "__main__":
 	elif utils.M_CLUSTERING:
 		labeler.IDMetaphors(clusteringFunction)
 	results = labeler.getMetaphors()
-	results.writeToCSV(utils.MET_PATH)
+	results.writeToCSV(utils.MET_PATH) #It seems like this line doesn't work
 	print(results)
 
 	
-# read from csv file, take source/targett and keep the rest
+# read from csv file, take source/target and keep the rest
