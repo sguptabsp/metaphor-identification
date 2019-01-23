@@ -21,5 +21,3 @@ class Annotator:
 
 	def getAnnotatedText(self):
 		return self.annotatedText
-
-
