@@ -26,7 +26,7 @@ Defined in _/sample/modules/annotator.py_.
 
 It has two fields:
 * rawText: string, text you want to analyze
-* annotatedText: object of class annotatedText. See details [below](annotatedTextAnchor)
+* annotatedText: object of class annotatedText. See details [below](#annotatedTextAnchor)
 
 ##### <a name="annotatedTextAnchor">The Annotated Text</a>
 Defined in _/sample/modules/datastructs/annotated_text.py_.
