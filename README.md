@@ -15,6 +15,7 @@ When executing the program it is possible to use different arguments:
 
 If no string or text file is specified in the command line then a default text is used as an example.
 
+<br>
 
 ### The objects
 
@@ -23,9 +24,11 @@ Different objects are used in this project. This section describes the different
 ##### The Annotator
 Defined in _/sample/modules/annotator.py_.
 
+It has two fields:
+* rawText: string, text you want to analyze
+* annotatedText: object of class annotatedText. See details [below](annotatedTextAnchor)
 
-
-##### The Annotated Text
+##### <a name="annotatedTextAnchor">The Annotated Text</a>
 Defined in _/sample/modules/datastructs/annotated_text.py_.
 
 ##### The Identifier
@@ -47,7 +50,8 @@ They usually follow this format:
 * Target: word qualified by the source
 * Result: boolean
 * Confidence: confidence measure between 0 and 1 
- 
+
+<br> 
 
 # Tutorial
 

@@ -16,7 +16,7 @@ idFunctions = [sf.adjNounFinder, sf.verbNounFinder]
 
 if __name__ == "__main__":
 
-	data = utils.parseCommandLine() #Returns the text, either from a text file, from the command line or from the default text, as a string.
+	data = utils.parseCommandLine() #data is a string of the text you want to analyze
 	annotator = an.Annotator(data)
 	annotator.addColumn("POS", sf.posFunction)           #Set a part-of-speech to each word of the string
 	annotator.addColumn("lemma", sf.lemmatizingFunction) #Set a lemma to each word of the string
