@@ -6,6 +6,7 @@ from .datastructs.candidate_group import CandidateGroup
 from .datastructs.metaphor_candidate import MetaphorCandidate
 from .datastructs.labeled_metaphor_list import LabeledMetaphorList
 from .datastructs.labeled_metaphor import LabeledMetaphor
+from .registry import metaphorRegistry
 
 def getWordnetPos(tag):
 
@@ -80,6 +81,8 @@ def adjNounFinder(annotatedText):
 
 	return candidates
 
+metaphorRegistry.addCandidate("adjNoun", adjNounFinder)
+
 # Finds the verb and the next noun in the sentence
 def verbNounFinder(annotatedText):
 	candidates = CandidateGroup()
@@ -98,6 +101,8 @@ def verbNounFinder(annotatedText):
 				candidates.addCandidate(newCandidate)
 
 	return candidates
+
+metaphorRegistry.addCandidate("verbNoun", verbNounFinder)
 
 
 # TODO: Write function that finds a verb and its object using a dependancy parser

@@ -3,15 +3,17 @@
 
 
 ### Command Line
-When executing the program it is possible to use different arguments:
+Mandatory arguments:
+* -m or --method followed by an ID: choose the metaphor identifying method:
+    * darkthoughts
+    * cluster
+* -i or --id followed by an ID: choose the candidate identifying method:
+    * adjNoun
+    * verbNoun
+    
+Optional  arguments:
 * -v or --verbose: print the details
 * -a or --all: use every available methods of identification and labeling
-* -m or --method followed by a number: choose the metaphor identifying method:
-    * 1: Darkthought
-    * 2: Clustering
-* -i or --id followed by a number: choose the candidate identifying method:
-    * 1: AdjNoun
-    * 2: VerbNoun
 * -f or --file followed by a file name: look for metaphors in a text file
 * -s or --string followed by a string: look for metaphors in a specified string
 
@@ -19,7 +21,18 @@ If no string or text file is specified in the command line then a default text i
 
 <br>
 
-### The execution
+### The Registry
+To identify metaphors in a text, at least two steps need to be followed:
+the candidate identification step and the labelling step.
+Each of these steps can be done in many ways.
+Each method needs to be registered in the metaphorRegistry defined in 
+_/sample/modules/registry.py_
+
+
+
+<br>
+
+### The Execution
 
 1. Tokenization of the text
     1. From string to annotatedText

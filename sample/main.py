@@ -11,37 +11,32 @@ import modules.sample_functions as sf
 import modules.utils as utils
 from modules.darkthoughts import darkthoughtsFunction
 from modules.cluster_module import clusteringFunction
+from modules.registry import metaphorRegistry
 
 idFunctions = [sf.adjNounFinder, sf.verbNounFinder]
 
 if __name__ == "__main__":
 
-	data = utils.parseCommandLine() #data is a string of the text you want to analyze
+	data = utils.getText(utils.args)
 	annotator = an.Annotator(data)
 	annotator.addColumn("POS", sf.posFunction)           #Set a part-of-speech to each word of the string
 	annotator.addColumn("lemma", sf.lemmatizingFunction) #Set a lemma to each word of the string
 	annotatedText = annotator.getAnnotatedText()
 	annotatedText.writeToCSV(utils.AT_PATH)
-	if utils.VERBOSE:
+	if utils.args.verbose:
 		print(annotatedText)
 
 	identifier = ci.CandidateIdentifier(annotatedText)
-	if utils.I_ADJNOUN:
-		identifier.IDCandidates(sf.adjNounFinder)
-	elif utils.I_VERBNOUN:
-		identifier.IDCandidates(sf.verbNounFinder)
+	identifier.IDCandidates(metaphorRegistry.getCandidate(utils.args.id))
 	candidates = identifier.getCandidates()
-	if utils.VERBOSE:
+	if utils.args.verbose:
 		print(candidates)
 
 	labeler = mi.MetaphorIdentifier(candidates)
 	# labeler.IDMetaphors(sf.testLabelFunction)
-	if utils.M_DARKTHOUGHT:
-		labeler.IDMetaphors(darkthoughtsFunction)
-	elif utils.M_CLUSTERING:
-		labeler.IDMetaphors(clusteringFunction)
+	labeler.IDMetaphors(metaphorRegistry.getMethod(utils.args.method))
 	results = labeler.getMetaphors()
-	results.writeToCSV(utils.MET_PATH) #It seems like this line doesn't work
+	results.writeToCSV(utils.MET_PATH)
 	print(results)
 
 	

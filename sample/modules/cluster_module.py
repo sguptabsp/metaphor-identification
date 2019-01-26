@@ -6,6 +6,7 @@ from .datastructs.labeled_metaphor import LabeledMetaphor
 import csv
 import ast
 from . import utils
+from .registry import metaphorRegistry
 
 VERBNET = "data/clustering/verbnet_150_50_200.log-preprocessed"
 NOUNS = "data/clustering/200_2000.log-preprocessed"
@@ -107,7 +108,7 @@ def clusteringFunction(candidates):
 	for c in candidates:
 		source = c.getSource()
 		target = c.getTarget()
-		if utils.VERBOSE:
+		if utils.args.verbose:
 			print("###############################################################################")
 			print("SOURCE: " + source)
 			print("TARGET: " + target)
@@ -116,7 +117,7 @@ def clusteringFunction(candidates):
 		result = currentResult[0]
 		confidence = currentResult[1]
 
-		if utils.VERBOSE:
+		if utils.args.verbose:
 			if confidence >= 0.5:
 				print("RESULT: " + str(result))
 				print("CONFIDENCE: " + str(confidence))
@@ -129,3 +130,4 @@ def clusteringFunction(candidates):
 	return results
 
 
+metaphorRegistry.addMethod("cluster", clusteringFunction)
