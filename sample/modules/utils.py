@@ -34,7 +34,7 @@ def parseCommandLine():
 	parser.add_argument("-a", "--all", help="use every available methods of identification and labeling",
 						action="store_true")
 	parser.add_argument("-m", "--method", type=str,
-						help="choose the metaphor identifying method: darkthoughts, clustering")
+						help="choose the metaphor identifying method: darkthoughts, cluster")
 	parser.add_argument("-i", "--id", type=str, help="choose the candidate identifying method: adjNoun, verbNoun")
 	group = parser.add_mutually_exclusive_group()
 	group.add_argument("-f", "--file", type=str, help="look for metaphors in a text file")
@@ -55,6 +55,10 @@ def parseCommandLine():
 	return args
 
 args = parseCommandLine()
+
+
+
+### Old functions
 
 # def getText(path):
 # 	data = ""
