@@ -33,9 +33,9 @@ def parseCommandLine():
 	parser.add_argument("-v", "--verbose", help="print details", action="store_true")
 	parser.add_argument("-a", "--all", help="use every available methods of identification and labeling",
 						action="store_true")
-	parser.add_argument("-m", "--method", type=str,
-						help="choose the metaphor identifying method: darkthoughts, cluster")
-	parser.add_argument("-i", "--id", type=str, help="choose the candidate identifying method: adjNoun, verbNoun")
+	parser.add_argument("-ml", "--labeler", type=str,
+						help="choose the metaphor labeling method: darkthoughts, cluster")
+	parser.add_argument("-cf", "--finder", type=str, help="choose the candidate finding method: adjNoun, verbNoun")
 	group = parser.add_mutually_exclusive_group()
 	group.add_argument("-f", "--file", type=str, help="look for metaphors in a text file")
 	group.add_argument("-s", "--string", type=str, help="look for metaphors in a specified string")
@@ -47,10 +47,10 @@ def parseCommandLine():
 	if not args.all:
 		args.all = False
 	else:
-		if not args.method:
-			args.method = "darkthoughts" #default method of labelling
-		if not args.id:
-			args.id = "adjNoun" #default method of identification
+		if not args.labeler:
+			args.labeler = "darkthoughts" #default method of labelling
+		if not args.finder:
+			args.finder = "adjNoun" #default method of identification
 
 	return args
 

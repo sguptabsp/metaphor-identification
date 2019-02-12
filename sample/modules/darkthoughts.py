@@ -103,4 +103,4 @@ def darkthoughtsFunction(candidates):
 
 	return results
 
-metaphorRegistry.addMethod("darkthoughts", darkthoughtsFunction)
+metaphorRegistry.addMetLabeler("darkthoughts", darkthoughtsFunction)

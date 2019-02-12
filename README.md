@@ -4,10 +4,10 @@
 
 ### Command Line
 Mandatory arguments:
-* -m or --method followed by an ID: choose the metaphor identifying method:
+* -ml or --labeler followed by an ID: choose the metaphor labeling method:
     * darkthoughts
     * cluster
-* -i or --id followed by an ID: choose the candidate identifying method:
+* -cf or --finder followed by an ID: choose the candidate finding method:
     * adjNoun
     * verbNoun
     

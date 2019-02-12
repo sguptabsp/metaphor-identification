@@ -4,16 +4,16 @@ class Registry:
         self.methods = {}
         self.candidates = {}
 
-    def addMethod(self,id, function):
+    def addMetLabeler(self, id, function):
         self.methods[id] = function
 
-    def addCandidate(self, id, function):
+    def addCandFinder(self, id, function):
         self.candidates[id] = function
 
-    def getMethod(self, id):
+    def getMetLabeler(self, id):
         return self.methods[id]
 
-    def getCandidate(self, id):
+    def getCandFinder(self, id):
         return self.candidates[id]
 
 metaphorRegistry = Registry()

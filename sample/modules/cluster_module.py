@@ -130,4 +130,4 @@ def clusteringFunction(candidates):
 	return results
 
 
-metaphorRegistry.addMethod("cluster", clusteringFunction)
+metaphorRegistry.addMetLabeler("cluster", clusteringFunction)
