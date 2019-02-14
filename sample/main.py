@@ -27,14 +27,14 @@ if __name__ == "__main__":
 		print(annotatedText)
 
 	identifier = ci.CandidateIdentifier(annotatedText)
-	identifier.IDCandidates(metaphorRegistry.getCandFinder(utils.args.finder))
+	identifier.IDCandidates(metaphorRegistry.getCFinder(utils.args.cfinder))
 	candidates = identifier.getCandidates()
 	if utils.args.verbose:
 		print(candidates)
 
-	labeler = mi.MetaphorIdentifier(candidates)
+	labeler = mi.MetaphorLabeler(candidates)
 	# labeler.IDMetaphors(sf.testLabelFunction)
-	labeler.IDMetaphors(metaphorRegistry.getMetLabeler(utils.args.labeler))
+	labeler.LabelMetaphors(metaphorRegistry.getMLabeler(utils.args.mlabeler))
 
 	results = labeler.getMetaphors()
 	results.writeToCSV(utils.MET_PATH)

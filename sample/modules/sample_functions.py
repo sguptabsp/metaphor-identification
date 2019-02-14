@@ -81,7 +81,7 @@ def adjNounFinder(annotatedText):
 
 	return candidates
 
-metaphorRegistry.addCandFinder("adjNoun", adjNounFinder)
+metaphorRegistry.addCFinder("adjNoun", adjNounFinder)
 
 # Finds the verb and the next noun in the sentence
 def verbNounFinder(annotatedText):
@@ -102,7 +102,7 @@ def verbNounFinder(annotatedText):
 
 	return candidates
 
-metaphorRegistry.addCandFinder("verbNoun", verbNounFinder)
+metaphorRegistry.addCFinder("verbNoun", verbNounFinder)
 
 
 # TODO: Write function that finds a verb and its object using a dependancy parser

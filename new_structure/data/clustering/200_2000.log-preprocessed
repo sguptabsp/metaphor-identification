@@ -1,0 +1,200 @@
+Cluster1    tree    crop    flower    plant    root    leaf    seed    rose    wood    grain    stem    forest    garden
+Cluster2    consent    permission    concession    injunction    licence    approval
+Cluster3    expenditure    cost    risk    expense    emission    budget    spending
+Cluster4    fleet    soldier    knight    force    rebel    guard    troops    crew    army    pilot
+Cluster5    isolation    caution    respect    fashion    manner    contempt
+Cluster6    gallery    railway    restaurant    garage    shop    museum    theatre    studio    library    mill    factory    store
+Cluster7    fire    pipe    torch    candle    lamp    cigarette
+Cluster8    sphere    region    site    district    zone    boundary    area    location    domain    field    territory    province
+Cluster9    congress    representative    cabinet    deputy    prime    successor    parliament    councillor    candidate    delegate    assembly
+Cluster10    india    italy    america    africa    spain    australia    wales    ireland    britain    europe    england    france    scotland
+Cluster11    limb    stomach    brain    breast    flesh    muscle    nerve    skin    throat    heart    tooth    mouth    pulse    spine    mind    vein    soul    chest
+Cluster12    colour    outline    routine    habit    brand    shape    diet    style    mode    design    format    stance    rhythm    pattern
+Cluster13    comfort    delight    relief    surprise    happiness    satisfaction    warmth    horror    pleasure
+Cluster14    expedition    initiative    drive    effort    campaign    charity    mission    hunt    venture
+Cluster15    downstairs    slope    stair    hill    step    mountain    cliff    ridge    ladder
+Cluster16    expectation    rule    standard    agenda    criterion    priority    demand    need    requirement    objective    guideline    norm    specification    code
+Cluster17    potato    apple    slice    food    cake    meat    bread    fruit
+Cluster18    excess    deficit    inflation    unemployment    pollution    inequality    poverty    delay    discrimination    symptom    shortage
+Cluster19    exposure    recognition    acceptance    entry    access    separation    compliance    involvement    admission    participation    co-operation    promotion
+Cluster20    victim    bull    teenager    prisoner    hero    gang    enemy    rider    offender    youth    killer    thief    driver    defender    hell
+Cluster21    lifetime    quarter    period    century    succession    stage    generation    decade    phase    interval    future
+Cluster22    subsidy    compensation    damages    allowance    payment    pension    grant
+Cluster23    emphasis    weight    load    strain    burden    pressure    tension    stress
+Cluster24    mixture    salt    dose    ingredient    sugar    substance    drug    milk    cream    alcohol    fibre    chemical
+Cluster25    consensus    partnership    resistance    alliance    boom    recipe    bond    hierarchy    marriage    spell    award    defence    empire    coalition    regime    opposition
+Cluster26    recession    disappointment    shock    pain    frustration    embarrassment    guilt    sensation    depression    wound
+Cluster27    search    investigation    enquiry    proceedings    inquiry    prosecution
+Cluster28    tail    collar    strand    skirt    trousers    hair    curtain    sleeve
+Cluster29    reward    gain    savings    advantage    benefit
+Cluster30    tongue    button    switch    needle    kiss    finger    thumb    nail    hand
+Cluster31    poet    researcher    speaker    whilst    gentleman    author    eliot    marx    writer    best    scientist
+Cluster32    concern    commitment    thanks    interest    preference    determination    wish    loyalty    sympathy    willingness    intention
+Cluster33    disorder    infection    illness    disease    virus    cancer
+Cluster34    word    thing    label    date    reference    term    sentence    passage    description    symbol    name    thought    quot    expression    phrase    address
+Cluster35    part    remainder    rest    portion    whole    mass    half    bulk    core
+Cluster36    purchase    integration    acquisition    establishment    evolution    implementation    identification    transition    transformation    interaction    recovery    formation    addition    expansion    creation    construction    conversion    development    extension    merger    innovation    adoption    transfer
+Cluster37    copy    ticket    pass    card    cheque    receipt    gift    present
+Cluster38    screen    sunlight    mirror    shaft    camera    watch    dawn    clock    moon    reflection    light    ceiling    beam
+Cluster39    base    entity    purpose    framework    medium    foundation    setting    source    basis    reason    context    means    perspective    grounds    background
+Cluster40    brow    blanket    window    door    eyebrow    sheet    towel    gate    cloth
+Cluster41    profit    surplus    earnings    income    turnover    revenue
+Cluster42    brush    bowl    bucket    receiver    barrel    dish    glass    container    plate    basket    bottle    tray
+Cluster43    judge    tribunal    jury    court    magistrate
+Cluster44    reception    concert    display    session    festival    demonstration    show    workshop    conference    rally    ceremony    exhibition    meeting    presentation
+Cluster45    strength    momentum    consciousness    reputation    confidence    balance    fortune    popularity
+Cluster46    analysis    experiment    study    research    survey    evaluation    assessment
+Cluster47    april    june    march    corp
+Cluster48    flag    aircraft    vessel    helicopter    boat    carrier    plane    craft    ship
+Cluster49    politics    practice    trading    reading    occupation    profession    sport    pursuit    affair    career    thinking    life
+Cluster50    quality    capability    ability    intelligence    sensitivity    talent    capacity
+Cluster51    poetry    novel    bible    lecture    dance    script    prayer    lesson    verse    poem    speech
+Cluster52    clinton    bush    gorbachev    clarke    baker    chancellor    thatcher    major    kinnock    spokesman    ford
+Cluster53    architect    professional    lawyer    doctor    expert    practitioner    solicitor    nurse    specialist    designer    engineer    accountant
+Cluster54    form    series    kind    degree    range    variety    type    sort
+Cluster55    recording    music    tape    song    tune    radio    guitar    trick    album    football    organ    stuff
+Cluster56    share    estate    acre    property    holding    portfolio    currency    subsidiary    stake    asset    land    stock
+Cluster57    ministry    committee    board    authority    administration    commission    department    government    council
+Cluster58    competitor    rival    team    club    champion    star    winner    squad    county    player    liverpool    partner    leeds
+Cluster59    incentive    attraction    chance    option    prospect    possibility    opportunity    alternative
+Cluster60    holder    purchaser    applicant    creditor    vendor    defendant    seller    tenant    landlord    plaintiff
+Cluster61    nigel    jack    jane    maggie    harry    anne    susan    marie    mungo    emily    philip
+Cluster62    staff    volunteer    worker    teacher    employee    member    personnel    manager
+Cluster63    view    conception    custom    tradition    concept    ideal    belief    doctrine    myth    idea    ideology    principle    notion    philosophy
+Cluster64    technology    architecture    program    system    product    version    interface    software    tool    computer    network    processor    chip    package
+Cluster65    north    south    west    forward    east
+Cluster66    reduction    shift    increase    rise    change    improvement
+Cluster67    duty    responsibility    obligation    liability
+Cluster68    threat    crisis    problem    obstacle    dilemma    glance    look    gaze    challenge    danger    barrier    difficulty
+Cluster69    beach    island    depths    shore    planet    continent    landscape    coast    channel    universe    gulf    valley    countryside    world    stretch    border
+Cluster70    owner    treasury    operator    developer    dealer    manufacturer    publisher    corporation    collector    supplier    airline    organiser    firm    employer    bank    company    maker    producer
+Cluster71    senses    sleep    promise    courage    unity    peace    pride    hope    memory    love    virtue    silence    spirit    beauty    ambition    faith    glory    dream
+Cluster72    arrangement    policy    measure    reform    proposal    project    programme    scheme    plan    course
+Cluster73    opinion    decision    recommendation    judgment    conviction    judgement    order    will    verdict    conclusion
+Cluster74    scope    choice    coverage    advertising    allocation    representation    provision    availability    membership    horizon    selection    focus    definition
+Cluster75    catalogue    chart    diary    roll    file    module    menu    record    register    text    schedule    questionnaire    database    lifespan    list
+Cluster76    mood    taste    vision    image    flavour    impression    atmosphere    sense    appearance
+Cluster77    thousand    citizen    inhabitant    resident    minority    youngster    refugee    peasant    miner    hundred
+Cluster78    class    collection    category    group    cast    rank    family    party    household    unit    band    pair    division
+Cluster79    ownership    jurisdiction    power    control    discretion    influence
+Cluster80    front    platform    circle    edge    square    park    middle    corner    left    doorway    side    landing    terrace    entrance
+Cluster81    honour    living    favour    possession    crown    title    gold
+Cluster82    culture    curriculum    english    writing    media    science    language    medicine    religion    literature    discipline    discourse    insider
+Cluster83    times    journal    magazine    paper    press    edition    newspaper
+Cluster84    carriage    bike    vehicle    train    truck    lorry    coach    taxi
+Cluster85    value    population    index    percentage    number    average    total    fraction    majority    volume    amount    proportion
+Cluster86    tube    lock    tank    circuit    joint    filter    battery    engine    device    disk    furniture    machine    mine    seal    equipment    machinery    wheel    motor    slide    disc    instrument
+Cluster87    drop    tear    sweat    paint    blood    water    juice
+Cluster88    association    agency    trust    organization    community    institution    organisation    society
+Cluster89    gene    tissue    cell    particle    fragment    bacterium    protein    acid    complex    compound    molecule    organism
+Cluster90    employment    investment    growth    supplies    sale    import    export    production    consumption    traffic    input    spread    supply    output    flow
+Cluster91    angle    pace    margin    ease    speed    direction    pitch    height
+Cluster92    dispute    battle    fighting    struggle    fight    clash    violence    conflict
+Cluster93    drink    coffee    champagne    pint    wine    beer
+Cluster94    championship    open    tournament    league    final    round    race    match    competition    game    contest
+Cluster95    pound    penny    pound    dollar    cash    money    dollar    million
+Cluster96    defeat    fall    death    tragedy    loss    collapse    decline    disaster    destruction    fate
+Cluster97    audience    delegation    colleague    companion    photographer    visitor    stranger    lady    crowd    passenger    guest    viewer    neighbour    traveller    tourist
+Cluster98    premise    farm    apartment    villa    flat    hotel    house    home    cottage
+Cluster99    management    delivery    teaching    training    accommodation    maintenance    transport    service    care    protection    facility    communication    housing    treatment    education    planning
+Cluster100    joseph    george    david    john    francis    robert    howard    luke    sergeant    tony    peter    simon    michael    lucy    captain    paul    charlie    graham    henry    kelly
+Cluster101    lead    trap    wicket    position    hole    seat    pocket    shelter    space    nest    cover    place    post    stand    crack    tent    spot
+Cluster102    couple    minute    night    morning    hour    time    evening    afternoon
+Cluster103    strike    intervention    attack    revolution    protest    action    raid    attempt    assault    invasion
+Cluster104    editor    chairman    executive    minister    governor    director    commander    chief    ambassador    leader    secretary    president
+Cluster105    concentration    size    ratio    frequency    scale    level    depth    intensity    incidence    temperature
+Cluster106    theory    logic    hypothesis    interpretation    model    proposition    thesis    assumption    argument
+Cluster107    fact    absence    refusal    presence    necessity    lack    existence    failure
+Cluster108    book    statement    account    draft    guide    advertisement    document    report    article    letter
+Cluster109    official    officer    inspector    journalist    detective    constable    police    policeman    reporter
+Cluster110    being    species    sheep    animal    creature    horse    baby    human    fish    male    lamb    bird    rabbit    female    insect    cattle    mouse    monster
+Cluster111    girl    other    woman    child    person    people
+Cluster112    length    past    mile    metre    distance    inch    yard
+Cluster113    tide    breeze    flood    wind    rain    storm    weather    wave    current    heat
+Cluster114    restriction    limit    constraint    punishment    sanction    penalty    limitation
+Cluster115    grass    soil    grave    heel    pile    mess    heap    surface    pavement    bottom    patch    snow    carpet    ground    corpse    earth    sand    floor
+Cluster116    accuracy    validity    effectiveness    smile    grin
+Cluster117    sister    daughter    parent    relative    lover    cousin    friend    wife    mother    husband    brother    father
+Cluster118    mortgage    deposit    insurance    debt    loan    credit    finance
+Cluster119    adult    participant    individual    pupil    student    patient
+Cluster120    gear    uniform    clothes    mask    dress    suit    garment
+Cluster121    aspect    matter    theme    subject    issue    topic    question
+Cluster122    handle    weapon    horn    knife    blade    stick    sword    ankle    waist    neck    wrist
+Cluster123    remark    offer    signal    invitation    command    warning    comment    news    message    instruction    reply    call    request
+Cluster124    curve    profile    spectrum    estimate    equation    parameter    grade    formula    plot    score
+Cluster125    examination    surgery    review    trial    hearing    check    inspection    test    interview
+Cluster126    equivalent    minimum    array    trace    hint    joke    gesture    plenty    touch
+Cluster127    winter    february    summer    weekend    spring    autumn
+Cluster128    poll    referendum    constituency    election    vote
+Cluster129    tory    labour    conservative    democrat
+Cluster130    tunnel    road    path    trail    lane    route    track    street    bridge
+Cluster131    union    nation    state    leadership    germany    country    japan    israel    russia    china    kingdom    colony    ally    iraq    faction    republic
+Cluster132    release    rejection    resignation    appointment    return    removal    withdrawal    replacement    discovery    retirement    closure    arrest    introduction
+Cluster133    motion    legislation    amendment    bill    regulation    constitution    clause    directive    statute    resolution
+Cluster134    walk    season    holiday    break    journey    flight    trip    tour    ride    visit
+Cluster135    deck    bench    shelf    fence    roof    desk    counter    table    wall
+Cluster136    criticism    appeal    charge    application    allegation    claim    objection    suggestion    case    complaint
+Cluster137    specimen    signature    sample    material    information    item    datum    contents    detail
+Cluster138    trade    business    industry    economy    market    enterprise    sector
+Cluster139    abuse    suicide    killing    offence    murder    breach    crime
+Cluster140    advice    help    guidance    support    assistance
+Cluster141    jacket    glove    shoe    boot    shirt    coat
+Cluster142    calculation    statistics    evidence    finding    consideration    figure    measurement    result    comparison    observation
+Cluster143    attitude    composition    perception    nature    distribution    content    structure    character    personality
+Cluster144    rage    excitement    panic    anger    terror    flame    laughter
+Cluster145    agent    assistant    auditor    justice    servant    consultant    adviser    trustee    commissioner    clerk
+Cluster146    college    university    institute    laboratory    school
+Cluster147    scent    cloud    sigh    smoke    shadow    smell    darkness    mist    dust
+Cluster148    exercise    activity    process    transaction    function    ritual    task    operation    work    role    preparation    movement
+Cluster149    remedy    settlement    formula    proof    solution    technique    answer    explanation    strategy    approach    tactic    compromise    method    procedure
+Cluster150    relation    friendship    contact    links    link    relationship    connection
+Cluster151    william    prince    king    princess    earl    elizabeth    charles    duke    richard    queen    edward    james    diana
+Cluster152    treaty    agreement    contract    deal    convention    protocol
+Cluster153    investor    client    customer    public    buyer    user    consumer    reader    shareholder
+Cluster154    palm    cheek    forehead    thigh    nose    face
+Cluster155    dividend    price    rate    premium    rent    rating    salary    wages
+Cluster156    lunch    dinner    breakfast    meal
+Cluster157    painting    picture    drawing    statue    poster    photograph    portrait    print
+Cluster158    branch    rail    wing    fist    frame    pole    head    body    line    panel
+Cluster159    oxford    paris    washington    rome    kong    london    york    moscow
+Cluster160    let    supporter    christian    voter    french    german    scot    opponent    farmer    politician    russian    american    boss    black
+Cluster161    week    month    year
+Cluster162    experience    insight    expertise    knowledge    awareness    understanding    qualification    skill
+Cluster163    ball    shot    kick    arrow    stroke    bullet    punch    bomb    shell    blow    missile
+Cluster164    stability    efficiency    security    prospects    health    welfare    survival    safety
+Cluster165    talk    discussion    negotiation    conversation    exchange    consultation    debate    dialogue
+Cluster166    analyst    critic    commentator    scholar    historian    observer
+Cluster167    mystery    trouble    rumour    publicity    uncertainty    chaos    speculation    confusion    scandal    controversy
+Cluster168    while    seconds    count    moment    turn    second
+Cluster169    instance    tale    combination    story    history    event    example    sequence    stimulus    episode    object    cycle    scene
+Cluster170    explosion    accident    crash    incident
+Cluster171    chamber    bathroom    hall    bedroom    kitchen    cupboard    interior    corridor    room
+Cluster172    anniversary    harm    birthday    damage    injury
+Cluster173    fund    energy    reserve    wealth    attention    resource    capital
+Cluster174    village    temple    castle    town    palace    church    chapel    city    tower    cathedral    building
+Cluster175    laugh    bell    alarm    tone    sound    voice    noise
+Cluster176    sight    glimpse    lift    prey    grip    hold    breath    imagination
+Cluster177    fig.    essay    column    page    section    paragraph    chapter
+Cluster178    ocean    canal    stream    bath    river    waters    pond    pool    lake
+Cluster179    bias    mistake    error    fault    defect    weakness
+Cluster180    patrick    caroline    alice    mary    helen    ruth    kate    sarah    blanche    rachel    isabel    willie    stephen    anna    laura    adam    lily
+Cluster181    video    film    movie    play    drama    television
+Cluster182    triumph    success    victory    outcome    reaction    achievement    conduct    performance    progress    contribution    behaviour    response
+Cluster183    factor    variable    component    element    mechanism    dimension    feature    characteristic
+Cluster184    stitch    brick    metal    bone    strip    cluster    coffin    stone    piece    tile    fabric    rock    layer    remains    block
+Cluster185    desire    hostility    anxiety    passion    doubt    fear    curiosity    enthusiasm    impulse    instinct    emotion    feeling    suspicion
+Cluster186    target    draw    peak    point    green    stop    maximum    cross    summit    headline    goal    mark
+Cluster187    motive    self    origin    reality    meaning    identity    cause    secret    truth
+Cluster188    christ    hitler    artist    host    pope    witness    ghost    angel    actor    dancer    lord    bishop    emperor    priest    heaven    master    jesus    fellow
+Cluster189    rope    hook    cable    wire    thread    ring    knot    belt    chain    string
+Cluster190    white    jones    johnson    scott    jackson    thomas    smith    brown    walker    morgan    cook    lewis    wright    taylor    miller    martin    wilson    williams
+Cluster191    charter    certificate    lease    notice    warrant    decree    petition    declaration
+Cluster192    occasion    beginning    start    birth    advance    announcement    completion    launch    arrival    publication    opening    move    departure
+Cluster193    effect    consequence    importance    potential    merit    extent    impact    complexity    significance    implication
+Cluster194    climate    environment    situation    condition    circumstance
+Cluster195    chair    benjamin    athelstan    robyn    foot    corbett    pillow    knee    telephone    chin    back    elbow    phone    shoulder    sofa
+Cluster196    worth    waste    tonne    coal    quantity    goods    fuel    electricity
+Cluster197    centre    ward    port    clinic    office    embassy    hospital    station    headquarters    camp    airport    prison
+Cluster198    prize    privilege    right    trophy    rights    medal    monopoly    independence    democracy    status    freedom
+Cluster199    papers    mail    pack    leaflet    handful    note    envelope    coin    packet
+Cluster200    trend    tendency    variation    sign    contrast    difference    contradiction    distinction    phenomenon
