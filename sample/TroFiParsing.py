@@ -72,16 +72,16 @@ def parse_file(filepath, regex_dict):
 
 
 
-textfile_path = "./data/TroFiMetaphorDataset.txt"
-csvfile_path = "./data/TroFiMetaphorDataset.csv"
-
-regex_dict = {
-    'verb': re.compile(r'\*{3}[a-z]+\*{3}'),
-    'cluster': re.compile(r'\*(non)?literal cluster\*'),
-    'id': re.compile(r'wsj[0-9]{2}:[0-9]+\s'),
-    'status': re.compile(r'[UNL]\W'),
-    'text': re.compile(r'[A-Z][^\s].+\.\/\.')
-}
-
-data = parse_file(textfile_path, regex_dict)
-data.to_csv(path_or_buf=csvfile_path, index=False)
+# textfile_path = "./data/TroFiMetaphorDataset.txt"
+# csvfile_path = "./data/TroFiMetaphorDataset.csv"
+#
+# regex_dict = {
+#     'verb': re.compile(r'\*{3}[a-z]+\*{3}'),
+#     'cluster': re.compile(r'\*(non)?literal cluster\*'),
+#     'id': re.compile(r'wsj[0-9]{2}:[0-9]+\s'),
+#     'status': re.compile(r'[UNL]\W'),
+#     'text': re.compile(r'[A-Z][^\s].+\.\/\.')
+# }
+#
+# data = parse_file(textfile_path, regex_dict)
+# data.to_csv(path_or_buf=csvfile_path, index=False)

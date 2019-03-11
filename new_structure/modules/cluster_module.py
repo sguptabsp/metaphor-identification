@@ -5,13 +5,13 @@ from .datastructs.labeled_metaphor_list import LabeledMetaphorList
 from .datastructs.labeled_metaphor import LabeledMetaphor
 import csv
 import ast
-from . import utils
 
 VERBNET = "data/clustering/verbnet_150_50_200.log-preprocessed"
 NOUNS = "data/clustering/200_2000.log-preprocessed"
 TROFI_TAGS = "data/clustering/trofi_tags_full.csv"
 
 RESULTS = "data/clustering/results.csv"
+# RESULTS = "../data/clustering/results.csv"
 
 # test the result to see if it has every words
 # Parse the verbnet and noun databases
@@ -75,7 +75,7 @@ def tagPairs(verbsData, nounsData, tags):
 
 def buildDB():
 	verbs, nouns = getVerbNouns(VERBNET, NOUNS)
-	pairs = buildPairs(verbs, nouns)
+	# pairs = buildPairs(verbs, nouns)
 	tags = getTagsFromCSV(TROFI_TAGS)
 	results = tagPairs(verbs, nouns, tags)
 	writeToCSV(results, RESULTS, ["verb", "noun", "tag", "confidence"])
@@ -99,7 +99,7 @@ def lookUpDB(DB, verb, noun):
 		return (False, 0.0)
 
 # MAIN FUNCTION
-def clusteringFunction(candidates):
+def clusteringFunction(candidates, verbose):
 
 	results = LabeledMetaphorList()
 	DB = loadDB(RESULTS)
@@ -107,7 +107,7 @@ def clusteringFunction(candidates):
 	for c in candidates:
 		source = c.getSource()
 		target = c.getTarget()
-		if utils.args.verbose:
+		if verbose:
 			print("###############################################################################")
 			print("SOURCE: " + source)
 			print("TARGET: " + target)
@@ -116,7 +116,7 @@ def clusteringFunction(candidates):
 		result = currentResult[0]
 		confidence = currentResult[1]
 
-		if utils.args.verbose:
+		if verbose:
 			if confidence >= 0.5:
 				print("RESULT: " + str(result))
 				print("CONFIDENCE: " + str(confidence))

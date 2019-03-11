@@ -54,8 +54,6 @@ def parseCommandLine():
 
 	return args
 
-args = parseCommandLine()
-
 
 
 ### Old functions
