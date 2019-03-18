@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77f9f803-4e45-443f-b12c-53acea3d07a9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/build.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,11 +61,36 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/new_structure/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-              <folding>
-                <element signature="e#59#124#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="126">
+              <caret line="7" column="97" lean-forward="true" selection-start-line="7" selection-start-column="97" selection-end-line="7" selection-end-column="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/build.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SECOND">
+              <first_editor />
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -149,7 +177,6 @@
         <option value="$PROJECT_DIR$/new_structure/TroFi/MetaphorsFromTroFi.py" />
         <option value="$PROJECT_DIR$/TroFiAnalysis.py" />
         <option value="$PROJECT_DIR$/new_structure/TroFi/TroFiResultsAnalysis.py" />
-        <option value="$PROJECT_DIR$/new_structure/main.py" />
         <option value="$PROJECT_DIR$/new_structure/TroFi/TroFiParsing.py" />
         <option value="$PROJECT_DIR$/new_structure/TroFiAnalysis.py" />
         <option value="$PROJECT_DIR$/sample/TroFiParsing.py" />
@@ -160,6 +187,9 @@
         <option value="$PROJECT_DIR$/new_structure/TroFi_main.py" />
         <option value="$PROJECT_DIR$/new_structure/modules/g_ngrams.py" />
         <option value="$PROJECT_DIR$/new_structure/g_ngrams_main.py" />
+        <option value="$PROJECT_DIR$/new_structure/main.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/scripts/build.py" />
       </list>
     </option>
   </component>
@@ -194,6 +224,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -225,11 +256,15 @@
               <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="datastructs" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,6 +343,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="build" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Research_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/build.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="g_ngrams_main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Research_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -330,7 +386,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python">
       <module name="Research_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -354,16 +410,17 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.build" />
       <item itemvalue="Python.g_ngrams_main" />
       <item itemvalue="Python.TroFiMetaphors" />
       <item itemvalue="Python.TroFiAnalysis" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.build" />
         <item itemvalue="Python.TroFiAnalysis" />
         <item itemvalue="Python.TroFiMetaphors" />
         <item itemvalue="Python.g_ngrams_main" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -378,17 +435,26 @@
       <option name="presentableId" value="Default" />
       <updated>1547847233895</updated>
     </task>
+    <task id="LOCAL-00001" summary="reformatted main.py">
+      <created>1552878497179</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1552878497179</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24945416" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3291536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -409,6 +475,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="reformatted main.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="reformatted main.py" />
   </component>
   <component name="WindowStateProjectService">
     <state width="220" height="388" key="Git.Branch.Popup" />
@@ -599,13 +667,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SECOND">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/build.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding>
-            <element signature="e#59#124#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="126">
+          <caret line="7" column="97" lean-forward="true" selection-start-line="7" selection-start-column="97" selection-end-line="7" selection-end-column="97" />
         </state>
       </provider>
     </entry>
