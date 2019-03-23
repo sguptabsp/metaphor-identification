@@ -14,12 +14,23 @@ TOP_SIZE = 60
 K = 30
 T = 10
 
-def darkthoughtsFunction(candidates, verbose):
+def darkthoughtsFunction(candidates, cand_type, verbose):
 	# INITIALIZATIONS OF CLASSES AND DATA STRUCTURES
 	results = LabeledMetaphorList()
 	collocations = CollocationList()
+
+	if cand_type == "adjNoun":
+		pos_1 = "jj"
+		pos_2 = "nn"
+	elif cand_type == "verbNoun":
+		pos_1 = "v"
+		pos_2 = "n"
+	else:
+		pos_1 = ""
+		pos_2 = ""
+
 	for f in NGRAMS_FILES:
-		parseNgrams(collocations, f[0], f[1])
+		parseNgrams(collocations, f[0], f[1], pos_1, pos_2)
 
 	concrDict = parseConcreteness(CONCRETENESS_FILE)
 	categories = parseCategories(CAT_FILE)

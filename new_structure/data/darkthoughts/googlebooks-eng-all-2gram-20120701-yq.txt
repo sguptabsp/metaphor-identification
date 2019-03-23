@@ -1,0 +1,6 @@
+54	has	Yquem	v	n
+255	are	yq	v	n
+222	was	Yquem	v	n
+323	is	yQ	v	n
+528	are	Yq	v	n
+675	is	Yquem	v	n

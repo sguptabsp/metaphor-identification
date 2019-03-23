@@ -6,15 +6,17 @@ from new_structure.modules.sample_functions import verbNounFinder, adjNounFinder
 from new_structure.modules.darkthoughts import darkthoughtsFunction #Metaphor labeling function
 from new_structure.modules.cluster_module import clusteringFunction #Metaphor labeling function
 from new_structure.modules.registry import Registry
-from new_structure.modules.MetaphorIdentification import MetaphorIdentification
+from new_structure.modules.datastructs.MetaphorIdentification import MetaphorIdentification
 from new_structure.modules.TroFi.TroFiParsing import parse_file
 
 
+# met is a LabeledMetaphor object (modules/datastructs/labeled_metaphor.py)
+# data is Series (pandas library) object with columns: verb, cluster, id, status, text (modules/TroFi/TrofiParsing.py)
 def TroFiVerification(met, data):
     cluster = data["cluster"]
     labeling_result = met.getResult()
 
-    # If the metaphor is not on the correct word
+    # If the metaphor is not on the correct word in the sentence (unlabeled data)
     if met.getSource().lower() != data["verb"].lower():
         return "unknown"
 
@@ -65,7 +67,6 @@ data.to_csv("./data/TroFiDataset.csv", index=False)
 verbs = set(data["verb"].tolist())
 
 # Identifying the metaphors
-j = 0
 metaphor_list = []
 for i in range(data.shape[0]):
     text = data.iloc[i]["text"]
@@ -89,17 +90,20 @@ for i in range(data.shape[0]):
     if args.verbose:
         print(object.getMetaphors())
 
+    # Find a type to each labeled metaphor (TP, TN, FP, FN)
     for met in object.getMetaphors():
         type = TroFiVerification(met, data.iloc[i])
         metaphor = {'text': text, 'target': met.getTarget(), 'source': met.getSource(), 'result': met.getResult(), 'confidence': met.getConfidence(), 'type': type}
         metaphor_list.append(metaphor)
-        j += 1
-    print(j)
+
+    # Progess of the algorithm
+    print(i, "out of", data.shape[0])
 
 metaphor_df = pd.DataFrame(metaphor_list)
 write_csv_path = "./data/TroFiMetaphors.csv"
 metaphor_df.to_csv(path_or_buf=write_csv_path, index=False)
 
+# Displaying the results
 count_false_positive = metaphor_df[metaphor_df.type == "false positive"].shape[0]
 count_false_negative = metaphor_df[metaphor_df.type == "false negative"].shape[0]
 count_true_positive = metaphor_df[metaphor_df.type == "true positive"].shape[0]

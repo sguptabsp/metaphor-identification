@@ -7,7 +7,7 @@ from new_structure.modules.sample_functions import verbNounFinder, adjNounFinder
 from new_structure.modules.darkthoughts import darkthoughtsFunction #Metaphor labeling function
 from new_structure.modules.cluster_module import clusteringFunction #Metaphor labeling function
 from new_structure.modules.registry import Registry
-from new_structure.modules.MetaphorIdentification import MetaphorIdentification
+from new_structure.modules.datastructs.MetaphorIdentification import MetaphorIdentification
 
 if __name__ == "__main__":
 
@@ -41,6 +41,8 @@ if __name__ == "__main__":
 		print(object.getCandidates())
 
 	#labeling Metaphors
-	object.labelMetaphors(mLabelerFunction, args.verbose)
+	object.labelMetaphors(mLabelerFunction, args.cfinder, args.verbose)
 	if args.verbose:
 		print(object.getMetaphors())
+
+	print(object.getMetaphors())

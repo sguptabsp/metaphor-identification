@@ -1,0 +1,7 @@
+108	et	Zglinicki	v	n
+42	will	Zg	v	n
+1123	is	zG	v	n
+280	are	Zg	v	n
+95	et	ZG	v	n
+112	may	Zg	v	n
+80	casopis	Zgodovinski	v	n

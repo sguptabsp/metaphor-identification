@@ -1,0 +1,17 @@
+73	will	Kz	v	n
+63	is	KZN	v	n
+102	were	Kz	v	n
+858	are	kz	v	n
+283	was	KZ	v	n
+147	may	kz	v	n
+272	is	KZ	v	n
+86	was	Kzar	v	n
+56	were	KZ	v	n
+2530	is	kz	v	n
+612	are	Kz	v	n
+211	can	kz	v	n
+73	may	Kz	v	n
+113	are	KZ	v	n
+125	becomes	kz	v	n
+113	can	Kz	v	n
+70	is	Kzar	v	n

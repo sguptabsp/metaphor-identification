@@ -43,20 +43,23 @@ class CollocationList:
 				s += adj + '\t' + n + '\t' + self.collocations[adj][n] + '\n'
 		return s
 
-def parseNgrams(collocations, path, n):
+# if adj-noun metaphor: pos_1 = 'jj' and pos_2 = 'nn'
+# if verb-noun metaphor: pos_1 = 'v' and pos_2 = 'n'
+def parseNgrams(collocations, path, n, pos_1, pos_2):
 	with open(path) as tsv:
 		for line in csv.reader(tsv, delimiter="\t"):
+			# print(line)
 			length = len(line)
 			for i in range(length-1):
-				if (line[i] == 'jj' and line[i+1].startswith('nn')):
+				if (line[i] == pos_1 and line[i + 1].startswith(pos_2)):
 					currentAdjIndex = i
 					currentNounIndex = i+1
-					while (currentNounIndex < len(line)-1 and line[currentNounIndex+1].startswith('nn')):
+					while (currentNounIndex < len(line) - 1 and line[currentNounIndex + 1].startswith(pos_2)):
 						currentNounIndex += 1
 		
 					noun = line[currentNounIndex-n]
 					frequency = int(line[0])
-					while (currentAdjIndex >= 0 and line[currentAdjIndex] == 'jj'):
+					while (currentAdjIndex >= 0 and line[currentAdjIndex] == pos_1):
 						adjective = line[currentAdjIndex-n]
 						collocations.addCollocation(adjective, noun, frequency)
 						currentAdjIndex -= 1

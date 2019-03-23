@@ -16,7 +16,7 @@ class MetaphorCandidate:
 		self.sourceSpan = sourceSpan
 		self.targetIndex = targetIndex
 		self.targetSpan = targetSpan
-		# ADD source and target variables ?
+		# ADD source and target variables?
 
 	def getSource(self):
 		if self.annotatedText.isColumnPresent("lemma"):

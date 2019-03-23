@@ -99,7 +99,7 @@ def lookUpDB(DB, verb, noun):
 		return (False, 0.0)
 
 # MAIN FUNCTION
-def clusteringFunction(candidates, verbose):
+def clusteringFunction(candidates, cand_type, verbose):
 
 	results = LabeledMetaphorList()
 	DB = loadDB(RESULTS)

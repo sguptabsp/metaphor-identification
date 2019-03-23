@@ -44,7 +44,16 @@ _/sample/modules/registry.py_
 
 <br>
 
-### The objects
+### The MetaphorIdentification object (new_structure folder)
+Defined in _/new\_structure/modules/MetaphorIdentification.py_.
+
+It has four fields:
+* rawText
+* annotatedText
+* candidates
+* metaphors
+
+### The objects (sample folder)
 
 Different objects are used in this project. This section describes the different classes of objects and how to use them.
 
