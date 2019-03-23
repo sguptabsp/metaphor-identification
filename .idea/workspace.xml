@@ -2,19 +2,10 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/requirements.txt" />
-    <bookmark url="file://$PROJECT_DIR$/requirements.txt" />
-    <bookmark url="file://$PROJECT_DIR$/requirements.txt" />
-    <bookmark url="file://$PROJECT_DIR$/requirements.txt" />
-    <bookmark url="file://$PROJECT_DIR$/requirements.txt" />
-    <bookmark url="file://$PROJECT_DIR$/requirements.txt" />
-    <bookmark url="file://$PROJECT_DIR$/requirements.txt" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77f9f803-4e45-443f-b12c-53acea3d07a9" name="Default Changelist" comment="updated gitignore to ensure non project IDE settings are not committed">
       <change afterPath="$PROJECT_DIR$/new_structure/metaphor_identification/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_structure/metaphor_identification/pabitra_pramanick.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/new_structure/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="414">
-              <caret line="23" column="63" lean-forward="true" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
+              <caret line="23" column="63" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
               <folding>
                 <element signature="e#59#124#0" expanded="true" />
               </folding>
@@ -80,19 +71,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/metaphor_identification/pabitra_pramanick.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="0" />
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <entry file="file://$PROJECT_DIR$/new_structure/metaphor_identification/pramanick_pabitra.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="0" />
             </state>
           </provider>
         </entry>
@@ -287,16 +278,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/new_structure/metaphor_identification" />
+      <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\modules" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\TroFi" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\sample" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\sample\modules" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/new_structure/metaphor_identification" />
-      <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -482,7 +473,7 @@
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17849346" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17849346" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -492,8 +483,8 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3291536" />
+      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.3291536" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3291536" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -503,6 +494,32 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -728,24 +745,25 @@
     <entry file="file://$PROJECT_DIR$/new_structure/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
-          <caret line="23" column="63" lean-forward="true" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
+          <caret line="23" column="63" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
           <folding>
             <element signature="e#59#124#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/metaphor_identification/pabitra_pramanick.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/metaphor_identification/pabitra_pramanick.ipynb" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/metaphor_identification/pramanick_pabitra.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
         </state>
       </provider>
     </entry>
