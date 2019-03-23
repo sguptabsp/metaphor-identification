@@ -4,8 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/requirements.txt" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77f9f803-4e45-443f-b12c-53acea3d07a9" name="Default Changelist" comment="updated gitignore to ensure non project IDE settings are not committed">
-      <change afterPath="$PROJECT_DIR$/new_structure/metaphor_identification/__init__.py" afterDir="false" />
+    <list default="true" id="77f9f803-4e45-443f-b12c-53acea3d07a9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/metaphor_stratergies/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_structure/metaphor_identification/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/metaphor_stratergies/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_structure/metaphor_identification/pramanick_pabitra.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/metaphor_stratergies/pramanick_pabitra.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,24 +35,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/g_ngrams_main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/darkthoughts.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/ngrams.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -61,13 +46,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_structure/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="23" column="63" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
-              <folding>
-                <element signature="e#59#124#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="162">
+              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/new_structure/modules/MetaphorIdentification.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metaphor_stratergies/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -80,12 +76,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/new_structure/metaphor_identification/pramanick_pabitra.ipynb">
+        <entry file="file://$PROJECT_DIR$/metaphor_stratergies/pramanick_pabitra.ipynb">
           <provider selected="true" editor-type-id="ipnb-editor">
             <state>
               <selected id="0" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metaphor_stratergies/app.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -211,6 +212,7 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/scripts/build.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/new_structure/metaphor_identification/app.py" />
       </list>
     </option>
   </component>
@@ -256,13 +258,12 @@
             <path>
               <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="new_structure" type="462c0819:PsiDirectoryNode" />
+              <item name="metaphor_stratergies" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
               <item name="new_structure" type="462c0819:PsiDirectoryNode" />
-              <item name="metaphor_identification" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -283,11 +284,11 @@
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\modules" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\TroFi" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\sample" />
-      <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\sample\modules" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -467,11 +468,19 @@
       <option name="project" value="LOCAL" />
       <updated>1552880971175</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added my implementation of Pramanick_pabitra menthod for metaphor identification from my jupyter notebook">
+      <created>1553377065367</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1553377065367</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17849346" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -529,7 +538,8 @@
     <MESSAGE value="created scripts folder to setup project scripts" />
     <MESSAGE value="created build.py to setup to install project setup" />
     <MESSAGE value="created requirements.txt and added required libraries for the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="added my implementation of Pramanick_pabitra menthod for metaphor identification from my jupyter notebook" />
+    <option name="LAST_COMMIT_MESSAGE" value="added my implementation of Pramanick_pabitra menthod for metaphor identification from my jupyter notebook" />
   </component>
   <component name="WindowStateProjectService">
     <state width="220" height="388" key="Git.Branch.Popup" />
@@ -639,13 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/MetaphorIdentification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/data/categories.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8007" />
@@ -742,16 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="63" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
-          <folding>
-            <element signature="e#59#124#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/metaphor_identification/pabitra_pramanick.ipynb" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -760,7 +753,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/metaphor_identification/pramanick_pabitra.ipynb">
+    <entry file="file://$PROJECT_DIR$/new_structure/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/MetaphorIdentification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metaphor_stratergies/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metaphor_stratergies/app.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metaphor_stratergies/pramanick_pabitra.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="0" />
