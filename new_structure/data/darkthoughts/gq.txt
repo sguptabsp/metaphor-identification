@@ -1,0 +1,16 @@
+626	is	Gq	v	n
+372	was	GQ	v	n
+44	may	Gq	v	n
+141	sounded	GQ	v	n
+205	had	GQG	v	n
+764	is	GQ	v	n
+131	are	Gq	v	n
+41	is	Gqd	v	n
+93	was	Gqabi	v	n
+242	had	GQ	v	n
+87	are	gq	v	n
+53	et	GQ	v	n
+228	are	gQ	v	n
+458	is	GQR	v	n
+160	will	GQ	v	n
+92	can	Gq	v	n

@@ -1,0 +1,13 @@
+204	axis	YY	v	n
+551	is	Yy	v	n
+64	axis	yy	v	n
+56	was	YY	v	n
+1881	is	yy	v	n
+204	represents	YY	v	n
+48	is	yY	v	n
+61	are	yy	v	n
+765	inhibits	YY	v	n
+81	represents	yy	v	n
+123	are	Yy	v	n
+173	FROM	YY	v	n
+248	is	yyy	v	n
