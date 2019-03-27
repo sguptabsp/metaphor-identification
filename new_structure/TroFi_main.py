@@ -5,7 +5,7 @@ from new_structure.modules.sample_functions import posFunction, lemmatizingFunct
 from new_structure.modules.sample_functions import verbNounFinder, adjNounFinder #Candidate finding functions
 from new_structure.modules.darkthoughts import darkthoughtsFunction #Metaphor labeling function
 from new_structure.modules.cluster_module import clusteringFunction #Metaphor labeling function
-from new_structure.modules.registry import Registry
+from new_structure.modules.datastructs.registry import Registry
 from new_structure.modules.datastructs.MetaphorIdentification import MetaphorIdentification
 from new_structure.modules.TroFi.TroFiParsing import parse_file
 
