@@ -7,7 +7,12 @@ from .datastructs.labeled_metaphor import LabeledMetaphor
 from .datastructs.ngrams import CollocationList, parseConcreteness, parseNgrams
 from .datastructs.categories import Categories, parseCategories
 
-NGRAMS_FILES = [ ("data/an2.txt", 2), ("data/an3.txt", 3), ("data/an4.txt", 4), ("data/an5.txt", 5)]
+ADJ_FILES = [ ("data/an2.txt", 2), ("data/an3.txt", 3), ("data/an4.txt", 4), ("data/an5.txt", 5)]
+VERB_FILES = [("data/vn2.txt", 2)]
+NGRAMS_FILES = {"adjNoun": ADJ_FILES, "verbNoun": VERB_FILES}
+
+POS = [{"adjNoun": "jj", "verbNoun": "v"}, {"adjNoun": "nn", "verbNoun": "n"}]
+
 CONCRETENESS_FILE = "data/concreteness.txt"
 CAT_FILE = "data/categories.txt"
 TOP_SIZE = 60
@@ -19,18 +24,8 @@ def darkthoughtsFunction(candidates, cand_type, verbose):
 	results = LabeledMetaphorList()
 	collocations = CollocationList()
 
-	if cand_type == "adjNoun":
-		pos_1 = "jj"
-		pos_2 = "nn"
-	elif cand_type == "verbNoun":
-		pos_1 = "v"
-		pos_2 = "n"
-	else:
-		pos_1 = ""
-		pos_2 = ""
-
-	for f in NGRAMS_FILES:
-		parseNgrams(collocations, f[0], f[1], pos_1, pos_2)
+	for f in NGRAMS_FILES[cand_type]:
+		parseNgrams(collocations, f[0], f[1], POS[0][cand_type], POS[1][cand_type])
 
 	concrDict = parseConcreteness(CONCRETENESS_FILE)
 	categories = parseCategories(CAT_FILE)

@@ -9,6 +9,7 @@ from new_structure.modules.cluster_module import clusteringFunction #Metaphor la
 from new_structure.modules.registry import Registry
 from new_structure.modules.datastructs.MetaphorIdentification import MetaphorIdentification
 
+
 if __name__ == "__main__":
 
 	args = parseCommandLine()
