@@ -25,7 +25,7 @@ if __name__ == "__main__":
 	metaphorRegistry.addCFinder("verbNoun", verbNounFinder)
 	metaphorRegistry.addCFinder("adjNoun", adjNounFinder)
 
-	#Test if the args are registered 
+	#Test if the args are registered in the hashtable
 	if metaphorRegistry.isMLabeler(args.mlabeler) and metaphorRegistry.isCFinder(args.cfinder):
 
 		text = getText(args)
