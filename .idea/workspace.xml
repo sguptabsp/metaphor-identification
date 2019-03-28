@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/requirements.txt" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="77f9f803-4e45-443f-b12c-53acea3d07a9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/metaphor_stratergies/clustering/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/metaphor_stratergies/models/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metaphor_stratergies/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/metaphor_stratergies/kmeans_pramanick_pabitra.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,101 +28,117 @@
     <SUITE FILE_PATH="coverage/Research_Project$main.coverage" NAME="main Coverage Results" MODIFIED="1550271943414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sample" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/new_structure/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
-              <folding>
-                <element signature="e#59#124#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/MetaphorIdentification.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/cluster_module.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="101" column="4" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/darkthoughts.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/sample_functions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="85" column="24" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/candidate_group.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/registry.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/clustering/wordClusterList.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/TroFi_main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/new_structure/main.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="797">
+                  <caret line="59" column="60" selection-start-line="59" selection-start-column="60" selection-end-line="59" selection-end-column="60" />
+                  <folding>
+                    <element signature="e#59#70#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/metaphor_stratergies/pramanick_pabitra.ipynb">
+              <provider selected="true" editor-type-id="ipnb-editor">
+                <state>
+                  <selected id="20" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/metaphor_stratergies/kmeans_pramanick_pabitra.py">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/new_structure/modules/utils.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="522">
+                  <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/new_structure/modules/cluster_module.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1710">
+                  <caret line="101" column="4" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/new_structure/modules/darkthoughts.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="252">
+                  <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/new_structure/modules/sample_functions.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1404">
+                  <caret line="85" column="24" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/candidate_group.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="72">
+                  <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/new_structure/modules/clustering/wordClusterList.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="396">
+                  <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/new_structure/TroFi_main.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="576">
+                  <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/metaphor_stratergies/kmeans_pramanick_pabitra.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="4842">
+                  <caret line="269" column="66" selection-start-line="269" selection-start-column="66" selection-end-line="269" selection-end-column="66" />
+                  <folding>
+                    <element signature="e#0#13#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -165,7 +177,6 @@
       <find>VERB</find>
       <find>sank</find>
       <find>supports</find>
-      <find>labelMetaphors</find>
     </findStrings>
     <dirStrings>
       <dir>D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\modules</dir>
@@ -182,6 +193,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/sample/modules/annotator.py" />
         <option value="$PROJECT_DIR$/registry.py" />
         <option value="$PROJECT_DIR$/sample/data/corpus.txt" />
@@ -208,6 +220,7 @@
         <option value="$PROJECT_DIR$/new_structure/TroFi/MetaphorsFromTroFi.py" />
         <option value="$PROJECT_DIR$/TroFiAnalysis.py" />
         <option value="$PROJECT_DIR$/new_structure/TroFi/TroFiResultsAnalysis.py" />
+        <option value="$PROJECT_DIR$/new_structure/main.py" />
         <option value="$PROJECT_DIR$/new_structure/TroFi/TroFiParsing.py" />
         <option value="$PROJECT_DIR$/new_structure/TroFiAnalysis.py" />
         <option value="$PROJECT_DIR$/sample/TroFiParsing.py" />
@@ -218,11 +231,7 @@
         <option value="$PROJECT_DIR$/new_structure/TroFi_main.py" />
         <option value="$PROJECT_DIR$/new_structure/modules/g_ngrams.py" />
         <option value="$PROJECT_DIR$/new_structure/g_ngrams_main.py" />
-        <option value="$PROJECT_DIR$/new_structure/main.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/scripts/build.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/new_structure/metaphor_identification/app.py" />
+        <option value="$PROJECT_DIR$/metaphor_stratergies/kmeans_pramanick_pabitra.py" />
       </list>
     </option>
   </component>
@@ -320,22 +329,21 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../4 - Cours/Natural Language Processing/Homeworks/2/code/imdb.py" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/new_structure/metaphor_identification" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\modules" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\TroFi" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\sample" />
+      <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\sample\modules" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -438,7 +446,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Research_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -452,7 +460,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/main.py" />
-      <option name="PARAMETERS" value="--verbose -ml cluster -cf verbNoun" />
+      <option name="PARAMETERS" value="-ml cluster -cf verbNoun" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -461,18 +469,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.TroFiAnalysis" />
+      <item itemvalue="Python.TroFiMetaphors" />
+      <item itemvalue="Python.g_ngrams_main" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.build" />
-      <item itemvalue="Python.g_ngrams_main" />
-      <item itemvalue="Python.TroFiMetaphors" />
-      <item itemvalue="Python.TroFiAnalysis" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.build" />
         <item itemvalue="Python.TroFiAnalysis" />
         <item itemvalue="Python.TroFiMetaphors" />
         <item itemvalue="Python.g_ngrams_main" />
+        <item itemvalue="Python.build" />
+        <item itemvalue="Python.TroFiAnalysis" />
       </list>
     </recent_temporary>
   </component>
@@ -487,72 +496,36 @@
       <option name="presentableId" value="Default" />
       <updated>1547847233895</updated>
     </task>
-    <task id="LOCAL-00001" summary="reformatted main.py">
-      <created>1552878497179</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1552878497179</updated>
-    </task>
-    <task id="LOCAL-00002" summary="created scripts folder to setup project scripts">
-      <created>1552880832146</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1552880832147</updated>
-    </task>
-    <task id="LOCAL-00003" summary="created build.py to setup to install project setup">
-      <created>1552880896011</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1552880896011</updated>
-    </task>
-    <task id="LOCAL-00004" summary="created requirements.txt and added required libraries for the project">
-      <created>1552880971175</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1552880971175</updated>
-    </task>
-    <task id="LOCAL-00005" summary="added my implementation of Pramanick_pabitra menthod for metaphor identification from my jupyter notebook">
-      <created>1553377065367</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1553377065367</updated>
-    </task>
-    <task id="LOCAL-00006" summary="created structure for metaphor stratergies">
-      <created>1553377519324</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1553377519324</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17849346" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3291536" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3291536" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3291536" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3291536" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17849346" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.7095089" />
+      <window_info anchor="bottom" id="Version Control" order="2" weight="0.3291536" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50067115" side_tool="true" weight="0.14022663" />
+      <window_info anchor="bottom" id="Python Console" order="4" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" weight="0.32810867" />
+      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49932885" weight="0.3291536" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.39943343" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.3286119" />
+      <window_info anchor="right" id="R Graphics" order="0" />
+      <window_info anchor="right" id="R Packages" order="1" />
+      <window_info anchor="right" id="SciView" order="2" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="6" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,15 +543,21 @@
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
               </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
           </value>
         </entry>
       </map>
@@ -588,18 +567,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="reformatted main.py" />
-    <MESSAGE value="created scripts folder to setup project scripts" />
-    <MESSAGE value="created build.py to setup to install project setup" />
-    <MESSAGE value="created requirements.txt and added required libraries for the project" />
-    <MESSAGE value="added my implementation of Pramanick_pabitra menthod for metaphor identification from my jupyter notebook" />
-    <MESSAGE value="created structure for metaphor stratergies" />
-    <option name="LAST_COMMIT_MESSAGE" value="created structure for metaphor stratergies" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="220" height="388" key="Git.Branch.Popup" />
-    <state width="220" height="388" key="Git.Branch.Popup/1920.1080" />
-    <state width="220" height="388" key="Git.Branch.Popup@1920.1080" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -620,27 +587,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sample/modules/datastructs/ngrams.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/modules/darkthoughts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/MIImplementation.py" />
     <entry file="file://$PROJECT_DIR$/new_structure/data/TroFiMetaphorDataset.txt" />
     <entry file="file://$PROJECT_DIR$/new_structure/modules/parsing_functions.py">
@@ -661,6 +607,9 @@
           <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/TroFiMetaphors.csv">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/MetaphorsFromTroFi.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -683,6 +632,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/labeled_metaphor_list.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/data/categories.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8007" />
@@ -693,10 +645,28 @@
         <state relative-caret-position="-297" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/concreteness.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/w3c.txt">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/w2c.txt">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/clustering/200_2000.log-preprocessed">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/data/clustering/results.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-816" />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/clustering/verbnet_150_50_200.log-preprocessed">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/clustering/trofi_tags_full.csv">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/cluster_main.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -722,12 +692,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/vn2.csv" />
-    <entry file="file://$PROJECT_DIR$/new_structure/g_ngrams_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/new_structure/googlebooks-eng-all-2gram-20120701-aa" />
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/g_ngrams.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/darkthoughts/googlebooks-eng-all-2gram-20120701-aa.txt" />
+    <entry file="file://$PROJECT_DIR$/new_structure/data/an3.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/an4.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/an2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/ngrams.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -736,73 +713,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SECOND">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/new_structure/g_ngrams_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="828">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/build.py">
+    <entry file="file://$PROJECT_DIR$/new_structure/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="797">
+          <caret line="59" column="60" selection-start-line="59" selection-start-column="60" selection-end-line="59" selection-end-column="60" />
+          <folding>
+            <element signature="e#59#70#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/metaphor_identification/pabitra_pramanick.ipynb" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/MetaphorIdentification.py" />
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="522">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metaphor_stratergies/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/metaphor_stratergies/app.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/metaphor_stratergies/pramanick_pabitra.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/clustering/parsing.py">
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/cluster_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+        <state relative-caret-position="1710">
+          <caret line="101" column="4" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/clustering/wordClusterList.py">
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/darkthoughts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/TroFi_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+        <state relative-caret-position="252">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/modules/sample_functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="1404">
           <caret line="85" column="24" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
         </state>
       </provider>
@@ -814,47 +766,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/darkthoughts.py">
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/registry.py" />
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/clustering/wordClusterList.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="396">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/cluster_module.py">
+    <entry file="file://$PROJECT_DIR$/new_structure/TroFi_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="101" column="4" selection-start-line="101" selection-start-column="4" selection-end-line="101" selection-end-column="4" />
+        <state relative-caret-position="576">
+          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/registry.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+    <entry file="file://$PROJECT_DIR$/metaphor_stratergies/pramanick_pabitra.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/MetaphorIdentification.py">
+    <entry file="file://$PROJECT_DIR$/metaphor_stratergies/kmeans_pramanick_pabitra.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="4842">
+          <caret line="269" column="66" selection-start-line="269" selection-start-column="66" selection-end-line="269" selection-end-column="66" />
           <folding>
-            <element signature="e#59#124#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
