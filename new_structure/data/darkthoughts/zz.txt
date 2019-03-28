@@ -1,0 +1,10 @@
+114	represents	ZZ	v	n
+342	is	Zz	v	n
+903	was	ZZ	v	n
+229	is	zz	v	n
+67	had	ZZ	v	n
+170	are	Zz	v	n
+197	is	ZZZ	v	n
+150	will	ZZ	v	n
+54	was	ZZZ	v	n
+232	are	ZZ	v	n

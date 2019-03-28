@@ -1,0 +1,8 @@
+82	will	Qg	v	n
+864	is	QGP	v	n
+374	are	qg	v	n
+1391	has	Qg	v	n
+246	can	QGP	v	n
+525	is	QG	v	n
+54	was	Qg	v	n
+47	is	qG	v	n
