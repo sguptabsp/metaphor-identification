@@ -3,6 +3,9 @@
 
 import time
 
+from new_structure.modules.datastructs.metaphor_abstractness_identification import MetaphorAbstractnessIdentification
+from new_structure.modules.kmeans_abs_ratings_cosine_edit_distance import \
+    identify_metaphors_abstractness_cosine_edit_dist
 from new_structure.modules.utils import parseCommandLine, getText
 from new_structure.modules.sample_functions import posFunction, lemmatizingFunction
 from new_structure.modules.sample_functions import verbNounFinder, adjNounFinder #Candidate finding functions
@@ -22,6 +25,9 @@ if __name__ == "__main__":
 	metaphorRegistry = Registry()
 	metaphorRegistry.addMLabeler("darkthoughts", darkthoughtsFunction)
 	metaphorRegistry.addMLabeler("cluster", clusteringFunction)
+	# metaphorRegistry.addMLabeler("kmeans_abs_ratings", kmeans_abs_ratings)
+	# metaphorRegistry.addMLabeler("kmeans_abs_ratings_cosine_similarity", kmeans_abs_ratings_cosine_similarity)
+	metaphorRegistry.addMLabeler("kmeans_abs_ratings_cosine_edit_distance", identify_metaphors_abstractness_cosine_edit_dist)
 	metaphorRegistry.addCFinder("verbNoun", verbNounFinder)
 	metaphorRegistry.addCFinder("adjNoun", adjNounFinder)
 
@@ -33,7 +39,13 @@ if __name__ == "__main__":
 		mLabelerFunction = metaphorRegistry.getMLabeler(args.mlabeler)
 
 		#Object declaration
-		object = MetaphorIdentification(text)
+		if "kmeans_abs_ratings" in args.mlabeler:
+			object=MetaphorAbstractnessIdentification(args.file)
+
+		else:
+
+			object = MetaphorIdentification(text)
+
 
 		#Annotating the text
 		object.annotateText()

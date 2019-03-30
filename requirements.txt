@@ -1,1 +1,5 @@
 nltk
+pandas
+scikit-learn
+gensim
+xlrd

@@ -19,6 +19,7 @@ TOP_SIZE = 60
 K = 30
 T = 10
 
+
 def darkthoughtsFunction(candidates, cand_type, verbose):
 	# INITIALIZATIONS OF CLASSES AND DATA STRUCTURES
 	results = LabeledMetaphorList()
