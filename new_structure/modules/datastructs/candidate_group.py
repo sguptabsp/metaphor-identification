@@ -1,4 +1,4 @@
-from .metaphor_candidate import MetaphorCandidate
+from .candidate import Candidate
 
 class CandidateGroup:
 

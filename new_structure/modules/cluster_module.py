@@ -1,8 +1,8 @@
 from .clustering.wordClusterList import WordClusterList
 from .clustering.parsing import parseNouns, parseVerbNet
 from .utils import writeToCSV
-from .datastructs.labeled_metaphor_list import LabeledMetaphorList
-from .datastructs.labeled_metaphor import LabeledMetaphor
+from .datastructs.metaphor_group import MetaphorGroup
+from .datastructs.metaphor import Metaphor
 import csv
 import ast
 
@@ -101,7 +101,7 @@ def lookUpDB(DB, verb, noun):
 # MAIN FUNCTION
 def clusteringFunction(candidates, cand_type, verbose):
 
-	results = LabeledMetaphorList()
+	results = MetaphorGroup()
 	DB = loadDB(RESULTS)
 
 	for c in candidates:
@@ -124,6 +124,6 @@ def clusteringFunction(candidates, cand_type, verbose):
 				print("RESULT: Unknown")
 				print("Verb/Noun pair not in database")
 
-		results.addResult(LabeledMetaphor(c, result, confidence))
+		results.addResult(Metaphor(c, result, confidence))
 
 	return results

@@ -1,6 +1,6 @@
 # Metaphors
 
-###main.py
+### main.py
 
 The file main.py represents the process of finding metaphors in a text:
 1. Text Segmentation
@@ -24,8 +24,6 @@ Optional  arguments:
 
 If no string or text file is specified in the command line then a default text is used.
 
-<br>
-
 ### The Execution
 #### Initialization
 
@@ -48,21 +46,23 @@ Call the procedure _MetaphorIdentification.findCandidates()_
 #### Step 3: Labeling Metaphors
 Call the procedure _MetaphorIdentification.labelMetaphors()_
     
-### The Registry
+### The Registry Class
+Defined in _/new\_structure/modules/datastructs/registry.py_.
+
 To identify metaphors in a text, at least two steps need to be followed:
 the candidate identification step and the labelling step.
 Each of these steps can be done in many ways.
 Each method needs to be registered in the metaphorRegistry defined in 
 _/sample/modules/registry.py_
 
-### The MetaphorIdentification object
+### The MetaphorIdentification Class
 Defined in _/new\_structure/modules/datastructs/MetaphorIdentification.py_.
 
 It has four fields:
 * rawText: string
 * annotatedText: class AnnotatedText from _modules/datastructs/annotated_text.py_
 * candidates: class CandidateGroup from _modules/datastructs/candidate_group.py_
-* metaphors: class LabeledMetaphorList from _modules/datastructs/labeled_metaphor_list.py_
+* metaphors: class MetaphorGroup from _modules/datastructs/labeled_metaphor_list.py_
 
 
 

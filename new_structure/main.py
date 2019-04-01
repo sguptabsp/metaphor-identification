@@ -12,7 +12,7 @@ from new_structure.modules.darkthoughts import darkthoughtsFunction
 from new_structure.modules.cluster_module import clusteringFunction
 #Data structures
 from new_structure.modules.datastructs.registry import Registry
-from new_structure.modules.datastructs.MetaphorIdentification import MetaphorIdentification
+from new_structure.modules.datastructs.metaphor_identification import MetaphorIdentification
 
 
 if __name__ == "__main__":
@@ -61,3 +61,30 @@ if __name__ == "__main__":
 		print("The candidate finder or the metaphor labeler is incorrect")
 
 	print("--- %s seconds ---" % (time.time() - start_time))
+
+
+	print("Raw Text")
+	print(object.rawText)
+	print("\n")
+	print("Annotated Text")
+	print("size:",object.annotatedText.size)
+	print("words:", object.annotatedText.words)
+	print("columns:", object.annotatedText.columns)
+	print("table:", object.annotatedText.table)
+	print("\n")
+	print("Candidates: class candidateGroup")
+	print("size:",object.candidates.size)
+	for c in object.candidates.candidates:
+		print("sourceIndex:", c.sourceIndex)
+		print("targetIndex:", c.targetIndex)
+		print("targetIndex:", c.targetIndex)
+		print("targetSpan:", c.targetSpan)
+	print("\n")
+	print("Metaphors: class MetaphorGroup")
+	print("size:", object.metaphors.size)
+	for m in object.metaphors.results:
+		print("candidate:", m.candidate)
+		print("result:", m.result)
+		print("confidence:", m.confidence)
+
+

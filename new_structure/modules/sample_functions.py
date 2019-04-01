@@ -3,9 +3,9 @@ from nltk import pos_tag
 from nltk.corpus import wordnet
 from .datastructs.annotated_text import AnnotatedText
 from .datastructs.candidate_group import CandidateGroup
-from .datastructs.metaphor_candidate import MetaphorCandidate
-from .datastructs.labeled_metaphor_list import LabeledMetaphorList
-from .datastructs.labeled_metaphor import LabeledMetaphor
+from .datastructs.candidate import Candidate
+from .datastructs.metaphor_group import MetaphorGroup
+from .datastructs.metaphor import Metaphor
 
 def getWordnetPos(tag):
 
@@ -58,7 +58,7 @@ def lemmatizingFunction(annotatedText):
 
 def testIDFunction(annotatedText):
 	candidates = CandidateGroup()
-	testCandidate = MetaphorCandidate(annotatedText, 2, (0, 2), 6, (6,6))
+	testCandidate = Candidate(annotatedText, 2, (0, 2), 6, (6,6))
 	candidates.addCandidate(testCandidate)
 	return candidates
 
@@ -74,7 +74,7 @@ def adjNounFinder(annotatedText):
 			while (currentNounIndex < len(POScolumn) and POScolumn[currentNounIndex].startswith('NN')):
 				currentNounIndex += 1
 			while (currentAdjIndex >= 0 and POScolumn[currentAdjIndex] == 'JJ'):
-				newCandidate = MetaphorCandidate(annotatedText, currentAdjIndex, (currentAdjIndex, currentAdjIndex), currentNounIndex-1, (i+1,currentNounIndex-1))
+				newCandidate = Candidate(annotatedText, currentAdjIndex, (currentAdjIndex, currentAdjIndex), currentNounIndex-1, (i+1,currentNounIndex-1))
 				candidates.addCandidate(newCandidate)
 				currentAdjIndex -= 1
 
@@ -95,7 +95,7 @@ def verbNounFinder(annotatedText):
 			while (currentNounIndex < len(POScolumn) and wordColumn[currentNounIndex]!="." and not(POScolumn[currentNounIndex].startswith('NN'))):
 				currentNounIndex += 1
 			if currentNounIndex < len(POScolumn) and POScolumn[currentNounIndex].startswith('NN'):
-				newCandidate = MetaphorCandidate(annotatedText, currentVerbIndex, (currentVerbIndex, currentVerbIndex), currentNounIndex, (currentNounIndex, currentNounIndex))
+				newCandidate = Candidate(annotatedText, currentVerbIndex, (currentVerbIndex, currentVerbIndex), currentNounIndex, (currentNounIndex, currentNounIndex))
 				candidates.addCandidate(newCandidate)
 
 	return candidates
@@ -124,16 +124,16 @@ def verbObjFinder(annotatedText):
 			if ("obj" in dep[1] or "nsubjpass" in dep[1]):
 				obj = dep[2][0]
 				# NEED TO BE ABLE TO CREATE CANDIDATE FROM WORDS INSTEAD OF INDEXES
-				#newCandidate = MetaphorCandidate(annotatedText, objIndex, (objIndex, objIndex), )
+				#newCandidate = Candidate(annotatedText, objIndex, (objIndex, objIndex), )
 		currentIndex += 1
 '''
 
 def testLabelFunction(candidates):
-	results = LabeledMetaphorList()
+	results = MetaphorGroup()
 	for c in candidates:
 		if (c.getSource()[0] == c.getTarget()[0]):
-			results.addResult(LabeledMetaphor(c, True, 0.5))
+			results.addResult(Metaphor(c, True, 0.5))
 		else:
-			results.addResult(LabeledMetaphor(c, False, 0.5))
+			results.addResult(Metaphor(c, False, 0.5))
 	
 	return results
