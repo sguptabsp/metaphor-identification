@@ -124,6 +124,6 @@ def clusteringFunction(candidates, cand_type, verbose):
 				print("RESULT: Unknown")
 				print("Verb/Noun pair not in database")
 
-		results.addResult(Metaphor(c, result, confidence))
+		results.addMetaphor(Metaphor(c, result, confidence))
 
 	return results

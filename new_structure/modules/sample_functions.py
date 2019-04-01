@@ -132,8 +132,8 @@ def testLabelFunction(candidates):
 	results = MetaphorGroup()
 	for c in candidates:
 		if (c.getSource()[0] == c.getTarget()[0]):
-			results.addResult(Metaphor(c, True, 0.5))
+			results.addMetaphor(Metaphor(c, True, 0.5))
 		else:
-			results.addResult(Metaphor(c, False, 0.5))
+			results.addMetaphor(Metaphor(c, False, 0.5))
 	
 	return results

@@ -76,13 +76,13 @@ if __name__ == "__main__":
 	print("size:",object.candidates.size)
 	for c in object.candidates.candidates:
 		print("sourceIndex:", c.sourceIndex)
-		print("targetIndex:", c.targetIndex)
+		print("sourceSpan:", c.sourceSpan)
 		print("targetIndex:", c.targetIndex)
 		print("targetSpan:", c.targetSpan)
 	print("\n")
 	print("Metaphors: class MetaphorGroup")
 	print("size:", object.metaphors.size)
-	for m in object.metaphors.results:
+	for m in object.metaphors.metaphors:
 		print("candidate:", m.candidate)
 		print("result:", m.result)
 		print("confidence:", m.confidence)

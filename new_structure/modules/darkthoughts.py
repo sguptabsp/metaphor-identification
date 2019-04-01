@@ -103,6 +103,6 @@ def darkthoughtsFunction(candidates, cand_type, verbose):
 
 		#####################################
 		
-		results.addResult(Metaphor(c, result, confidence))
+		results.addMetaphor(Metaphor(c, result, confidence))
 
 	return results

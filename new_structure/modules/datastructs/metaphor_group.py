@@ -4,23 +4,23 @@ class MetaphorGroup:
 
 	def __init__(self):#, candidateGroup):
 		#self.candidateGroup = candidateGroup
-		self.results = []
+		self.metaphors = []
 		self.size = 0
 
-	def addResult(self, labeledMetaphor):
-		self.results.append(labeledMetaphor)
+	def addMetaphor(self, labeledMetaphor):
+		self.metaphors.append(labeledMetaphor)
 		self.size += 1
 
-	def getResult(self, index):
-		return self.results[index]
+	def getMetaphor(self, index):
+		return self.metaphors[index]
 
 	def __iter__(self):
-		return iter(self.results)
+		return iter(self.metaphors)
 
 	def writeToCSV(self, path):
 		dicList = []
 		columns = ["source", "target", "result", "confidence"]
-		for r in self.results:
+		for r in self.metaphors:
 			currentResult = {}
 			currentResult["source"] = r.getSource()
 			currentResult["target"] = r.getTarget()
@@ -34,7 +34,7 @@ class MetaphorGroup:
 			writer.writerows(dicList)
 
 	def __str__(self):
-		resultsString = ""
+		metaphorsString = ""
 		for i in range(self.size):
-			resultsString += str(self.results[i]) + "\n"
-		return resultsString
+			metaphorsString += str(self.metaphors[i]) + "\n"
+		return metaphorsString
