@@ -1,6 +1,6 @@
 # Metaphors
 
-### main.py
+## main.py
 
 The file main.py represents the process of finding metaphors in a text:
 1. Text Segmentation
@@ -38,7 +38,8 @@ If no string or text file is specified in the command line then a default text i
 4. Creating the object MetaphorIdentification
     
 #### Step 1: Text Segmentation
-
+The AnnotatedText is created from the raw text using the _nltk.word_tokenize()_ function.
+The Part-of-Speech and the Lemma of each word is also determined with NLTK functions: _nltk.pos_tag_ and _nltk.WordNetLemmatizer_.
 
 #### Step 2: Finding Candidates
 Call the procedure _MetaphorIdentification.findCandidates()_
@@ -64,10 +65,69 @@ It has four fields:
 * candidates: class CandidateGroup from _modules/datastructs/candidate_group.py_
 * metaphors: class MetaphorGroup from _modules/datastructs/labeled_metaphor_list.py_
 
+##How to Add a New Metaphor-Labeling Function
+Your function must be defined in a new file in the _modules_ folder.
 
+### Input
+The input of the function must be:
+* candidates
+    * Type: Object of class _CandidateGroup_
+* cand_type:
+    * Type: string
+    * Value: _"adjNoun"_ or _"verbNoun"_
+    * Usage: Corresponds to a database
+* verbose:
+    * Type: Boolean
+    * Usage: Display some information if its value is _True_
+    
+### Output
+The output of the function must be an object of class _MetaphorGroup_
 
-# Tutorial
+### Useful Classes
 
-#### The number of '#' defines the size of the heading
-
-You can write words in **bold**, in _italic_ or **_both_**.
+#### CandidateGroup
+* Variables
+    * candidates = list of objects of class Candidate
+    * size = number of elements in the list above
+* Methods
+    * addCandidate
+    * getCandidate
+    * \_\_iter\_\_
+    * \_\_str\_\_
+    
+### MetaphorGroup
+* Variables
+    * metaphors = list of objects of class Metaphor
+    * size = number of elements in the list above
+* Methods
+    * addMetaphor
+    * getMetaphor
+    * writeToCSV
+    * \_\_iter\_\_
+    * \_\_str\_\_
+    
+### Candidate
+* Variables
+    * annotatedText = object of class AnnotatedText
+    * sourceIndex = index of the source in the annotatedText
+    * sourceSpan = 2-tuple = (index of the first word in the source, index of the last word in the source)
+    * targetIndex = index of the target in the annotatedText
+    * targetSpan = 2-tuple = (index of the first word in the  target , index of the last word in the  target) 
+* Methods
+    * getSource = return the first word of the source
+    * getTarget = return the first word of the target
+    * getFullSource
+    * getFullTarget
+    * \_\_stringAdder: used in the getFull... functions
+    
+### Metaphor
+* Variables
+    * candidate = object of class candidate
+    * result = boolean
+    * confidence = number between 0 and 1
+* Methods
+    * getSource
+    * getTarget
+    * getResult
+    * getConfidence
+    * \_\_str\_\_

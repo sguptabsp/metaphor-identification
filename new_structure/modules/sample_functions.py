@@ -20,6 +20,7 @@ def getWordnetPos(tag):
     else:
         return ''
 
+# Use NLTK pos_tag function
 def posFunction(annotatedText):
 	finalPos = []
 	sentence = []
@@ -33,6 +34,7 @@ def posFunction(annotatedText):
 	return finalPos
 
 
+# Use NLTK WordNetLemmatizer function
 def lemmatizingFunction(annotatedText):
 	lemm = WordNetLemmatizer()
 	posTags = []
@@ -41,7 +43,7 @@ def lemmatizingFunction(annotatedText):
 	if (annotatedText.isColumnPresent("word")):
 		sentence = annotatedText.getColumn("word")
 	else:
-		return finalPos
+		return finalLem
 	if (annotatedText.isColumnPresent("POS")):
 		posTags = annotatedText.getColumn("POS")
 	else:
