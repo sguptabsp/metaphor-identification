@@ -103,7 +103,7 @@ def verbNounFinder(annotatedText):
 
 # TODO: Write function that finds a verb and its object using a dependancy parser
 '''
-def verbObjFinder(annotatedText):
+def verbObjFinder(annotatedText):`
 	candidates = CandidateGroup()
 	text = annotatedText.getText()
 

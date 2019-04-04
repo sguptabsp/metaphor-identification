@@ -28,6 +28,7 @@ class MetaphorIdentification:
 
     def findCandidates(self, identificationFunction):
         self.candidates = identificationFunction(self.annotatedText)
+        print(self.candidates)
 
     def labelMetaphors(self, identificationFunction, cand_type, verbose=False):
         self.metaphors = identificationFunction(self.candidates, cand_type, verbose)
