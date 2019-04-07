@@ -1,4 +1,4 @@
-from new_structure.modules.datastructs.MetaphorIdentification import MetaphorIdentification
+from new_structure.modules.datastructs.metaphor_identification import MetaphorIdentification
 from new_structure.modules.datastructs.annotated_text import AnnotatedText
 import pandas as pd
 
