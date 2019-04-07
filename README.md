@@ -1,6 +1,11 @@
 # Metaphors
 
+## main.py
 
+The file main.py represents the process of finding metaphors in a text:
+1. Text Segmentation
+2. Finding candidates for the metaphors: a candidate is a pair of word: adjective-noun or verb-noun 
+3. Labeling the metaphors: Is a candidate metaphorical or literal? 
 
 ### Command Line
 Mandatory arguments:
@@ -17,108 +22,112 @@ Optional  arguments:
 * -f or --file followed by a file name: look for metaphors in a text file
 * -s or --string followed by a string: look for metaphors in a specified string
 
-If no string or text file is specified in the command line then a default text is used as an example.
+If no string or text file is specified in the command line then a default text is used.
 
-<br>
+### The Execution
+#### Initialization
 
-### The Registry
+1. Parsing the command line
+2. Creating a hash-table
+    1. Adding the candidate finder functions
+    2. Adding the metaphor labeler functions
+3. Initializing the text either from:
+    1. Default text - defined in _modules/utils.py_
+    2. A string - written in the command line
+    3. A file - path in the command line
+4. Creating the object MetaphorIdentification
+    
+#### Step 1: Text Segmentation
+The AnnotatedText is created from the raw text using the _nltk.word_tokenize()_ function.
+The Part-of-Speech and the Lemma of each word is also determined with NLTK functions: _nltk.pos_tag_ and _nltk.WordNetLemmatizer_.
+
+#### Step 2: Finding Candidates
+Call the procedure _MetaphorIdentification.findCandidates()_
+
+#### Step 3: Labeling Metaphors
+Call the procedure _MetaphorIdentification.labelMetaphors()_
+    
+### The Registry Class
+Defined in _/new\_structure/modules/datastructs/registry.py_.
+
 To identify metaphors in a text, at least two steps need to be followed:
 the candidate identification step and the labelling step.
 Each of these steps can be done in many ways.
 Each method needs to be registered in the metaphorRegistry defined in 
 _/sample/modules/registry.py_
 
-
-
-<br>
-
-### The Execution
-
-1. Tokenization of the text
-    1. From string to annotatedText
-    2. Identification of the part-of-speech of the words
-2. Candidate identification
-    * _What is this step?_
-3. Metaphor identification
-    * _What is this step?_
-
-<br>
-
-### The MetaphorIdentification object (new_structure folder)
-Defined in _/new\_structure/modules/MetaphorIdentification.py_.
+### The MetaphorIdentification Class
+Defined in _/new\_structure/modules/datastructs/MetaphorIdentification.py_.
 
 It has four fields:
-* rawText
-* annotatedText
+* rawText: string
+* annotatedText: class AnnotatedText from _modules/datastructs/annotated_text.py_
+* candidates: class CandidateGroup from _modules/datastructs/candidate_group.py_
+* metaphors: class MetaphorGroup from _modules/datastructs/labeled_metaphor_list.py_
+
+##How to Add a New Metaphor-Labeling Function
+Your function must be defined in a new file in the _modules_ folder.
+
+### Input
+The input of the function must be:
 * candidates
-* metaphors
+    * Type: Object of class _CandidateGroup_
+* cand_type:
+    * Type: string
+    * Value: _"adjNoun"_ or _"verbNoun"_
+    * Usage: Corresponds to a database
+* verbose:
+    * Type: Boolean
+    * Usage: Display some information if its value is _True_
+    
+### Output
+The output of the function must be an object of class _MetaphorGroup_
 
-### The objects (sample folder)
+### Useful Classes
 
-Different objects are used in this project. This section describes the different classes of objects and how to use them.
-
-#### The Annotator
-Defined in _/sample/modules/annotator.py_.
-
-It has 2 fields:
-* rawText: string, text you want to analyze
-* annotatedText: object of class annotatedText. See details [below](#annotatedTextAnchor).
-
-#### <a name="annotatedTextAnchor">The Annotated Text</a>
-Defined in _/sample/modules/datastructs/annotated_text.py_.
-
-It has 5 fields:
-* rawText
-* table
-* words
-* size
-* columns
-
-Printing the annotated text will only print the table field.
-
-#### The Identifier
-Defined in _/sample/modules/cand_id.py_.
-
-It has 2 fields:
-* annotatedText: object of class annotatedText. See details [above](#annotatedTextAnchor).
-* candidates: object of class CandidateGroup. See details [below](#candidatesAnchor)
-
-#### <a name="candidatesAnchor">The Candidates</a>
-Defined in _/sample/modules/datastructs/candidate_group.py_.
-
-It has 2 fields:
-* candidates: list of objects of class Candidate.
-* size: number of candidates in the list candidates.
-
-The class Candidate is defined in _/sample/modules/datastructs/metaphor_candidate.py_.
-It has ... fields:
-* annotatedText: object of class annotatedText. See details [above](#annotatedTextAnchor).
-* sourceIndex:
-* sourceSpan:
-* targetIndex:
-* targetSpan:
-
-#### The Labeler
-The Labeler is actually of the class MetaphorIdentifier defined in _/samples/modules/met_id.py_.
-
-It has 2 fields:
-* candidates: object of class candidates. See details [above](#candidatesAnchor)
-* metaphors
-
-#### The Results
-The results correspond to the field metaphors of the labeler.
-They are returned from the metaphor-identifying method.
-
-They usually follow this format:
-* Source: concept
-* Target: word qualified by the source
-* Result: boolean
-* Confidence: confidence measure between 0 and 1 
-
-<br> 
-
-# Tutorial
-
-#### The number of '#' defines the size of the heading
-
-You can write words in **bold**, in _italic_ or **_both_**.
+#### CandidateGroup
+* Variables
+    * candidates = list of objects of class Candidate
+    * size = number of elements in the list above
+* Methods
+    * addCandidate
+    * getCandidate
+    * \_\_iter\_\_
+    * \_\_str\_\_
+    
+### MetaphorGroup
+* Variables
+    * metaphors = list of objects of class Metaphor
+    * size = number of elements in the list above
+* Methods
+    * addMetaphor
+    * getMetaphor
+    * writeToCSV
+    * \_\_iter\_\_
+    * \_\_str\_\_
+    
+### Candidate
+* Variables
+    * annotatedText = object of class AnnotatedText
+    * sourceIndex = index of the source in the annotatedText
+    * sourceSpan = 2-tuple = (index of the first word in the source, index of the last word in the source)
+    * targetIndex = index of the target in the annotatedText
+    * targetSpan = 2-tuple = (index of the first word in the  target , index of the last word in the  target) 
+* Methods
+    * getSource = return the first word of the source
+    * getTarget = return the first word of the target
+    * getFullSource
+    * getFullTarget
+    * \_\_stringAdder: used in the getFull... functions
+    
+### Metaphor
+* Variables
+    * candidate = object of class candidate
+    * result = boolean
+    * confidence = number between 0 and 1
+* Methods
+    * getSource
+    * getTarget
+    * getResult
+    * getConfidence
+    * \_\_str\_\_

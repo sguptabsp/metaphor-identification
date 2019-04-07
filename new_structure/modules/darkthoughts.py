@@ -1,9 +1,9 @@
 from nltk.corpus import wordnet
 from .datastructs.annotated_text import AnnotatedText
 from .datastructs.candidate_group import CandidateGroup
-from .datastructs.metaphor_candidate import MetaphorCandidate
-from .datastructs.labeled_metaphor_list import LabeledMetaphorList
-from .datastructs.labeled_metaphor import LabeledMetaphor
+from .datastructs.candidate import Candidate
+from .datastructs.metaphor_group import MetaphorGroup
+from .datastructs.metaphor import Metaphor
 from .datastructs.ngrams import CollocationList, parseConcreteness, parseNgrams
 from .datastructs.categories import Categories, parseCategories
 
@@ -22,7 +22,7 @@ T = 10
 
 def darkthoughtsFunction(candidates, cand_type, verbose):
 	# INITIALIZATIONS OF CLASSES AND DATA STRUCTURES
-	results = LabeledMetaphorList()
+	results = MetaphorGroup()
 	collocations = CollocationList()
 
 	for f in NGRAMS_FILES[cand_type]:
@@ -104,6 +104,6 @@ def darkthoughtsFunction(candidates, cand_type, verbose):
 
 		#####################################
 		
-		results.addResult(LabeledMetaphor(c, result, confidence))
+		results.addMetaphor(Metaphor(c, result, confidence))
 
 	return results

@@ -7,11 +7,11 @@ from new_structure.modules.sample_functions import verbNounFinder, adjNounFinder
 from new_structure.modules.darkthoughts import darkthoughtsFunction  # Metaphor labeling function
 from new_structure.modules.cluster_module import clusteringFunction  # Metaphor labeling function
 from new_structure.modules.datastructs.registry import Registry
-from new_structure.modules.datastructs.MetaphorIdentification import MetaphorIdentification
+from new_structure.modules.datastructs.metaphor_identification import MetaphorIdentification
 from new_structure.modules.TroFi.TroFiParsing import parse_file
 
 
-# met is a LabeledMetaphor object (modules/datastructs/labeled_metaphor.py)
+# met is a Metaphor object (modules/datastructs/metaphor.py)
 # data is Series (pandas library) object with columns: verb, cluster, id, status, text (modules/TroFi/TrofiParsing.py)
 def TroFiVerification(met, data):
     cluster = data["cluster"]
