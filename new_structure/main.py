@@ -6,7 +6,6 @@ import time
 from new_structure.modules.cluster_module import clusteringFunction
 # Metaphor labeling functions
 from new_structure.modules.darkthoughts import darkthoughtsFunction
-from new_structure.modules.datastructs.metaphor_abstractness_identification import MetaphorAbstractnessIdentification
 from new_structure.modules.datastructs.metaphor_identification import MetaphorIdentification
 # Data structures
 from new_structure.modules.datastructs.registry import Registry
@@ -42,12 +41,12 @@ if __name__ == "__main__":
         mLabelerFunction = metaphorRegistry.getMLabeler(args.mlabeler)
 
         # Object declaration
-        if "kmeans_abs_ratings" in args.mlabeler:
-            object = MetaphorAbstractnessIdentification(args.file)
-
-        else:
-
-            object = MetaphorIdentification(text)
+        # if "kmeans_abs_ratings" in args.mlabeler:
+        #     object = MetaphorAbstractnessIdentification(args.file)
+        #
+        # else:
+        #
+        object = MetaphorIdentification(text)
 
         # Step 1: Annotating the text
         object.annotateText()
@@ -65,8 +64,6 @@ if __name__ == "__main__":
         object.labelMetaphors(mLabelerFunction, args.cfinder, args.verbose)
         if args.verbose:
             print(object.getMetaphors())
-
-        print(object.getMetaphors())
 
     else:
         print("The candidate finder or the metaphor labeler is incorrect")
@@ -91,8 +88,8 @@ if __name__ == "__main__":
         print("targetSpan:", c.targetSpan)
     print("\n")
     print("Metaphors: class MetaphorGroup")
-    print("size:", object.metaphors.size)
-    for m in object.metaphors.metaphors:
-        print("candidate:", m.candidate)
-        print("result:", m.result)
-        print("confidence:", m.confidence)
+    # print("size:", object.metaphors.size)
+    # for m in object.metaphors.metaphors:
+    #     print("candidate:", m.candidate)
+    #     print("result:", m.result)
+    #     print("confidence:", m.confidence)

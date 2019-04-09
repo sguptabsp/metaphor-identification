@@ -1,16 +1,26 @@
-from .clustering.wordClusterList import WordClusterList
-from .clustering.parsing import parseNouns, parseVerbNet
-from .utils import writeToCSV
-from .datastructs.metaphor_group import MetaphorGroup
-from .datastructs.metaphor import Metaphor
-import csv
 import ast
+import csv
+
+from .clustering.parsing import parseNouns, parseVerbNet
+from .clustering.wordClusterList import WordClusterList
+from .datastructs.metaphor import Metaphor
+from .datastructs.metaphor_group import MetaphorGroup
+from .utils import writeToCSV
 
 VERBNET = "data/clustering/verbnet_150_50_200.log-preprocessed"
 NOUNS = "data/clustering/200_2000.log-preprocessed"
 TROFI_TAGS = "data/clustering/trofi_tags_full.csv"
 
-RESULTS = "data/clustering/results.csv"
+# RESULTS = "data/clustering/results.csv"
+import os.path
+from os.path import dirname, abspath
+
+d = dirname(dirname(abspath(__file__)))
+RESULTS = os.path.join(d, "data", "clustering", "results.csv")
+
+
+# RESULTS= "/home/shrutitejus/iit/research_project/Research_Project/new_structure/data/clustering/results.csv"
+
 # RESULTS = "../data/clustering/results.csv"
 
 # test the result to see if it has every words

@@ -1,22 +1,45 @@
 import gensim
-
 import nltk
+import numpy as np
 import pandas as pd
+from gensim.models import KeyedVectors
 from sklearn.cluster import KMeans
 from sklearn.metrics import accuracy_score
-import numpy as np
-import nltk
-from gensim.models import Word2Vec
 
-from gensim.models import KeyedVectors
+from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
+
 
 def create_word2vec_model():
     # Cosine Similarity model creation
-    model = KeyedVectors.load_word2vec_format('/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/wiki.en.vec')
+    model = KeyedVectors.load_word2vec_format(
+        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/wiki.en.vec')
 
     return model
 
-def identify_metaphors_abstractness_cosine_edit_dist(df, cand_type, verbose):
+
+def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose):
+    results = MetaphorGroup()
+
+    MET_AN_EN = pd.read_table(
+        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_met_en.txt',
+        delim_whitespace=True, names=('adj', 'noun'))
+    MET_AN_EN['class'] = 1
+    LIT_AN_EN = pd.read_table(
+        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_nonmet_en.txt',
+        delim_whitespace=True, names=('adj', 'noun'))
+    LIT_AN_EN['class'] = 0
+
+    df = pd.concat([LIT_AN_EN, MET_AN_EN])
+
+    data_list = []
+
+    for c in candidates:
+        dataframe_data = {}
+        dataframe_data["adj"] = c.getSource()
+        dataframe_data["noun"] = c.getTarget()
+        data_list.append(dataframe_data)
+    df_test_data = pd.DataFrame.from_records(data_list)
+    df = pd.concat([df_test_data, df], axis=0).reset_index()
     an_vectorized = []
     # Load Abstractness Rating
     model = KeyedVectors.load_word2vec_format(
@@ -27,7 +50,9 @@ def identify_metaphors_abstractness_cosine_edit_dist(df, cand_type, verbose):
         data.append(temp)
     model = gensim.models.Word2Vec(data, min_count=1, size=200, window=5)
 
-    csv = pd.read_csv("/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/AC_ratings_google3m_koeper_SiW.csv", error_bad_lines=False)
+    csv = pd.read_csv(
+        "/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/AC_ratings_google3m_koeper_SiW.csv",
+        error_bad_lines=False)
     csv = pd.DataFrame(csv)
     dict = {}
 
