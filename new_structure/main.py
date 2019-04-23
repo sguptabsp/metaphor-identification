@@ -7,10 +7,13 @@ from new_structure.modules.cluster_module import clusteringFunction
 # Metaphor labeling functions
 from new_structure.modules.darkthoughts import darkthoughtsFunction
 from new_structure.modules.datastructs.metaphor_identification import MetaphorIdentification
-# Data structures
-from new_structure.modules.datastructs.registry import Registry
 from new_structure.modules.kmeans_abs_ratings_cosine_edit_distance import \
     identify_metaphors_abstractness_cosine_edit_dist
+#from new_structure.modules.kmeans_abs_ratings_cosine_edit_distance import \
+ #   identify_metaphors_abstractness_cosine_testing
+
+# Data structures
+from new_structure.modules.datastructs.registry import Registry
 from new_structure.modules.sample_functions import posFunction, lemmatizingFunction
 # Candidate finding functions
 from new_structure.modules.sample_functions import verbNounFinder, adjNounFinder
@@ -26,8 +29,10 @@ if __name__ == "__main__":
     metaphorRegistry = Registry()
     # metaphorRegistry.addMLabeler("kmeans_abs_ratings", kmeans_abs_ratings)
     # metaphorRegistry.addMLabeler("kmeans_abs_ratings_cosine_similarity", kmeans_abs_ratings_cosine_similarity)
+    # metaphorRegistry.addMLabeler("kmeans_abs_ratings_cosine_edit_distance",
+    #                              identify_metaphors_abstractness_cosine_testing)
     metaphorRegistry.addMLabeler("kmeans_abs_ratings_cosine_edit_distance",
-                                 identify_metaphors_abstractness_cosine_edit_dist)
+                                  identify_metaphors_abstractness_cosine_edit_dist)
     metaphorRegistry.addCFinder("verbNoun", verbNounFinder)
     metaphorRegistry.addCFinder("adjNoun", adjNounFinder)
     metaphorRegistry.addMLabeler("darkthoughts", darkthoughtsFunction)
@@ -66,6 +71,7 @@ if __name__ == "__main__":
             print(object.getMetaphors())
 
     else:
+
         print("The candidate finder or the metaphor labeler is incorrect")
 
     print("--- %s seconds ---" % (time.time() - start_time))

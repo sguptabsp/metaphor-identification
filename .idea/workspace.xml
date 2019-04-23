@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="822981d9-5fd5-4c75-8501-87af620c7004" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Research_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Research_Project.iml" afterDir="false" />
+    <list default="true" id="77f9f803-4e45-443f-b12c-53acea3d07a9" name="Default Changelist" comment="fixed pep8">
+      <change afterPath="$PROJECT_DIR$/new_structure/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new_structure/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/new_structure/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_structure/modules/cluster_module.py" beforeDir="false" afterPath="$PROJECT_DIR$/new_structure/modules/cluster_module.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py" beforeDir="false" afterPath="$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Research_Project$g_ngrams_main.coverage" NAME="g_ngrams_main Coverage Results" MODIFIED="1552325319680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
+    <SUITE FILE_PATH="coverage/Research_Project$g_ngrams_main.coverage" NAME="g_ngrams_main Coverage Results" MODIFIED="1553636772982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
     <SUITE FILE_PATH="coverage/Research_Project$TroFiAnalysis__1_.coverage" NAME="TroFiAnalysis (1) Coverage Results" MODIFIED="1550272480899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
     <SUITE FILE_PATH="coverage/Research_Project$MetaphorsFromTroFi.coverage" NAME="MetaphorsFromTroFi Coverage Results" MODIFIED="1550089480351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sample" />
     <SUITE FILE_PATH="coverage/Research_Project$utils.coverage" NAME="utils Coverage Results" MODIFIED="1549992529413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sample/modules" />
@@ -24,19 +23,20 @@
     <SUITE FILE_PATH="coverage/Research_Project$TroFiMetaphors.coverage" NAME="TroFiMetaphors Coverage Results" MODIFIED="1550789448466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure/TroFi" />
     <SUITE FILE_PATH="coverage/Research_Project$TroFiParsing__1_.coverage" NAME="TroFiParsing (1) Coverage Results" MODIFIED="1549750761031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sample" />
     <SUITE FILE_PATH="coverage/Research_Project$TroFiResultsAnalysis.coverage" NAME="TroFiResultsAnalysis Coverage Results" MODIFIED="1550271466019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure/TroFi" />
+    <SUITE FILE_PATH="coverage/Research_Project$TroFi_main.coverage" NAME="TroFi_main Coverage Results" MODIFIED="1553798669135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
     <SUITE FILE_PATH="coverage/Research_Project$MetaphorsFromTroFi__1_.coverage" NAME="MetaphorsFromTroFi (1) Coverage Results" MODIFIED="1550021732188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
     <SUITE FILE_PATH="coverage/Research_Project$TroFiAnalysis.coverage" NAME="TroFiAnalysis Coverage Results" MODIFIED="1551314406478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure/TroFi" />
     <SUITE FILE_PATH="coverage/Research_Project$MIImplementation.coverage" NAME="MIImplementation Coverage Results" MODIFIED="1550021078703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
     <SUITE FILE_PATH="coverage/Research_Project$TroFiParsing.coverage" NAME="TroFiParsing Coverage Results" MODIFIED="1549215296743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sample/modules" />
-    <SUITE FILE_PATH="coverage/Research_Project$main.coverage" NAME="main Coverage Results" MODIFIED="1550271943414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sample" />
+    <SUITE FILE_PATH="coverage/Research_Project$main.coverage" NAME="main Coverage Results" MODIFIED="1553798686453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_structure/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="342">
+              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
               <folding>
                 <element signature="e#59#70#0" expanded="true" />
               </folding>
@@ -47,17 +47,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_identification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
+            <state relative-caret-position="594">
               <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/pandas/core/frame.py">
+        <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_group.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="391" selection-start-line="391" selection-end-line="391" />
+            <state relative-caret-position="126">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -65,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+            <state relative-caret-position="139">
+              <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -75,28 +75,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/registry.py">
+        <entry file="file://$PROJECT_DIR$/new_structure/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/sample_functions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="93" selection-start-line="93" selection-end-line="93" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_abstractness_identification.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="28" lean-forward="true" selection-start-line="21" selection-end-line="28" />
+            <state relative-caret-position="234">
+              <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -104,29 +86,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_structure/modules/cluster_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="112" column="33" selection-start-line="112" selection-start-column="23" selection-end-line="112" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2322">
+              <caret line="136" selection-start-line="136" selection-end-line="137" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/new_structure/data/results.csv">
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+          <provider selected="true" editor-type-id="csv-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/candidate.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/candidate_group.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/nltk/tokenize/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="142" selection-start-line="142" selection-end-line="142" />
+            <state>
+              <caret column="12" selection-start-column="12" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -142,6 +125,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>pos_tag</find>
+      <find>annotator</find>
+      <find>VERBOSE</find>
+      <find>getMostFrequents</find>
+      <find>LabeledMetaphorList</find>
       <find>Adjective</find>
       <find>CollocationList</find>
       <find>args</find>
@@ -154,7 +142,6 @@
       <find>collocations</find>
       <find>metaphorRegistry</find>
       <find>utils.args</find>
-      <find>TroFiVerification</find>
       <find>RESULTS</find>
       <find>trofi_tags_full.csv</find>
       <find>TROFI_TAGS</find>
@@ -164,14 +151,10 @@
       <find>VERB</find>
       <find>sank</find>
       <find>supports</find>
-      <find>p.*.*read_</find>
-      <find>candidates</find>
-      <find>dict</find>
-      <find>||</find>
-      <find>data/vn2.txt</find>
-      <find>Source:</find>
-      <find>candidate:</find>
-      <find>df.</find>
+      <find>depends</find>
+      <find>ClusteredData</find>
+      <find>data</find>
+      <find>TroFiVerification</find>
     </findStrings>
     <dirStrings>
       <dir>D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\modules</dir>
@@ -181,7 +164,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="convert-to-framework-objects" />
       </map>
     </option>
   </component>
@@ -195,7 +178,6 @@
         <option value="$PROJECT_DIR$/sample/MetaphorsFromCSV.py" />
         <option value="$PROJECT_DIR$/sample/modules/TroFiParsing.py" />
         <option value="$PROJECT_DIR$/sample/TroFiResultsAnalysis.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/sample/modules/registry.py" />
         <option value="$PROJECT_DIR$/sample/modules/sample_functions.py" />
         <option value="$PROJECT_DIR$/sample/modules/cluster_module.py" />
@@ -208,6 +190,7 @@
         <option value="$PROJECT_DIR$/sample/MetaphorsFromTroFi.py" />
         <option value="$PROJECT_DIR$/new_structure/MIImplementation.py" />
         <option value="$PROJECT_DIR$/new_structure/modules/registry.py" />
+        <option value="$PROJECT_DIR$/new_structure/modules/sample_functions.py" />
         <option value="$PROJECT_DIR$/new_structure/modules/utils.py" />
         <option value="$PROJECT_DIR$/new_structure/modules/MetaphorIdentification.py" />
         <option value="$PROJECT_DIR$/new_structure/TroFi/MetaphorsFromTroFi.py" />
@@ -219,18 +202,19 @@
         <option value="$PROJECT_DIR$/new_structure/TroFi/TroFiMetaphors.py" />
         <option value="$PROJECT_DIR$/new_structure/TroFi/TroFiAnalysis.py" />
         <option value="$PROJECT_DIR$/new_structure/TroFiMetaphors.py" />
-        <option value="$PROJECT_DIR$/new_structure/TroFi_main.py" />
         <option value="$PROJECT_DIR$/new_structure/modules/g_ngrams.py" />
-        <option value="$PROJECT_DIR$/new_structure/g_ngrams_main.py" />
-        <option value="$PROJECT_DIR$/metaphor_stratergies/kmeans_pramanick_pabitra.py" />
-        <option value="$PROJECT_DIR$/new_structure/modules/datastructs/MetaphorAbstractnessIdentification.py" />
-        <option value="$PROJECT_DIR$/new_structure/modules/darkthoughts.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/new_structure/modules/sample_functions.py" />
+        <option value="$PROJECT_DIR$/new_structure/cluster_main.py" />
+        <option value="$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_candidate.py" />
         <option value="$PROJECT_DIR$/new_structure/modules/datastructs/MetaphorIdentification.py" />
-        <option value="$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_abstractness_identification.py" />
         <option value="$PROJECT_DIR$/new_structure/modules/cluster_module.py" />
-        <option value="$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_identification.py" />
+        <option value="$PROJECT_DIR$/new_structure/modules/datastructs/registry.py" />
+        <option value="$PROJECT_DIR$/new_structure/TroFi_main.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/new_structure/modules/datastructs/ngrams.py" />
+        <option value="$PROJECT_DIR$/new_structure/modules/darkthoughts.py" />
+        <option value="$PROJECT_DIR$/new_structure/g_ngrams_main.py" />
+        <option value="$PROJECT_DIR$/new_structure/modules/datastructs/candidate_group.py" />
+        <option value="$PROJECT_DIR$/new_structure/utils.py" />
         <option value="$PROJECT_DIR$/new_structure/main.py" />
         <option value="$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py" />
       </list>
@@ -243,10 +227,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="359" />
-    <option name="y" value="22" />
-    <option name="width" value="348" />
-    <option name="height" value="1032" />
+    <option name="x" value="-15" />
+    <option name="y" value="810" />
+    <option name="width" value="1930" />
+    <option name="height" value="280" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -268,6 +252,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,23 +263,6 @@
             <path>
               <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="metaphor_stratergies" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="metaphor_stratergies" type="462c0819:PsiDirectoryNode" />
-              <item name="clustering" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="metaphor_stratergies" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
               <item name="new_structure" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -302,13 +270,6 @@
               <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
               <item name="new_structure" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="new_structure" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="clustering" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
@@ -320,33 +281,39 @@
             <path>
               <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="new_structure" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="TroFi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../4 - Cours/Natural Language Processing/Homeworks/2/code/imdb.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/new_structure/modules/datastructs" />
-      <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\modules\datastructs" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\modules" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\TroFi" />
       <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\sample" />
-      <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\sample\modules" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/new_structure/modules/datastructs" />
+      <recent name="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -361,161 +328,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.kmeans_abs_ratings_cosine_edit_distance">
-    <configuration name="TroFiAnalysis" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Research_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/new_structure/TroFi" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/TroFi/TroFiAnalysis.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TroFiMetaphors" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Research_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/new_structure/TroFi" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\TroFi_main.py" />
-      <option name="PARAMETERS" value="-ml cluster -cf verbNoun" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="build" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Research_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/build.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="cluster-adj-noun-string" type="PythonConfigurationType" factoryName="Python">
-      <module name="Research_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sample" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/main.py" />
-      <option name="PARAMETERS" value="--verbose -ml cluster -cf adjNoun -s &quot;greasy smile&quot;" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="cluster-adj-noun" type="PythonConfigurationType" factoryName="Python">
-      <module name="Research_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sample" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/main.py" />
-      <option name="PARAMETERS" value="--verbose -ml cluster -cf adjNoun" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="cluster-verb-noun" type="PythonConfigurationType" factoryName="Python">
-      <module name="Research_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sample" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/main.py" />
-      <option name="PARAMETERS" value="--verbose -ml cluster -cf verbNoun" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="darkthoughts" type="PythonConfigurationType" factoryName="Python">
-      <module name="Research_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sample" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/main.py" />
-      <option name="PARAMETERS" value="--verbose -ml darkthoughts -cf verbNoun" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="g_ngrams_main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.kmeans">
+    <configuration name="kmeans (1)" type="PythonConfigurationType" factoryName="Python">
       <module name="Research_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -527,52 +341,71 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/g_ngrams_main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="kmeans_abs_ratings_cosine_edit_distance (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Research_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/new_structure/modules" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="kmeans_abs_ratings_cosine_edit_distance" type="PythonConfigurationType" factoryName="Python">
-      <module name="Research_Project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sample" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/main.py" />
-      <option name="PARAMETERS" value="--verbose -ml kmeans_abs_ratings_cosine_edit_distance -cf adjNoun -s &quot;On the videotape, there was no visible mark of a beating on Suryadi, except for an angry welt at the base of his neck.&quot;" />
+      <option name="PARAMETERS" value="-ml kmeans_abs_ratings_cosine_edit_distance -cf adjNoun --verbose -s &quot;On the videotape, there was no visible mark of a beating on Suryadi, except for an angry welt at the base of his neck.&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="kmeans" type="PythonConfigurationType" factoryName="Python">
+      <module name="Research_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/new_structure" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/main.py" />
+      <option name="PARAMETERS" value="-ml kmeans_abs_ratings_cosine_edit_distance -cf adjNoun --verbose -s &quot;On the videotape, there was no visible mark of a beating on Suryadi, except for an angry welt at the base of his neck.&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Research_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/new_structure" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/main.py" />
+      <option name="PARAMETERS" value="-ml cluster -cf verbNoun --verbose" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Research_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/new_structure" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_structure/utils.py" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -581,24 +414,15 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.cluster-verb-noun" />
-      <item itemvalue="Python.cluster-adj-noun" />
-      <item itemvalue="Python.cluster-adj-noun-string" />
-      <item itemvalue="Python.darkthoughts" />
-      <item itemvalue="Python.kmeans_abs_ratings_cosine_edit_distance" />
-      <item itemvalue="Python.TroFiMetaphors" />
-      <item itemvalue="Python.build" />
-      <item itemvalue="Python.TroFiAnalysis" />
-      <item itemvalue="Python.g_ngrams_main" />
-      <item itemvalue="Python.kmeans_abs_ratings_cosine_edit_distance (1)" />
+      <item itemvalue="Python.kmeans" />
+      <item itemvalue="Python.kmeans (1)" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.utils" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.kmeans_abs_ratings_cosine_edit_distance (1)" />
-        <item itemvalue="Python.build" />
-        <item itemvalue="Python.TroFiMetaphors" />
-        <item itemvalue="Python.g_ngrams_main" />
-        <item itemvalue="Python.TroFiAnalysis" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.utils" />
       </list>
     </recent_temporary>
   </component>
@@ -607,56 +431,58 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="822981d9-5fd5-4c75-8501-87af620c7004" name="Default Changelist" comment="" />
+      <changelist id="77f9f803-4e45-443f-b12c-53acea3d07a9" name="Default Changelist" comment="" />
       <created>1547847233895</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1547847233895</updated>
     </task>
-    <task id="LOCAL-00001" summary="Converted jupyter notebook into python">
-      <created>1553741014684</created>
+    <task id="LOCAL-00001" summary="fixed pep8 for main.py">
+      <created>1554350173992</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1553741014684</updated>
+      <updated>1554350173992</updated>
     </task>
-    <task id="LOCAL-00002" summary="reformatted">
-      <created>1554668584044</created>
+    <task id="LOCAL-00002" summary="fixed pep8">
+      <created>1554350369030</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1554668584044</updated>
+      <updated>1554350369030</updated>
     </task>
-    <task id="LOCAL-00003" summary="updated import with the new conventions">
-      <created>1554669181728</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1554669181728</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.22707424" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.17849346" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.18808778" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50067115" side_tool="true" weight="0.14022663" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.3291536" />
-      <window_info anchor="bottom" id="Python Console" order="4" weight="0.32706374" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32814372" />
+      <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50067115" side_tool="true" weight="0.14022663" />
+      <window_info anchor="bottom" id="Python Console" order="4" weight="0.32810867" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32810867" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49932885" weight="0.49634275" />
-      <window_info active="true" anchor="bottom" id="Debug" order="9" visible="true" weight="0.44514108" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.49932885" visible="true" weight="0.45768026" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4879833" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="bottom" id="TODO" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.3286119" />
       <window_info anchor="right" id="R Graphics" order="0" />
       <window_info anchor="right" id="R Packages" order="1" />
@@ -668,18 +494,18 @@
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24966443" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.17849346" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32814372" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50067115" side_tool="true" weight="0.14022663" />
-      <window_info anchor="bottom" id="Python Console" order="4" weight="0.3286119" />
+      <window_info anchor="bottom" id="Python Console" order="4" weight="0.32810867" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.49932885" visible="true" weight="0.407932" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.39943343" />
+      <window_info anchor="bottom" id="Find" order="7" weight="0.32810867" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.49932885" visible="true" weight="0.53814" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4879833" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.3286119" />
@@ -697,52 +523,11 @@
     <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="convert-to-framework-objects" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">
           <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="convert-to-framework-objects" />
-                </option>
-              </RecentGroup>
-            </list>
+            <list />
           </value>
         </entry>
         <entry key="User">
@@ -757,34 +542,32 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Converted jupyter notebook into python" />
-    <MESSAGE value="debugging candidate groups" />
-    <MESSAGE value="reformatted" />
-    <MESSAGE value="updated import with the new conventions" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated import with the new conventions" />
+    <MESSAGE value="fixed pep8 for main.py" />
+    <MESSAGE value="fixed pep8" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed pep8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/sample/modules/datastructs/ngrams.py</url>
-          <line>20</line>
-          <option name="timeStamp" value="1" />
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/new_structure/main.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/new_structure/modules/cluster_module.py</url>
-          <line>115</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/new_structure/main.py</url>
-          <line>64</line>
-          <option name="timeStamp" value="13" />
+          <line>126</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py</url>
-          <line>40</line>
-          <option name="timeStamp" value="15" />
+          <line>121</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py</url>
+          <line>364</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -797,227 +580,89 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/TroFi/TroFiAnalysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Google_ngrams/googlebooks-eng-all-2gram-20120701-a_" />
-    <entry file="file://$PROJECT_DIR$/../Google_ngrams/googlebooks-eng-all-2gram-20120701-aa" />
-    <entry file="file://$PROJECT_DIR$/../../4 - Cours/Natural Language Processing/Homeworks/2/code/imdb.py" />
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/TroFi/TroFiParsing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="59" column="17" lean-forward="true" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/vn2.csv" />
     <entry file="file://$PROJECT_DIR$/new_structure/googlebooks-eng-all-2gram-20120701-aa" />
     <entry file="file://$PROJECT_DIR$/new_structure/modules/g_ngrams.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/data/darkthoughts/googlebooks-eng-all-2gram-20120701-aa.txt" />
     <entry file="file://$PROJECT_DIR$/new_structure/data/an3.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/data/an4.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/data/an2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/MetaphorIdentification.py" />
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/registry.py" />
-    <entry file="file://$PROJECT_DIR$/new_structure/TroFi_main.py">
+    <entry file="file://$PROJECT_DIR$/sample/main.py" />
+    <entry file="file://$PROJECT_DIR$/sample/modules/registry.py" />
+    <entry file="file://$PROJECT_DIR$/sample/TroFiParsing.py" />
+    <entry file="file://$PROJECT_DIR$/new_structure/data/darkthoughts/googlebooks-eng-all-2gram-20120701-aa.csv" />
+    <entry file="file://$PROJECT_DIR$/new_structure/data/darkthoughts/googlebooks-eng-all-2gram-20120701-aa.txt" />
+    <entry file="file://$PROJECT_DIR$/new_structure/cluster_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+        <state relative-caret-position="-1138">
+          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metaphor_stratergies/pramanick_pabitra.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/AC_ratings_google3m_koeper_SiW.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/gensim/models/keyedvectors.py">
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/TroFi/TroFiParsing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="1431" selection-start-line="1431" selection-end-line="1431" />
+        <state relative-caret-position="986">
+          <caret line="59" column="17" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/wiki.en.vec">
-      <provider selected="true" editor-type-id="LargeFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/build.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/TroFi/TroFiAnalysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.5/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="308" selection-start-line="308" selection-end-line="308" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/MetaphorIdentification.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31320">
-          <caret line="1740" selection-start-line="1740" selection-end-line="1740" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/metaphor_stratergies/kmeans_pramanick_pabitra.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="34" selection-start-line="1" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/labeled_metaphor_list.py" />
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/labeled_metaphor.py" />
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_candidate.py" />
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/training_adj_noun_met_en.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/g_ngrams_main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/candidate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/data/clustering/results.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state>
-          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/darkthoughts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/ngrams.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="48" column="18" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/nltk/data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="831" column="23" lean-forward="true" selection-start-line="831" selection-start-column="23" selection-end-line="831" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/clustering/wordClusterList.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/clustering/parsing.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/cluster.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/annotated_text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="357">
+          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/modules/sample_functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/candidate_group.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/darkthoughts/googlebooks-eng-all-2gram-20120701-ab.txt" />
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/1229511635/builtins.py" />
+    <entry file="file://$PROJECT_DIR$/../../4 - Cours/Natural Language Processing/Homeworks/2/code/imdb.py" />
+    <entry file="file://$PROJECT_DIR$/new_structure/data/an2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/registry.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/TroFiMetaphors.csv">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/cluster_module.py">
+    <entry file="file://$PROJECT_DIR$/new_structure/data/vn2.txt" />
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_candidate.py" />
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/labeled_metaphor.py" />
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/annotated_text.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="112" column="33" selection-start-line="112" selection-start-column="23" selection-end-line="112" selection-end-column="33" />
+        <state>
           <folding>
-            <element signature="e#0#55#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/nltk/tokenize/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/MetaphorIdentification.py" />
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/labeled_metaphor_list.py" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="435">
+            <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_abstractness_identification.py">
+    <entry file="file://$PROJECT_DIR$/metaphor_stratergies/kmeans_pramanick_pabitra.py" />
+    <entry file="file://$PROJECT_DIR$/requirements.txt" />
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="28" lean-forward="true" selection-start-line="21" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/pandas/core/reshape/concat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="37" />
+        <state relative-caret-position="31320">
+          <caret line="1740" selection-start-line="1740" selection-end-line="1740" />
         </state>
       </provider>
     </entry>
@@ -1028,17 +673,139 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/nltk/tokenize/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/g_ngrams_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/categories.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/darkthoughts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/ngrams.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/TroFi_main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="78" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/registry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/sklearn/metrics/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/.~lock.Datasets_ACL2014.xlsx#">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_identification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
+        <state relative-caret-position="594">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_group.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/cluster_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2322">
+          <caret line="136" selection-start-line="136" selection-end-line="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/data/results.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/candidate.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/candidate_group.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/sklearn/cluster/k_means_.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13114">
+          <caret line="938" selection-start-line="938" selection-end-line="938" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="342">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
           <folding>
             <element signature="e#59#70#0" expanded="true" />
           </folding>
@@ -1047,8 +814,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+        <state relative-caret-position="139">
+          <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
