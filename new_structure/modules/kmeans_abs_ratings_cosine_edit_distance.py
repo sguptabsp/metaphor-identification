@@ -38,6 +38,40 @@ def get_cosine_similarity_model(df):
     return model
 
 
+def vectorize_data(df):
+    an_vectorized = []
+
+    model = get_cosine_similarity_model(df)
+
+    abstractness_rating_dict = get_abstractness_rating()
+
+    for j in zip(df.adj, df.noun):
+        a = j[0]
+        n = j[1]
+        l = []
+        if '-' in a:
+            s = a.split('-')
+            ar_Adj = (float(abstractness_rating_dict[s[0]]) + float(abstractness_rating_dict[s[1]])) / 2
+        else:
+            ar_Adj = float(abstractness_rating_dict[a])
+        if '-' in n:
+            s = n.split('-')
+            ar_Noun = (float(abstractness_rating_dict[s[0]]) + float(abstractness_rating_dict[s[1]])) / 2
+        else:
+            ar_Noun = float(abstractness_rating_dict[n])
+        l.append((ar_Adj) / 10)
+        l.append((ar_Noun) / 10)
+        l.append((np.sign(ar_Adj - ar_Noun)))
+        s = model.similarity(j[0], j[1])
+        l.append(s)
+        l.append(nltk.edit_distance(j[0], j[1]) / 10)
+
+        an_vectorized.append(list(l))
+
+    an_vectorized = np.asarray(an_vectorized)
+    return an_vectorized
+
+
 @timeit
 def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
     results = MetaphorGroup()
@@ -72,36 +106,9 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
         data_list.append(dataframe_data)
     df_test_data = pd.DataFrame.from_records(data_list)
     df = pd.concat([df_test_data, df], axis=0).reset_index()
-    an_vectorized = []
 
-    model = get_cosine_similarity_model(df)
+    an_vectorized = vectorize_data(df)
 
-    abstractness_rating_dict = get_abstractness_rating()
-
-    for j in zip(df.adj, df.noun):
-        a = j[0]
-        n = j[1]
-        l = []
-        if '-' in a:
-            s = a.split('-')
-            ar_Adj = (float(abstractness_rating_dict[s[0]]) + float(abstractness_rating_dict[s[1]])) / 2
-        else:
-            ar_Adj = float(abstractness_rating_dict[a])
-        if '-' in n:
-            s = n.split('-')
-            ar_Noun = (float(abstractness_rating_dict[s[0]]) + float(abstractness_rating_dict[s[1]])) / 2
-        else:
-            ar_Noun = float(abstractness_rating_dict[n])
-        l.append((ar_Adj) / 10)
-        l.append((ar_Noun) / 10)
-        l.append((np.sign(ar_Adj - ar_Noun)))
-        s = model.similarity(j[0], j[1])
-        l.append(s)
-        l.append(nltk.edit_distance(j[0], j[1]) / 10)
-
-        an_vectorized.append(list(l))
-
-    an_vectorized = np.asarray(an_vectorized)
     kmeans_clustering = KMeans(n_clusters=2, random_state=43)
     idx = kmeans_clustering.fit(an_vectorized)
     y1 = idx.predict(an_vectorized)
