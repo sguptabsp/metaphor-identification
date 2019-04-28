@@ -104,9 +104,10 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     an_vectorized = np.asarray(an_vectorized)
     # an_vectorized = pd.DataFrame(an_vectorized)
     kmeans_clustering = KMeans(n_clusters=2, random_state=43)
-    idx = kmeans_clustering.fit_predict(an_vectorized)
+    idx = kmeans_clustering.fit(an_vectorized)
+    y1 = idx.predict(an_vectorized)
     #    print('Accuracy is: ', accuracy_score(idx, np.asarray(df['class'])))
-    df['predict'] = idx
+    df['predict'] = y1
     for c in candidates:
         adj = c.getSource()
         noun = c.getTarget()
