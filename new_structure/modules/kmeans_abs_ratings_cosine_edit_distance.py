@@ -29,6 +29,15 @@ def get_abstractness_rating():
     return abstractness_rating_dict
 
 
+def get_cosine_similarity_model(df):
+    data = []
+    for j in zip(df.adj, df.noun):
+        temp = [j[0], j[1]]
+        data.append(temp)
+    model = gensim.models.Word2Vec(data, min_count=1, size=200, window=5)
+    return model
+
+
 @timeit
 def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
     results = MetaphorGroup()
@@ -64,22 +73,10 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     df_test_data = pd.DataFrame.from_records(data_list)
     df = pd.concat([df_test_data, df], axis=0).reset_index()
     an_vectorized = []
-    # Load Abstractness Rating
-    # model = KeyedVectors.load_word2vec_format(
-    #     '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/wiki.en.vec')
-    data = []
-    for j in zip(df.adj, df.noun):
-        temp = [j[0], j[1]]
-        data.append(temp)
-    model = gensim.models.Word2Vec(data, min_count=1, size=200, window=5)
 
-    # for index, row in csv.iterrows():
-    #     s = (row['WORD\tRATING']).split('\t')
-    #     dict[s[0]] = s[1]
-    #     if index % 10000 == 0:
-    #         print(dict[s[0]])
+    model = get_cosine_similarity_model(df)
 
-    dict=get_abstractness_rating()
+    abstractness_rating_dict = get_abstractness_rating()
 
     for j in zip(df.adj, df.noun):
         a = j[0]
@@ -87,14 +84,14 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
         l = []
         if '-' in a:
             s = a.split('-')
-            ar_Adj = (float(dict[s[0]]) + float(dict[s[1]])) / 2
+            ar_Adj = (float(abstractness_rating_dict[s[0]]) + float(abstractness_rating_dict[s[1]])) / 2
         else:
-            ar_Adj = float(dict[a])
+            ar_Adj = float(abstractness_rating_dict[a])
         if '-' in n:
             s = n.split('-')
-            ar_Noun = (float(dict[s[0]]) + float(dict[s[1]])) / 2
+            ar_Noun = (float(abstractness_rating_dict[s[0]]) + float(abstractness_rating_dict[s[1]])) / 2
         else:
-            ar_Noun = float(dict[n])
+            ar_Noun = float(abstractness_rating_dict[n])
         # an_vectorized.append(( ar_Adj + ar_Noun)/10)
         l.append((ar_Adj) / 10)
         l.append((ar_Noun) / 10)
