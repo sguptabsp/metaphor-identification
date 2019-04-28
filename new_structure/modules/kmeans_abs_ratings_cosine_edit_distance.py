@@ -105,19 +105,21 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
         dataframe_data["noun"] = c.getTarget()
         data_list.append(dataframe_data)
     df_test_data = pd.DataFrame.from_records(data_list)
-    df = pd.concat([df_test_data, df], axis=0).reset_index()
+    df = pd.concat([df], axis=0).reset_index()
+    user_input_df = pd.concat([df_test_data], axis=0).reset_index()
 
     an_vectorized = vectorize_data(df)
+    an_vectorized_user_input = vectorize_data(user_input_df)
 
     kmeans_clustering = KMeans(n_clusters=2, random_state=43)
     idx = kmeans_clustering.fit(an_vectorized)
-    y1 = idx.predict(an_vectorized)
+    y1 = idx.predict(an_vectorized_user_input)
 
-    df['predict'] = y1
+    user_input_df['predict'] = y1
     for c in candidates:
         adj = c.getSource()
         noun = c.getTarget()
-        candidate_df = df.loc[(df['adj'] == adj) & (df['noun'] == noun)]
+        candidate_df = user_input_df.loc[(user_input_df['adj'] == adj) & (user_input_df['noun'] == noun)]
         if len(candidate_df.index):
             result_class = candidate_df.iloc[0]['predict']
             # for j in zip(df.adj,df.noun):
