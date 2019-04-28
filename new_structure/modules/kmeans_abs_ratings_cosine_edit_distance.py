@@ -4,7 +4,6 @@ import numpy as np
 import pandas as pd
 from gensim.models import KeyedVectors
 from sklearn.cluster import KMeans
-from sklearn.metrics import accuracy_score
 
 from new_structure.modules.datastructs.metaphor import Metaphor
 from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
@@ -18,7 +17,18 @@ def create_word2vec_model():
 
     return model
 
-#
+
+def get_abstractness_rating():
+    csv = pd.read_csv(
+        "/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/AC_ratings_google3m_koeper_SiW.csv",
+        error_bad_lines=False)
+    csv = pd.DataFrame(csv)
+    csv_df = pd.DataFrame(csv['WORD\tRATING'].str.split('\t', 1).tolist(),
+                          columns=['word', 'rating'])
+    abstractness_rating_dict = pd.Series(csv_df.rating.values, index=csv_df.word).to_dict()
+    return abstractness_rating_dict
+
+
 @timeit
 def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
     results = MetaphorGroup()
@@ -33,12 +43,16 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     LIT_AN_EN['class'] = 0
 
     fields = ['adj', 'noun']
-    MET_AN_EN_TEST = pd.read_excel('/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx', sheetname='MET_AN_EN', usecols=fields)
+    MET_AN_EN_TEST = pd.read_excel(
+        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx',
+        sheetname='MET_AN_EN', usecols=fields)
     MET_AN_EN_TEST['class'] = 1
-    LIT_AN_EN_TEST = pd.read_excel('/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx', sheetname='LIT_AN_EN', usecols=fields)
+    LIT_AN_EN_TEST = pd.read_excel(
+        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx',
+        sheetname='LIT_AN_EN', usecols=fields)
     LIT_AN_EN_TEST['class'] = 0
 
-    df = pd.concat([LIT_AN_EN, MET_AN_EN,MET_AN_EN_TEST,LIT_AN_EN_TEST])
+    df = pd.concat([LIT_AN_EN, MET_AN_EN, MET_AN_EN_TEST, LIT_AN_EN_TEST])
 
     data_list = []
 
@@ -59,20 +73,13 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
         data.append(temp)
     model = gensim.models.Word2Vec(data, min_count=1, size=200, window=5)
 
-    csv = pd.read_csv(
-        "/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/AC_ratings_google3m_koeper_SiW.csv",
-        error_bad_lines=False)
-    csv = pd.DataFrame(csv)
-    dict = {}
-    csv_df = pd.DataFrame(csv['WORD\tRATING'].str.split('\t', 1).tolist(),
-                          columns=['word', 'rating'])
-    dict=pd.Series(csv_df.rating.values, index=csv_df.word).to_dict()
-
     # for index, row in csv.iterrows():
     #     s = (row['WORD\tRATING']).split('\t')
     #     dict[s[0]] = s[1]
     #     if index % 10000 == 0:
     #         print(dict[s[0]])
+
+    dict=get_abstractness_rating()
 
     for j in zip(df.adj, df.noun):
         a = j[0]
