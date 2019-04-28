@@ -92,7 +92,6 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
             ar_Noun = (float(abstractness_rating_dict[s[0]]) + float(abstractness_rating_dict[s[1]])) / 2
         else:
             ar_Noun = float(abstractness_rating_dict[n])
-        # an_vectorized.append(( ar_Adj + ar_Noun)/10)
         l.append((ar_Adj) / 10)
         l.append((ar_Noun) / 10)
         l.append((np.sign(ar_Adj - ar_Noun)))
@@ -100,17 +99,13 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
         l.append(s)
         l.append(nltk.edit_distance(j[0], j[1]) / 10)
 
-        # an_vectorized = np.asarray([ [(ar_Adj)/10],[(ar_Noun)/10], [np.sign(ar_Adj - ar_Noun)]])
         an_vectorized.append(list(l))
-        # an_vectorized.append(create_word2vec_model().similarity(j[0], j[1]))
 
-        # an_vectorized.append(( ar_Adj + ar_Noun)/10)
     an_vectorized = np.asarray(an_vectorized)
-    # an_vectorized = pd.DataFrame(an_vectorized)
     kmeans_clustering = KMeans(n_clusters=2, random_state=43)
     idx = kmeans_clustering.fit(an_vectorized)
     y1 = idx.predict(an_vectorized)
-    #    print('Accuracy is: ', accuracy_score(idx, np.asarray(df['class'])))
+
     df['predict'] = y1
     for c in candidates:
         adj = c.getSource()
