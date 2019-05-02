@@ -4,6 +4,8 @@ import numpy as np
 import pandas as pd
 from gensim.models import KeyedVectors
 from sklearn.cluster import KMeans
+from sklearn.metrics import accuracy_score
+from sklearn.decomposition import PCA
 
 from new_structure.modules.datastructs.metaphor import Metaphor
 from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
@@ -103,17 +105,30 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
         dataframe_data = {}
         dataframe_data["adj"] = c.getSource()
         dataframe_data["noun"] = c.getTarget()
+        dataframe_data["class"] = get_adj_noun_class(df, c.getSource(), c.getTarget())
+        if not isinstance(dataframe_data["class"], (bool, int)):
+            dataframe_data["class"] = 2
         data_list.append(dataframe_data)
     df_test_data = pd.DataFrame.from_records(data_list)
-    df = pd.concat([df], axis=0).reset_index()
+    # df = pd.concat([df], axis=0).reset_index()
     user_input_df = pd.concat([df_test_data], axis=0).reset_index()
 
+    # an_vectorized = vectorize_data_abstractness(df)
+    # an_vectorized_user_input = vectorize_data_abstractness(user_input_df)
+    # an_vectorized = vectorize_data_abstractness_cosine(df)
+    # an_vectorized_user_input = vectorize_data_abstractness_cosine(user_input_df)
     an_vectorized = vectorize_data(df)
     an_vectorized_user_input = vectorize_data(user_input_df)
 
+    an_vectorized_training_PCA = PCA(n_components=2).fit_transform(an_vectorized)
+    an_vectorized_test_PCA = PCA(n_components=2).fit_transform(an_vectorized_user_input)
+
     kmeans_clustering = KMeans(n_clusters=2, random_state=43)
-    idx = kmeans_clustering.fit(an_vectorized)
-    y1 = idx.predict(an_vectorized_user_input)
+    idx = kmeans_clustering.fit(an_vectorized_training_PCA)
+    kmeans_cluster_centers = kmeans_clustering.cluster_centers_
+    y1 = idx.predict(an_vectorized_test_PCA)
+
+    label=kmeans_clustering.labels_
 
     user_input_df['predict'] = y1
     for c in candidates:
