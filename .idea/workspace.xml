@@ -45,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="253" selection-start-line="253" selection-end-line="253" />
+            <state relative-caret-position="490">
+              <caret line="261" column="37" lean-forward="true" selection-start-line="261" selection-start-column="37" selection-end-line="261" selection-end-column="37" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -471,7 +471,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556462825050</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="PCA applied on df and applied kmeans">
+      <created>1556759569127</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1556759569127</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -485,6 +492,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.12827511" />
@@ -498,7 +506,7 @@
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32810867" />
       <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49932885" weight="0.5778474" />
-      <window_info active="true" anchor="bottom" id="Debug" order="9" visible="true" weight="0.34064785" />
+      <window_info active="true" anchor="bottom" id="Debug" order="9" visible="true" weight="0.19122256" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.3286119" />
@@ -592,7 +600,8 @@
     <MESSAGE value="clean commented junk" />
     <MESSAGE value="created vectorize_data" />
     <MESSAGE value="Completed test over train for abstractness Ratings+ cosine similarity+edit distance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed test over train for abstractness Ratings+ cosine similarity+edit distance" />
+    <MESSAGE value="PCA applied on df and applied kmeans" />
+    <option name="LAST_COMMIT_MESSAGE" value="PCA applied on df and applied kmeans" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -986,8 +995,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="253" selection-start-line="253" selection-end-line="253" />
+        <state relative-caret-position="490">
+          <caret line="261" column="37" lean-forward="true" selection-start-line="261" selection-start-column="37" selection-end-line="261" selection-end-column="37" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

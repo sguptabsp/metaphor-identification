@@ -130,6 +130,19 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 
     label=kmeans_clustering.labels_
 
+    print(label)
+
+    #
+    # an_vectorized_conf_df= pd.DataFrame
+    # an_vectorized_conf_df = pd.concat([an_vectorized,an_vectorized_user_input])
+    # an_vectorized_conf_df=pd.append(an_vectorized)
+    conf_df= df.append(user_input_df)
+    an_vectorized_conf = vectorize_data(conf_df)
+    centroids =get_confidence(an_vectorized_conf,kmeans_clustering)
+    import matplotlib.pyplot as plt
+    plt.scatter(an_vectorized_conf[:, 0], an_vectorized_conf[:, 1], c=kmeans_clustering.labels_, cmap='rainbow')
+    plt.show()
+    print('Accuracy is: ', accuracy_score(np.asarray(user_input_df['class']), y1))
     user_input_df['predict'] = y1
     for c in candidates:
         adj = c.getSource()
@@ -152,6 +165,12 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
             # float_conf =float(result_class)
             results.addMetaphor(Metaphor(c, result, 1.0))
     return results
+
+
+
+
+
+
 #
 #
 # @timeit
@@ -411,3 +430,5 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 #             results.addMetaphor(Metaphor(c, result, 1.0))
 #     return results
 #
+
+
