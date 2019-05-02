@@ -6,7 +6,7 @@ from gensim.models import KeyedVectors
 from sklearn.cluster import KMeans
 from sklearn.metrics import accuracy_score
 from sklearn.decomposition import PCA
-
+from scipy.spatial import distance
 from new_structure.modules.datastructs.metaphor import Metaphor
 from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
 from new_structure.utils import timeit
@@ -150,8 +150,8 @@ def k_mean_distance(data, cx, cy, i_centroid, cluster_labels):
     return distances
 
 
-def get_confidence(an_vectorized,kmeans_clustering):
-
+def get_confidence(an_vectorized,kmeans_clustering,test_data_coordinates,predicted_data_labels):
+    confidence_dict={}
     # pca = PCA(n_components=2).fit(an_vectorized)
     # an_vectorized_PCA = PCA(n_components=2).fit_transform(an_vectorized)
     # an_vectorized_PCA = kmeans_clustering.transform(an_vectorized)
@@ -161,7 +161,7 @@ def get_confidence(an_vectorized,kmeans_clustering):
     #idx = kmeans_clustering.fit(an_vectorized)
     # clusters = kmeans_clustering.fit_predict(an_vectorized_PCA)
     # clusters = y1
-    # X_dist = kmeans_clustering.transform(an_vectorized) **2
+    X_dist = kmeans_clustering.transform(an_vectorized) **2
     # an_vectorized_PCA_square = an_vectorized_PCA**2
     # do something useful...
     import pandas as pd
@@ -180,15 +180,29 @@ def get_confidence(an_vectorized,kmeans_clustering):
 
     print(distances)
     #
-    # max_indices = []
-    # for label in np.unique(kmeans_clustering.labels_):
-    #     X_label_indices = np.where(clustering_labels == label)[0]
-    #     max_label_idx = X_label_indices[np.argmax(X_dist[clustering_labels == label].sum(axis=1))]
-    #     max_indices.append(max_label_idx)
-    #
-    # print(len(max_indices))
-    # # an_vectorized_PCA[max_indices, 0], an_vectorized_PCA[max_indices, 1]
-    # print(an_vectorized_PCA[max_indices, 0], an_vectorized_PCA[max_indices, 1])
+    max_indices = []
+    for label in np.unique(kmeans_clustering.labels_):
+        X_label_indices = np.where(clustering_labels == label)[0]
+        max_label_idx = X_label_indices[np.argmax(X_dist[clustering_labels == label].sum(axis=1))]
+        max_indices.append(max_label_idx)
+
+    print(len(max_indices))
+    # an_vectorized_PCA[max_indices, 0], an_vectorized_PCA[max_indices, 1]
+    cluster_0_farthest_point=an_vectorized[max_indices, 0]
+    cluster_1_farthest_point=an_vectorized[max_indices, 1]
+    cluster_0_max_distance=distance.euclidean(centroid_list[0], cluster_0_farthest_point.tolist())
+    cluster_1_max_distance=distance.euclidean(centroid_list[1], cluster_1_farthest_point.tolist())
+    test_data_coordinate_list=test_data_coordinates.tolist()
+    predicted_label_list=predicted_data_labels.tolist()
+    for i in range(len(test_data_coordinate_list)):
+        if predicted_label_list[i] == 0 :
+            data_point_center_distance=distance.euclidean(centroid_list[0], test_data_coordinate_list[i])
+            confidence_dict[i]=(cluster_0_max_distance-data_point_center_distance)/cluster_0_max_distance
+        elif predicted_label_list[i] == 1:
+            data_point_center_distance=distance.euclidean(centroid_list[1], test_data_coordinate_list[i])
+            confidence_dict[i]=(cluster_1_max_distance-data_point_center_distance)/cluster_1_max_distance
+
+    print(an_vectorized[max_indices, 0], an_vectorized[max_indices, 1])
     # X_dist_farthestPoint1 = kmeans_clustering.transform(an_vectorized_PCA[max_indices]) ** 2
     # X_dist_farthestPoint2 = kmeans_clustering.transform(an_vectorized_PCA[max_indices]) ** 2
     # an_vectorized_PCA_square1 = X_dist_farthestPoint1 ** 2
@@ -196,6 +210,7 @@ def get_confidence(an_vectorized,kmeans_clustering):
     #
     # print(an_vectorized_PCA_square1,an_vectorized_PCA_square2)
     # do something useful...
+    return confidence_dict
 
 @timeit
 def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
@@ -261,13 +276,16 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     # an_vectorized_conf_df=pd.append(an_vectorized)
     # conf_df= df.append(user_input_df)
     # an_vectorized_conf = vectorize_data(conf_df)
-    centroids =get_confidence(an_vectorized_training_PCA,kmeans_clustering)
+    confidence =get_confidence(an_vectorized_training_PCA,kmeans_clustering,an_vectorized_test_PCA,y1)
+    print("Confidence of the corresponding words are : {} ".format(confidence))
     import matplotlib.pyplot as plt
     plt.scatter(an_vectorized[:, 0], an_vectorized[:, 1], c=kmeans_clustering.labels_, cmap='rainbow')
     plt.show()
     print('Accuracy is: ', accuracy_score(np.asarray(user_input_df['class']), y1))
     user_input_df['predict'] = y1
+    confidence_counter=-1
     for c in candidates:
+        confidence_counter+=1
         adj = c.getSource()
         noun = c.getTarget()
         candidate_df = user_input_df.loc[(user_input_df['adj'] == adj) & (user_input_df['noun'] == noun)]
@@ -286,7 +304,7 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 
             print(result)
             # float_conf =float(result_class)
-            results.addMetaphor(Metaphor(c, result, 1.0))
+            results.addMetaphor(Metaphor(c, result, confidence[confidence_counter]))
     return results
 
 

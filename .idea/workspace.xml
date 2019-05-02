@@ -45,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="261" column="37" lean-forward="true" selection-start-line="261" selection-start-column="37" selection-end-line="261" selection-end-column="37" />
+            <state relative-caret-position="-1692">
+              <caret line="197" column="41" lean-forward="true" selection-start-line="197" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -66,11 +66,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/kmeans_centroid_blob_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
+            <state relative-caret-position="252">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/sklearn/datasets/samples_generator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="699" column="4" selection-start-line="699" selection-start-column="4" selection-end-line="699" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -113,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getMostFrequents</find>
       <find>LabeledMetaphorList</find>
       <find>Adjective</find>
       <find>CollocationList</find>
@@ -143,6 +151,7 @@
       <find>fit</find>
       <find>df</find>
       <find>dimen</find>
+      <find>predict</find>
     </findStrings>
     <dirStrings>
       <dir>D:\Thomas\Documents\IIT\5 - Research Project\Research_Project\new_structure\modules</dir>
@@ -478,7 +487,28 @@
       <option name="project" value="LOCAL" />
       <updated>1556759569127</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="combined dataframes">
+      <created>1556759758235</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1556759758235</updated>
+    </task>
+    <task id="LOCAL-00010" summary="initial implementation of confidence and PCA calculation">
+      <created>1556759814233</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1556759814233</updated>
+    </task>
+    <task id="LOCAL-00011" summary="distance calculation works">
+      <created>1556760958930</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1556760958930</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -492,7 +522,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.12827511" />
@@ -505,8 +534,8 @@
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32810867" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49932885" weight="0.5778474" />
-      <window_info active="true" anchor="bottom" id="Debug" order="9" visible="true" weight="0.19122256" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.49932885" visible="true" weight="0.5778474" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.32706374" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.3286119" />
@@ -601,7 +630,10 @@
     <MESSAGE value="created vectorize_data" />
     <MESSAGE value="Completed test over train for abstractness Ratings+ cosine similarity+edit distance" />
     <MESSAGE value="PCA applied on df and applied kmeans" />
-    <option name="LAST_COMMIT_MESSAGE" value="PCA applied on df and applied kmeans" />
+    <MESSAGE value="combined dataframes" />
+    <MESSAGE value="initial implementation of confidence and PCA calculation" />
+    <MESSAGE value="distance calculation works" />
+    <option name="LAST_COMMIT_MESSAGE" value="distance calculation works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -613,22 +645,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py</url>
-          <line>281</line>
+          <line>299</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py</url>
-          <line>530</line>
+          <line>548</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py</url>
-          <line>268</line>
+          <line>284</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py</url>
-          <line>267</line>
+          <line>283</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -638,28 +670,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/examples/kmeans_centroid_blob_data.py</url>
-          <line>46</line>
+          <line>47</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/examples/kmeans_centroid_blob_data.py</url>
-          <line>50</line>
+          <line>51</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py</url>
-          <line>196</line>
+          <line>210</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py</url>
-          <line>192</line>
-          <option name="timeStamp" value="47" />
+          <line>280</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint type="python-line">
+          <url>file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py</url>
+          <line>148</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py</url>
-          <line>253</line>
-          <option name="timeStamp" value="49" />
+          <line>204</line>
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -679,11 +716,39 @@
         <watch expression="centroids.tolist()" language="Python" />
         <watch expression="kmeans_clustering.cluster_centers_.reshape(5,2)" language="Python" />
         <watch expression="kmeans_clustering.cluster_centers_.reshape(2,2)" language="Python" />
+        <watch expression="an_vectorized[max_indices, 0].tolist()" language="Python" />
+        <watch expression="an_vectorized[max_indices, 1]" language="Python" />
+        <watch expression="predicted_data_labels.tolist()" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>predicted_data_labels.tolist()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>predicted_data_labels.tolist()[0]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>an_vectorized[max_indices, 0].tolist()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>an_vectorized[max_indices, 1]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>an_vectorized[max_indices, 0]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>centroids.tolist()</expression-string>
         <language-id>Python</language-id>
@@ -706,26 +771,6 @@
       </expression>
       <expression>
         <expression-string>kmeans_clustering.cluster_centers_.reshape(10,2,2)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>kmeans_clustering.cluster_centers_.reshape(2,2,2)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>kmeans.cluster_centers_[:,0]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>set(label.tolist())</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>label.tolist().count(0)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -945,13 +990,6 @@
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/seaborn/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/sklearn/cluster/k_means_.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="1029" column="36" selection-start-line="1029" selection-start-column="31" selection-end-line="1029" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -969,23 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/sklearn/datasets/samples_generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="720" column="23" lean-forward="true" selection-start-line="720" selection-start-column="23" selection-end-line="720" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/kmeans_centroid_blob_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_identification.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -993,10 +1014,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/sklearn/cluster/k_means_.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="1029" column="36" selection-start-line="1029" selection-start-column="31" selection-end-line="1029" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/sklearn/datasets/samples_generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="699" column="4" selection-start-line="699" selection-start-column="4" selection-end-line="699" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/kmeans_centroid_blob_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/modules/kmeans_abs_ratings_cosine_edit_distance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="261" column="37" lean-forward="true" selection-start-line="261" selection-start-column="37" selection-end-line="261" selection-end-column="37" />
+        <state relative-caret-position="-1692">
+          <caret line="197" column="41" lean-forward="true" selection-start-line="197" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
