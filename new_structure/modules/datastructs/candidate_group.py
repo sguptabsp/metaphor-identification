@@ -13,6 +13,9 @@ class CandidateGroup:
 	def getCandidate(self, index):
 		return self.candidates[index]
 
+	def getSize(self):
+		return self.size
+
 	def __iter__(self):
 		return iter(self.candidates)
 

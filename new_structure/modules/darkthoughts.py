@@ -8,7 +8,7 @@ from .datastructs.ngrams import CollocationList, parseConcreteness, parseNgrams
 from .datastructs.categories import Categories, parseCategories
 
 ADJ_FILES = [ ("data/an2.txt", 2), ("data/an3.txt", 3), ("data/an4.txt", 4), ("data/an5.txt", 5)]
-VERB_FILES = [("data/vn2.txt", 2)]
+VERB_FILES = [("data/vn2.txt", 2)] # This file is a filtered version of vn2_v1: it only keep the lines with frequency > 1000
 NGRAMS_FILES = {"adjNoun": ADJ_FILES, "verbNoun": VERB_FILES}
 
 POS = [{"adjNoun": "jj", "verbNoun": "v"}, {"adjNoun": "nn", "verbNoun": "n"}]

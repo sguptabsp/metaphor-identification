@@ -1,5 +1,6 @@
 import csv
 import argparse as ap
+import pandas
 
 AT_PATH = "data/annotated_corpus.csv"
 MET_PATH = "data/results.csv"
@@ -19,6 +20,7 @@ def readFromTextFile(path):
 	with open(path, 'r') as textFile:
 		data = textFile.read()
 	return data
+
 
 def getText(args):
 	if args.file:
@@ -46,7 +48,7 @@ def parseCommandLine():
 
 	if not args.all:
 		args.all = False
-	else:
+
 		if not args.mlabeler:
 			args.mlabeler = "darkthoughts" #default method of labelling
 		if not args.cfinder:

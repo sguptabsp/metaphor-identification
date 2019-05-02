@@ -5,7 +5,7 @@ class MetaphorIdentification:
         self.rawText = text
         self.annotatedText = None
         self.candidates = None
-        self.metaphors = []
+        self.metaphors = None
 
     def getRawText(self):
         return self.rawText
