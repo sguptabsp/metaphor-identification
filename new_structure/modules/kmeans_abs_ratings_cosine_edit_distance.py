@@ -152,49 +152,49 @@ def k_mean_distance(data, cx, cy, i_centroid, cluster_labels):
 
 def get_confidence(an_vectorized,kmeans_clustering):
 
-    pca = PCA(n_components=2).fit(an_vectorized)
-    an_vectorized_PCA = PCA(n_components=2).fit_transform(an_vectorized)
+    # pca = PCA(n_components=2).fit(an_vectorized)
+    # an_vectorized_PCA = PCA(n_components=2).fit_transform(an_vectorized)
     # an_vectorized_PCA = kmeans_clustering.transform(an_vectorized)
     centroids = kmeans_clustering.cluster_centers_
-
+    clustering_labels = kmeans_clustering.labels_
     # centroids_transformed = kmeans_clustering.transform(centroids)
     #idx = kmeans_clustering.fit(an_vectorized)
-    clusters = kmeans_clustering.fit_predict(an_vectorized_PCA)
+    # clusters = kmeans_clustering.fit_predict(an_vectorized_PCA)
     # clusters = y1
-    X_dist = kmeans_clustering.transform(an_vectorized_PCA) **2
-    an_vectorized_PCA_square = an_vectorized_PCA**2
+    # X_dist = kmeans_clustering.transform(an_vectorized) **2
+    # an_vectorized_PCA_square = an_vectorized_PCA**2
     # do something useful...
     import pandas as pd
-    df_conf = pd.DataFrame(an_vectorized_PCA_square.sum(axis=1).round(2), columns=['sqdist'])
-    df_conf['label'] = clusters
+    # df_conf = pd.DataFrame(an_vectorized_PCA_square.sum(axis=1).round(2), columns=['sqdist'])
+    # df_conf['label'] = clustering_labels
 
-    df_conf.head()
-    print(df_conf.tail(10))
+    # df_conf.head()
+    # print(df_conf.tail(10))
     centroid_list=centroids.tolist()
     distances = []
     #for i in range(len(centroid_list[0])):
     for i, (cx, cy) in enumerate(centroids):
-        mean_distance = k_mean_distance(an_vectorized_PCA, cx, cy, i, clusters)
+        mean_distance = k_mean_distance(an_vectorized, cx, cy, i, clustering_labels)
         #mean_distance = k_mean_distance(an_vectorized_PCA, centroid_list[0][i], centroid_list[1][i], i, clusters)
         distances.append(mean_distance)
 
     print(distances)
-
-    max_indices = []
-    for label in np.unique(kmeans_clustering.labels_):
-        X_label_indices = np.where(clusters == label)[0]
-        max_label_idx = X_label_indices[np.argmax(X_dist[clusters == label].sum(axis=1))]
-        max_indices.append(max_label_idx)
-
-    print(len(max_indices))
-    # an_vectorized_PCA[max_indices, 0], an_vectorized_PCA[max_indices, 1]
-    print(an_vectorized_PCA[max_indices, 0], an_vectorized_PCA[max_indices, 1])
-    X_dist_farthestPoint1 = kmeans_clustering.transform(an_vectorized_PCA[max_indices]) ** 2
-    X_dist_farthestPoint2 = kmeans_clustering.transform(an_vectorized_PCA[max_indices]) ** 2
-    an_vectorized_PCA_square1 = X_dist_farthestPoint1 ** 2
-    an_vectorized_PCA_square2 = X_dist_farthestPoint2 ** 2
-
-    print(an_vectorized_PCA_square1,an_vectorized_PCA_square2)
+    #
+    # max_indices = []
+    # for label in np.unique(kmeans_clustering.labels_):
+    #     X_label_indices = np.where(clustering_labels == label)[0]
+    #     max_label_idx = X_label_indices[np.argmax(X_dist[clustering_labels == label].sum(axis=1))]
+    #     max_indices.append(max_label_idx)
+    #
+    # print(len(max_indices))
+    # # an_vectorized_PCA[max_indices, 0], an_vectorized_PCA[max_indices, 1]
+    # print(an_vectorized_PCA[max_indices, 0], an_vectorized_PCA[max_indices, 1])
+    # X_dist_farthestPoint1 = kmeans_clustering.transform(an_vectorized_PCA[max_indices]) ** 2
+    # X_dist_farthestPoint2 = kmeans_clustering.transform(an_vectorized_PCA[max_indices]) ** 2
+    # an_vectorized_PCA_square1 = X_dist_farthestPoint1 ** 2
+    # an_vectorized_PCA_square2 = X_dist_farthestPoint2 ** 2
+    #
+    # print(an_vectorized_PCA_square1,an_vectorized_PCA_square2)
     # do something useful...
 
 @timeit
@@ -259,11 +259,11 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     # an_vectorized_conf_df= pd.DataFrame
     # an_vectorized_conf_df = pd.concat([an_vectorized,an_vectorized_user_input])
     # an_vectorized_conf_df=pd.append(an_vectorized)
-    conf_df= df.append(user_input_df)
-    an_vectorized_conf = vectorize_data(conf_df)
-    centroids =get_confidence(an_vectorized_conf,kmeans_clustering)
+    # conf_df= df.append(user_input_df)
+    # an_vectorized_conf = vectorize_data(conf_df)
+    centroids =get_confidence(an_vectorized_training_PCA,kmeans_clustering)
     import matplotlib.pyplot as plt
-    plt.scatter(an_vectorized_conf[:, 0], an_vectorized_conf[:, 1], c=kmeans_clustering.labels_, cmap='rainbow')
+    plt.scatter(an_vectorized[:, 0], an_vectorized[:, 1], c=kmeans_clustering.labels_, cmap='rainbow')
     plt.show()
     print('Accuracy is: ', accuracy_score(np.asarray(user_input_df['class']), y1))
     user_input_df['predict'] = y1
