@@ -34,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/new_structure/main_excel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
+            <state relative-caret-position="95">
+              <caret line="60" column="46" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="46" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -46,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_identification_list.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+            <state relative-caret-position="561">
+              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
               <folding>
                 <element signature="e#0#74#0" expanded="true" />
               </folding>
@@ -425,6 +425,7 @@
       <workItem from="1556233142635" duration="4884000" />
       <workItem from="1556755028099" duration="380000" />
       <workItem from="1556807674469" duration="1849000" />
+      <workItem from="1556910075088" duration="892000" />
     </task>
     <servers />
   </component>
@@ -434,7 +435,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32991000" />
+    <option name="totallyTimeSpent" value="33883000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -446,11 +447,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.20911528" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.21179625" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.3281471" />
@@ -460,7 +461,7 @@
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3281471" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49932885" weight="0.2234795" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.49932885" visible="true" weight="0.2234795" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.49646392" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -505,7 +506,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Research_Project$truc.coverage" NAME="truc Coverage Results" MODIFIED="1555448107751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
     <SUITE FILE_PATH="coverage/Research_Project$main_2.coverage" NAME="main_2 Coverage Results" MODIFIED="1554992854281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
-    <SUITE FILE_PATH="coverage/Research_Project$main_excel.coverage" NAME="main_excel Coverage Results" MODIFIED="1556812470971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
+    <SUITE FILE_PATH="coverage/Research_Project$main_excel.coverage" NAME="main_excel Coverage Results" MODIFIED="1556910500970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
     <SUITE FILE_PATH="coverage/Research_Project$main.coverage" NAME="main Coverage Results" MODIFIED="1555449541902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/new_structure" />
   </component>
   <component name="editorHistoryManager">
@@ -767,8 +768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/modules/datastructs/metaphor_identification_list.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+        <state relative-caret-position="561">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
           <folding>
             <element signature="e#0#74#0" expanded="true" />
           </folding>
@@ -777,8 +778,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/main_excel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
+        <state relative-caret-position="95">
+          <caret line="60" column="46" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="46" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
