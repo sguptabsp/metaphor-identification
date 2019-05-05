@@ -79,13 +79,13 @@ if __name__ == "__main__":
         if args.verbose:
             print(object.getMetaphors())
 
-        list.labelMetaphors(mLabelerFunction, args.cfinder, args.verbose)
-        if args.verbose:
-            print(list.getMetaphors())
+        # list.labelMetaphors(mLabelerFunction, args.cfinder, args.verbose)
+        # if args.verbose:
+        #     print(list.getMetaphors())
 
         print(object.getMetaphors())
         print('-----------------------------------------------')
-        print(list.getMetaphors())
+        # print(list.getMetaphors())
 
     else:
         print("The candidate finder or the metaphor labeler is incorrect")
