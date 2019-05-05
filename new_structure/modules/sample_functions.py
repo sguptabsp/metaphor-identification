@@ -102,6 +102,23 @@ def verbNounFinder(annotatedText):
 
 	return candidates
 
+# Need modification for sources or targets that are more than 1 word long
+def candidateFromPair(annotatedText, source, target):
+	if source in annotatedText.words:
+		sourceIndex = annotatedText.words.index(source)
+	else:
+		sourceIndex = annotatedText.getColumn("lemma").index(source)
+
+	if target in annotatedText.words:
+		targetIndex = annotatedText.words.index(target)
+	else:
+		targetIndex = annotatedText.getColumn("lemma").index(target)
+
+	sourceSpan = (sourceIndex,sourceIndex)
+	targetSpan = (targetIndex, targetIndex)
+
+	return Candidate(annotatedText, sourceIndex, sourceSpan, targetIndex, targetSpan)
+
 
 # TODO: Write function that finds a verb and its object using a dependancy parser
 '''

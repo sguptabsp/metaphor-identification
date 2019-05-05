@@ -13,13 +13,15 @@ class Categories:
 		self.words[word].append(category)
 
 	def getCategoriesFromWord(self, word):
-		return self.words[word]
+		# return self.words[word]
+		return self.words.get(word, [])
 
 	def getCategories(self):
 		return self.categories.keys()
 
 	def getWordsFromCategory(self, category):
-		return self.categories[category]
+		# return self.categories[category]
+		return self.categories.get(category, [])
 
 	def getCategoriesFromWords(self, n, words):
 		res = []

@@ -20,7 +20,7 @@ class AnnotatedText:
 		return self.rawText
 
 	def getLine(self, index):
-		return self.table[i]
+		return self.table[index]
 
 	def getColumn(self, columnName):
 		column = []

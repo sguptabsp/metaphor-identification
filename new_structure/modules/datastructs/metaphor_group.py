@@ -14,6 +14,9 @@ class MetaphorGroup:
 	def getMetaphor(self, index):
 		return self.metaphors[index]
 
+	def getSize(self):
+		return self.size
+
 	def __iter__(self):
 		return iter(self.metaphors)
 

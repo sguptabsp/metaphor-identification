@@ -24,7 +24,7 @@ class CollocationList:
 			size = min(n, len(res))
 			return res[:size]
 		else:
-			print("Adjective \"" + adjective + "\" not in database.")
+			print("Source \"" + adjective + "\" not in database.")
 			return []
 
 	def getFrequency(self, adjective, noun):
