@@ -18,7 +18,7 @@ from new_structure.modules.sample_functions import posFunction, lemmatizingFunct
 # Candidate finding functions
 from new_structure.modules.sample_functions import verbNounFinder, adjNounFinder
 from new_structure.modules.utils import parseCommandLine, getText
-from new_structure.modules.datastructs.metaphor_identification import MetaphorIdentification
+# from new_structure.modules.datastructs.metaphor_identification import MetaphorIdentification
 from new_structure.modules.datastructs.metaphor_identification_list import MetaphorIdentificationList
 
 
@@ -49,15 +49,15 @@ if __name__ == "__main__":
         mLabelerFunction = metaphorRegistry.getMLabeler(args.mlabeler)
 
         #Object declaration
-        object = MetaphorIdentification(text)
+        # object = MetaphorIdentification(text)
         list = MetaphorIdentificationList(text)
 
         #Step 1: Annotating the text
-        object.annotateText()
-        object.annotTextAddColumn("POS", posFunction)  # Set a part-of-speech to each word of the string
-        object.annotTextAddColumn("lemma", lemmatizingFunction)  # Set a lemma to each word of the string
-        if args.verbose:
-            print(object.getAnnotatedText())
+        # object.annotateText()
+        # object.annotTextAddColumn("POS", posFunction)  # Set a part-of-speech to each word of the string
+        # object.annotTextAddColumn("lemma", lemmatizingFunction)  # Set a lemma to each word of the string
+        # if args.verbose:
+        #     print(object.getAnnotatedText())
 
         list.annotateText()
         list.annotTextAddColumn("POS", posFunction)  # Set a part-of-speech to each word of the string
@@ -66,26 +66,26 @@ if __name__ == "__main__":
             print(list.getAnnotatedText())
 
         #Step 2: Finding candidates
-        object.findCandidates(cFinderFunction)
-        if args.verbose:
-            print(object.getCandidates())
+        # object.findCandidates(cFinderFunction)
+        # if args.verbose:
+        #     print(object.getCandidates())
 
         list.findCandidates(cFinderFunction)
         if args.verbose:
             print(list.getCandidates())
 
         #Step 3: Labeling Metaphors
-        object.labelMetaphors(mLabelerFunction, args.cfinder, args.verbose)
-        if args.verbose:
-            print(object.getMetaphors())
-
-        # list.labelMetaphors(mLabelerFunction, args.cfinder, args.verbose)
+        # object.labelMetaphors(mLabelerFunction, args.cfinder, args.verbose)
         # if args.verbose:
-        #     print(list.getMetaphors())
+        #     print(object.getMetaphors())
 
-        print(object.getMetaphors())
-        print('-----------------------------------------------')
-        # print(list.getMetaphors())
+        list.labelMetaphors(mLabelerFunction, args.cfinder, verbose=args.verbose)
+        if args.verbose:
+            print(list.getMetaphors())
+
+        # print(object.getMetaphors())
+        # print('-----------------------------------------------')
+        print(list.getMetaphors())
 
     else:
         print("The candidate finder or the metaphor labeler is incorrect")

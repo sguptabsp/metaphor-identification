@@ -15,14 +15,14 @@ from new_structure.utils import timeit
 def create_word2vec_model():
     # Cosine Similarity model creation
     model = KeyedVectors.load_word2vec_format(
-        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/wiki.en.vec')
+        './modules/datastructs/wiki.en.vec')
 
     return model
 
 
 def get_abstractness_rating():
     csv = pd.read_csv(
-        "/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/AC_ratings_google3m_koeper_SiW.csv",
+        "./modules/datastructs/AC_ratings_google3m_koeper_SiW.csv",
         error_bad_lines=False)
     csv = pd.DataFrame(csv)
     csv_df = pd.DataFrame(csv['WORD\tRATING'].str.split('\t', 1).tolist(),
@@ -217,21 +217,21 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     results = MetaphorGroup()
 
     MET_AN_EN = pd.read_table(
-        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_met_en.txt',
+        './modules/datastructs/training_adj_noun_met_en.txt',
         delim_whitespace=True, names=('adj', 'noun'))
     MET_AN_EN['class'] = 1
     LIT_AN_EN = pd.read_table(
-        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_nonmet_en.txt',
+        './modules/datastructs/training_adj_noun_nonmet_en.txt',
         delim_whitespace=True, names=('adj', 'noun'))
     LIT_AN_EN['class'] = 0
 
     fields = ['adj', 'noun']
     MET_AN_EN_TEST = pd.read_excel(
-        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx',
+        './modules/datastructs/Datasets_ACL2014.xlsx',
         sheetname='MET_AN_EN', usecols=fields)
     MET_AN_EN_TEST['class'] = 1
     LIT_AN_EN_TEST = pd.read_excel(
-        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx',
+        './modules/datastructs/Datasets_ACL2014.xlsx',
         sheetname='LIT_AN_EN', usecols=fields)
     LIT_AN_EN_TEST['class'] = 0
 
