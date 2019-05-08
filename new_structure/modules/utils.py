@@ -1,6 +1,6 @@
 import csv
 import argparse as ap
-import pandas
+import pandas as pd
 
 AT_PATH = "data/annotated_corpus.csv"
 MET_PATH = "data/results.csv"
@@ -20,6 +20,29 @@ def readFromTextFile(path):
 	with open(path, 'r') as textFile:
 		data = textFile.read()
 	return data
+
+def readFromCsvFile(path):
+	pass
+
+def readFromExcelFile(path):
+	"""
+	Source column name = source
+	Target column name = target
+	Text column name = text
+	"""
+	usecols = [0, 1, 2]
+
+
+def extractText(path):
+	path.lower()
+	if path.endswith('.txt'):
+		return readFromTextFile(path)
+	elif path.endswith('.csv'):
+		return readFromCsvFile(path)
+	elif path.endswith('.xlsx'):
+		return readFromExcelFile(path)
+	else:
+		print("Does not handle this file format")
 
 
 def getText(args):
