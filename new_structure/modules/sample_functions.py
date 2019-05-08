@@ -122,7 +122,7 @@ def candidateFromPair(annotatedText, source, target):
 
 # TODO: Write function that finds a verb and its object using a dependancy parser
 '''
-def verbObjFinder(annotatedText):
+def verbObjFinder(annotatedText):`
 	candidates = CandidateGroup()
 	text = annotatedText.getText()
 
@@ -154,5 +154,5 @@ def testLabelFunction(candidates):
 			results.addMetaphor(Metaphor(c, True, 0.5))
 		else:
 			results.addMetaphor(Metaphor(c, False, 0.5))
-	
+
 	return results

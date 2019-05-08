@@ -9,20 +9,20 @@ from sklearn.decomposition import PCA
 from scipy.spatial import distance
 from new_structure.modules.datastructs.metaphor import Metaphor
 from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
-# from new_structure.utils import timeit
+from new_structure.utils import timeit
 
 
 def create_word2vec_model():
     # Cosine Similarity model creation
     model = KeyedVectors.load_word2vec_format(
-        '/new_structure/modules/datastructs/wiki.en.vec')
+        './modules/datastructs/wiki.en.vec')
 
     return model
 
 
 def get_abstractness_rating():
     csv = pd.read_csv(
-        "/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/AC_ratings_google3m_koeper_SiW.csv",
+        "./data/AC_ratings_google3m_koeper_SiW.csv",
         error_bad_lines=False)
     csv = pd.DataFrame(csv)
     csv_df = pd.DataFrame(csv['WORD\tRATING'].str.split('\t', 1).tolist(),
@@ -212,26 +212,26 @@ def get_confidence(an_vectorized,kmeans_clustering,test_data_coordinates,predict
     # do something useful...
     return confidence_dict
 
-# @timeit
+@timeit
 def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
     results = MetaphorGroup()
 
     MET_AN_EN = pd.read_table(
-        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_met_en.txt',
+        './data/training_adj_noun_met_en.txt',
         delim_whitespace=True, names=('adj', 'noun'))
     MET_AN_EN['class'] = 1
     LIT_AN_EN = pd.read_table(
-        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_nonmet_en.txt',
+        './data/training_adj_noun_nonmet_en.txt',
         delim_whitespace=True, names=('adj', 'noun'))
     LIT_AN_EN['class'] = 0
 
     fields = ['adj', 'noun']
     MET_AN_EN_TEST = pd.read_excel(
-        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx',
+        './data/Datasets_ACL2014.xlsx',
         sheetname='MET_AN_EN', usecols=fields)
     MET_AN_EN_TEST['class'] = 1
     LIT_AN_EN_TEST = pd.read_excel(
-        '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx',
+        './data/Datasets_ACL2014.xlsx',
         sheetname='LIT_AN_EN', usecols=fields)
     LIT_AN_EN_TEST['class'] = 0
 
@@ -571,5 +571,3 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 #             results.addMetaphor(Metaphor(c, result, 1.0))
 #     return results
 #
-
-

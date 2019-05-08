@@ -3,16 +3,22 @@
 
 import time
 
-from new_structure.modules.utils import parseCommandLine, getText
-from new_structure.modules.sample_functions import posFunction, lemmatizingFunction
-#Candidate finding functions
-from new_structure.modules.sample_functions import verbNounFinder, adjNounFinder
-#Metaphor labeling functions
-from new_structure.modules.darkthoughts import darkthoughtsFunction
 from new_structure.modules.cluster_module import clusteringFunction
-#Data structures
-from new_structure.modules.datastructs.registry import Registry
+# Metaphor labeling functions
+from new_structure.modules.darkthoughts import darkthoughtsFunction
 from new_structure.modules.datastructs.metaphor_identification import MetaphorIdentification
+from new_structure.modules.kmeans_abs_ratings_cosine_edit_distance import \
+    identify_metaphors_abstractness_cosine_edit_dist
+#from new_structure.modules.kmeans_abs_ratings_cosine_edit_distance import \
+ #   identify_metaphors_abstractness_cosine_testing
+
+# Data structures
+from new_structure.modules.datastructs.registry import Registry
+from new_structure.modules.sample_functions import posFunction, lemmatizingFunction
+# Candidate finding functions
+from new_structure.modules.sample_functions import verbNounFinder, adjNounFinder
+from new_structure.modules.utils import parseCommandLine, getText
+# from new_structure.modules.datastructs.metaphor_identification import MetaphorIdentification
 from new_structure.modules.datastructs.metaphor_identification_list import MetaphorIdentificationList
 
 
@@ -22,8 +28,14 @@ if __name__ == "__main__":
 
     args = parseCommandLine()
 
-    #Hash table creation
+    # Hash table creation
     metaphorRegistry = Registry()
+    # metaphorRegistry.addMLabeler("kmeans_abs_ratings", kmeans_abs_ratings)
+    # metaphorRegistry.addMLabeler("kmeans_abs_ratings_cosine_similarity", kmeans_abs_ratings_cosine_similarity)
+    # metaphorRegistry.addMLabeler("kmeans_abs_ratings_cosine_edit_distance",
+    #                              identify_metaphors_abstractness_cosine_testing)
+    metaphorRegistry.addMLabeler("kmeans_abs_ratings_cosine_edit_distance",
+                                  identify_metaphors_abstractness_cosine_edit_dist)
     metaphorRegistry.addCFinder("verbNoun", verbNounFinder)
     metaphorRegistry.addCFinder("adjNoun", adjNounFinder)
     metaphorRegistry.addMLabeler("darkthoughts", darkthoughtsFunction)
@@ -37,15 +49,15 @@ if __name__ == "__main__":
         mLabelerFunction = metaphorRegistry.getMLabeler(args.mlabeler)
 
         #Object declaration
-        object = MetaphorIdentification(text)
+        # object = MetaphorIdentification(text)
         list = MetaphorIdentificationList(text)
 
         #Step 1: Annotating the text
-        object.annotateText()
-        object.annotTextAddColumn("POS", posFunction)  # Set a part-of-speech to each word of the string
-        object.annotTextAddColumn("lemma", lemmatizingFunction)  # Set a lemma to each word of the string
-        if args.verbose:
-            print(object.getAnnotatedText())
+        # object.annotateText()
+        # object.annotTextAddColumn("POS", posFunction)  # Set a part-of-speech to each word of the string
+        # object.annotTextAddColumn("lemma", lemmatizingFunction)  # Set a lemma to each word of the string
+        # if args.verbose:
+        #     print(object.getAnnotatedText())
 
         list.annotateText()
         list.annotTextAddColumn("POS", posFunction)  # Set a part-of-speech to each word of the string
@@ -54,25 +66,25 @@ if __name__ == "__main__":
             print(list.getAnnotatedText())
 
         #Step 2: Finding candidates
-        object.findCandidates(cFinderFunction)
-        if args.verbose:
-            print(object.getCandidates())
+        # object.findCandidates(cFinderFunction)
+        # if args.verbose:
+        #     print(object.getCandidates())
 
         list.findCandidates(cFinderFunction)
         if args.verbose:
             print(list.getCandidates())
 
         #Step 3: Labeling Metaphors
-        object.labelMetaphors(mLabelerFunction, args.cfinder, args.verbose)
-        if args.verbose:
-            print(object.getMetaphors())
+        # object.labelMetaphors(mLabelerFunction, args.cfinder, args.verbose)
+        # if args.verbose:
+        #     print(object.getMetaphors())
 
-        list.labelMetaphors(mLabelerFunction, args.cfinder, args.verbose)
+        list.labelMetaphors(mLabelerFunction, args.cfinder, verbose=args.verbose)
         if args.verbose:
             print(list.getMetaphors())
 
-        print(object.getMetaphors())
-        print('-----------------------------------------------')
+        # print(object.getMetaphors())
+        # print('-----------------------------------------------')
         print(list.getMetaphors())
 
     else:
@@ -104,5 +116,3 @@ if __name__ == "__main__":
     #     print("candidate:", m.candidate)
     #     print("result:", m.result)
     #     print("confidence:", m.confidence)
-
-

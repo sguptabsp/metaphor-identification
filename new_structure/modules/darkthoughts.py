@@ -74,7 +74,7 @@ def darkthoughtsFunction(candidates, cand_type, verbose):
 		#		result = False
 		#		break
 		########################################
-		
+
 
 
 		###### VERSION WITH CONFIDENCE #####
@@ -102,7 +102,7 @@ def darkthoughtsFunction(candidates, cand_type, verbose):
 			print()
 
 		#####################################
-		
+
 		results.addMetaphor(Metaphor(c, result, confidence))
 
 	return results
