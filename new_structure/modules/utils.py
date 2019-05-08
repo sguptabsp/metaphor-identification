@@ -17,7 +17,7 @@ def writeToCSV(dicList, path, columns):
 
 def readFromTextFile(path):
 	data = ""
-	with open(path, 'r') as textFile:
+	with open(path, 'r', encoding='utf8') as textFile:
 		data = textFile.read()
 	return data
 
