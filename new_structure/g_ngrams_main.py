@@ -59,12 +59,12 @@ from new_structure.modules.datastructs.ngrams import CollocationList, parseNgram
 
 folder_path = "./data/darkthoughts"
 file_names = os.listdir(folder_path)
-path_vn = "./data/vn2_v1.txt"
+path_vn = "./data/vn2_original.txt"
 path_an = "./data/an2.txt"
 
 for i in range(len(file_names)):
     df = pd.read_csv(folder_path + "/" + file_names[i])
-    df.to_csv("./data/vn2_v1.txt", header=None, index=None, mode="a")
+    df.to_csv("./data/vn2_original.txt", header=None, index=None, mode="a")
 
 collocations_vn = CollocationList()
 parseNgrams(collocations_vn, path_vn, 2, "v", "n")

@@ -46,10 +46,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_structure/modules/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+            <state relative-caret-position="418">
+              <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/new_structure/modules/darkthoughts.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="90" column="45" selection-start-line="90" selection-start-column="45" selection-end-line="90" selection-end-column="45" />
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -241,6 +253,23 @@
               <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="new_structure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="new_structure" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Research_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Research_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="new_structure" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -370,7 +399,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in main_2.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest in D:/Thomas/Documents/IIT/5 - Research Project/Research_Project/new_structure/main_2.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Research_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -391,7 +420,7 @@
       <item itemvalue="Python.main_2" />
       <item itemvalue="Python.main_excel" />
       <item itemvalue="Python.truc" />
-      <item itemvalue="Python tests.pytest in main_2.py" />
+      <item itemvalue="Python tests.pytest in D:/Thomas/Documents/IIT/5 - Research Project/Research_Project/new_structure/main_2.py" />
     </list>
     <recent_temporary>
       <list>
@@ -399,7 +428,7 @@
         <item itemvalue="Python.main" />
         <item itemvalue="Python.truc" />
         <item itemvalue="Python.main_2" />
-        <item itemvalue="Python tests.pytest in main_2.py" />
+        <item itemvalue="Python tests.pytest in D:/Thomas/Documents/IIT/5 - Research Project/Research_Project/new_structure/main_2.py" />
       </list>
     </recent_temporary>
   </component>
@@ -427,7 +456,7 @@
       <workItem from="1556807674469" duration="1849000" />
       <workItem from="1556910075088" duration="892000" />
       <workItem from="1556911333444" duration="573000" />
-      <workItem from="1557341346745" duration="2581000" />
+      <workItem from="1557341346745" duration="3600000" />
     </task>
     <servers />
   </component>
@@ -437,7 +466,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37037000" />
+    <option name="totallyTimeSpent" value="38056000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -450,7 +479,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21715818" />
@@ -653,7 +681,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/data/vn2_v1.txt">
+    <entry file="file://$PROJECT_DIR$/new_structure/data/vn2_original.txt">
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="LargeFileEditor" />
     </entry>
@@ -700,16 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-100">
           <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_structure/modules/darkthoughts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -774,18 +792,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/new_structure/modules/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        <state relative-caret-position="418">
+          <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/new_structure/modules/darkthoughts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="90" column="45" selection-start-line="90" selection-start-column="45" selection-end-line="90" selection-end-column="45" />
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>

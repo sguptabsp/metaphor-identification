@@ -5,7 +5,7 @@ import pandas as pd
 # print(data.iloc[49:52].values.tolist())
 
 
-path_vn = "./data/vn2_v1.txt"
+path_vn = "./data/vn2_original.txt"
 data = pd.read_csv(path_vn, sep='\t', names=['freq', 'v', 'n', 'pos1', 'pos2'])
 print(data.columns)
 print(data.shape)
