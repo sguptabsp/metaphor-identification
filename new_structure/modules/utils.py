@@ -21,61 +21,68 @@ def readFromTextFile(path):
 		data = textFile.read()
 	return data
 
-def readFromCsvFile(path):
+def readFromCsvFile(path, cgenerator):
 	pass
 
-def readFromExcelFile(path):
-	"""
-	Source column name = source
-	Target column name = target
-	Text column name = text
-	"""
-	usecols = [0, 1, 2]
+def readFromExcelFile(path, cgenerator):
+	data = pd.read_excel(path)
+	col = data.columns.tolist()
+
+	texts = list()
+	for c in ['text', 'Text', 'sentence', 'Sentence']:
+		if c in col:
+			texts = data[c].values.tolist()
+			break
+
+	sources = list()
+	targets = list()
+	if cgenerator:
+		for c in ['source', 'sources', 'Source', 'Sources']:
+			if c in col:
+				sources = data[c].values.tolist()
+				break
+		for c in ['target', 'targets', 'Target', 'Targets']:
+			if c in col:
+				targets = data[c].values.tolist()
+				break
+	return (texts, sources, targets)
 
 
-def extractText(path):
+def extractText(path, cgenerator):
 	path.lower()
 	if path.endswith('.txt'):
 		return readFromTextFile(path)
 	elif path.endswith('.csv'):
-		return readFromCsvFile(path)
+		return readFromCsvFile(path, cgenerator)
 	elif path.endswith('.xlsx'):
-		return readFromExcelFile(path)
+		return readFromExcelFile(path, cgenerator)
 	else:
 		print("Does not handle this file format")
 
 
 def getText(args):
 	if args.file:
-		return readFromTextFile(args.file)
+		return extractText(args.file, args.cgenerator)
 	elif args.string:
-		return args.string
+		return (args.string, [], [])
 	else:
-		return DEFAULT_TEXT
+		return (DEFAULT_TEXT, [], [])
 
 def parseCommandLine():
 	parser = ap.ArgumentParser()
-	parser.add_argument("-v", "--verbose", help="print details", action="store_true")
-	parser.add_argument("-a", "--all", help="use every available methods of identification and labeling",
-						action="store_true")
-	parser.add_argument("-ml", "--mlabeler", type=str,
+	parser.add_argument("-v", "--verbose", default=False,
+						help="print details", action="store_true")
+	# parser.add_argument("-a", "--all", help="use every available methods of identification and labeling",
+	# 					action="store_true")
+	parser.add_argument("-ml", "--mlabeler", type=str, default="darkthoughts",
 						help="choose the metaphor labeling method: darkthoughts, cluster")
-	parser.add_argument("-cf", "--cfinder", type=str, help="choose the candidate finding method: adjNoun, verbNoun")
+	parser.add_argument("-cf", "--cfinder", type=str, default="adjNoun",
+						help="choose the candidate finding method: adjNoun, verbNoun")
+	parser.add_argument("-cg", "--cgenerator", default=False, action="store_true", help="Generate candidates from an excel files")
 	group = parser.add_mutually_exclusive_group()
 	group.add_argument("-f", "--file", type=str, help="look for metaphors in a text file")
 	group.add_argument("-s", "--string", type=str, help="look for metaphors in a specified string")
 	args = parser.parse_args()
-
-	if not args.verbose:
-		args.verbose = False
-
-	if not args.all:
-		args.all = False
-
-		if not args.mlabeler:
-			args.mlabeler = "darkthoughts" #default method of labelling
-		if not args.cfinder:
-			args.cfinder = "adjNoun" #default method of identification
 
 	return args
 

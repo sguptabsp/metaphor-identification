@@ -40,7 +40,7 @@ def darkthoughtsFunction(candidates, cand_type, verbose):
 			print("SOURCE: " + source)
 			print("TARGET: " + target)
 
-		# PART 1 OF ALGORITHM: GET THE NOUNS MOST FREQUENTLY MODIFIED BY ADJ
+		# PART 1 OF ALGORITHM: GET THE NOUNS MOST FREQUENTLY MODIFIED BY SOURCE
 		topModified = collocations.getMostFrequents(source, TOP_SIZE)
 		if verbose:
 			print("NOUNS MOST FREQUENTLY MODIFIED BY SOURCE")

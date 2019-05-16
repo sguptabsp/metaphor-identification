@@ -34,31 +34,34 @@ if __name__ == "__main__":
     #Test if the args are registered in the hashtable
     if metaphorRegistry.isMLabeler(args.mlabeler) and metaphorRegistry.isCFinder(args.cfinder):
 
-        text = getText(args)
+        texts, sources, targets = getText(args)
         cFinderFunction = metaphorRegistry.getCFinder(args.cfinder)
         mLabelerFunction = metaphorRegistry.getMLabeler(args.mlabeler)
 
         #Object declaration
-        list = MetaphorIdentificationList(text)
+        list = MetaphorIdentificationList(texts)
 
         #Step 1: Annotating the text
         list.annotateAllTexts()
-        list.annotTextAddColumn("POS", posFunction)  # Set a part-of-speech to each word of the string
-        list.annotTextAddColumn("lemma", lemmatizingFunction)  # Set a lemma to each word of the string
+        list.allAnnotTextAddColumn("POS", posFunction)  # Set a part-of-speech to each word of the string
+        list.allAnnotTextAddColumn("lemma", lemmatizingFunction)  # Set a lemma to each word of the string
         if args.verbose:
             print(list.getAnnotatedText())
 
         #Step 2: Finding candidates
-        list.findCandidates(cFinderFunction)
-        if args.verbose:
-            print(list.getCandidates())
+        if not args.cgenerator:
+            list.findAllCandidates(cFinderFunction)
+            if args.verbose:
+                print(list.getCandidates())
+        else:
+            list.allCandidatesFromColumns(sources, targets, [i for i in range(len(sources))])
 
         #Step 3: Labeling Metaphors
-        list.labelMetaphors(mLabelerFunction, args.cfinder, verbose=args.verbose)
+        list.labelAllMetaphors(mLabelerFunction, args.cfinder, verbose=args.verbose)
         if args.verbose:
-            print(list.getMetaphors())
+            print(list.getAllMetaphors())
 
-        print(list.getMetaphors())
+        print(list.getAllMetaphors())
 
     else:
         print("The candidate finder or the metaphor labeler is incorrect")
