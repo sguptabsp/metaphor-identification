@@ -7,8 +7,8 @@ class MetaphorGroup:
 		self.metaphors = []
 		self.size = 0
 
-	def addMetaphor(self, labeledMetaphor):
-		self.metaphors.append(labeledMetaphor)
+	def addMetaphor(self, metaphor):
+		self.metaphors.append(metaphor)
 		self.size += 1
 
 	def getMetaphor(self, index):

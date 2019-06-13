@@ -9,7 +9,7 @@ from new_structure.modules.darkthoughts import darkthoughtsFunction
 from new_structure.modules.cluster_module import clusteringFunction
 #Data structures
 from new_structure.modules.datastructs.registry import Registry
-from new_structure.modules.datastructs.metaphor_identification_list import MetaphorIdentificationList
+from new_structure.modules.datastructs.metaphor_identification import MetaphorIdentification
 
 # ----------------------------------------------------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ if __name__ == "__main__":
 
         N = 5
         text_list = data[text_column].values.tolist()
-        list = MetaphorIdentificationList(text_list[0:N])
+        list = MetaphorIdentification(text_list[0:N])
 
         list.annotateAllTexts()
         list.allAnnotTextAddColumn("POS", posFunction)

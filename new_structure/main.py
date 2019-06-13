@@ -14,7 +14,7 @@ from new_structure.modules.utils import parseCommandLine, getText
 # Data structures
 from new_structure.modules.datastructs.registry import Registry
 from new_structure.modules.sample_functions import posFunction, lemmatizingFunction
-from new_structure.modules.datastructs.metaphor_identification_list import MetaphorIdentificationList
+from new_structure.modules.datastructs.metaphor_identification import MetaphorIdentification
 
 
 if __name__ == "__main__":
@@ -23,45 +23,47 @@ if __name__ == "__main__":
 
     args = parseCommandLine()
 
-    # Hash table creation
-    metaphorRegistry = Registry()
-    metaphorRegistry.addMLabeler("kmeans",identify_metaphors_abstractness_cosine_edit_dist)
-    metaphorRegistry.addCFinder("verbNoun", verbNounFinder)
-    metaphorRegistry.addCFinder("adjNoun", adjNounFinder)
-    metaphorRegistry.addMLabeler("darkthoughts", darkthoughtsFunction)
-    metaphorRegistry.addMLabeler("cluster", clusteringFunction)
+    #Initilization
+    MI = MetaphorIdentification()
+
+    # Registering the Candidate Finders and the Metaphor Labelers
+    MI.addCFinder("verbNoun", verbNounFinder)
+    MI.addCFinder("adjNoun", adjNounFinder)
+    MI.addMLabeler("darkthoughts", darkthoughtsFunction)
+    MI.addMLabeler("cluster", clusteringFunction)
+    MI.addMLabeler("kmeans",identify_metaphors_abstractness_cosine_edit_dist)
 
     #Test if the args are registered in the hashtable
-    if metaphorRegistry.isMLabeler(args.mlabeler) and metaphorRegistry.isCFinder(args.cfinder):
+    if MI.isMLabeler(args.mlabeler) and MI.isCFinder(args.cfinder):
 
         texts, sources, targets = getText(args)
-        cFinderFunction = metaphorRegistry.getCFinder(args.cfinder)
-        mLabelerFunction = metaphorRegistry.getMLabeler(args.mlabeler)
+        cFinderFunction = MI.getCFinder(args.cfinder)
+        mLabelerFunction = MI.getMLabeler(args.mlabeler)
 
-        #Object declaration
-        list = MetaphorIdentificationList(texts)
+        # Loading the texts in the Metaphor Identification Object
+        MI.addText(texts)
 
         #Step 1: Annotating the text
-        list.annotateAllTexts()
-        list.allAnnotTextAddColumn("POS", posFunction)  # Set a part-of-speech to each word of the string
-        list.allAnnotTextAddColumn("lemma", lemmatizingFunction)  # Set a lemma to each word of the string
+        MI.annotateAllTexts()
+        MI.allAnnotTextAddColumn("POS", posFunction)  # Set a part-of-speech to each word of the string
+        MI.allAnnotTextAddColumn("lemma", lemmatizingFunction)  # Set a lemma to each word of the string
         if args.verbose:
-            print(list.getAnnotatedText())
+            print(MI.getAnnotatedText())
 
         #Step 2: Finding candidates
         if not args.cgenerator:
-            list.findAllCandidates(cFinderFunction)
+            MI.findAllCandidates(cFinderFunction)
             if args.verbose:
-                print(list.getCandidates())
+                print(MI.getCandidates())
         else:
-            list.allCandidatesFromColumns(sources, targets, [i for i in range(len(sources))])
+            MI.allCandidatesFromColumns(sources, targets, [i for i in range(len(sources))])
 
         #Step 3: Labeling Metaphors
-        list.labelAllMetaphors(mLabelerFunction, args.cfinder, verbose=args.verbose)
+        MI.labelAllMetaphors(mLabelerFunction, args.cfinder, verbose=args.verbose)
         if args.verbose:
-            print(list.getAllMetaphors())
+            print(MI.getAllMetaphors())
 
-        print(list.getAllMetaphors())
+        print(MI.getAllMetaphors())
 
     else:
         print("The candidate finder or the metaphor labeler is incorrect")

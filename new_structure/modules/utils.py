@@ -21,17 +21,13 @@ def readFromTextFile(path):
 		data = textFile.read()
 	return data
 
-def readFromCsvFile(path, cgenerator):
-	pass
-
-def readFromExcelFile(path, cgenerator):
-	data = pd.read_excel(path)
-	col = data.columns.tolist()
+def readDataFrame(DF, cgenerator):
+	col = DF.columns.tolist()
 
 	texts = list()
 	for c in ['text', 'Text', 'sentence', 'Sentence']:
 		if c in col:
-			texts = data[c].values.tolist()
+			texts = DF[c].values.tolist()
 			break
 
 	sources = list()
@@ -39,13 +35,23 @@ def readFromExcelFile(path, cgenerator):
 	if cgenerator:
 		for c in ['source', 'sources', 'Source', 'Sources']:
 			if c in col:
-				sources = data[c].values.tolist()
+				sources = DF[c].values.tolist()
 				break
 		for c in ['target', 'targets', 'Target', 'Targets']:
 			if c in col:
-				targets = data[c].values.tolist()
+				targets = DF[c].values.tolist()
 				break
 	return (texts, sources, targets)
+
+
+def readFromCsvFile(path, cgenerator):
+	data = pd.read_excel(path)
+	return readDataFrame(data, cgenerator)
+
+
+def readFromExcelFile(path, cgenerator):
+	data = pd.read_excel(path)
+	return readDataFrame(data, cgenerator)
 
 
 def extractText(path, cgenerator):
