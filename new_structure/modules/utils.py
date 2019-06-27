@@ -45,7 +45,7 @@ def readDataFrame(DF, cgenerator):
 
 
 def readFromCsvFile(path, cgenerator):
-	data = pd.read_excel(path)
+	data = pd.read_csv(path)
 	return readDataFrame(data, cgenerator)
 
 

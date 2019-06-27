@@ -2,7 +2,7 @@ from .annotated_text import AnnotatedText
 
 class Candidate:
 
-	def __init__(self, annotatedText, sourceIndex, sourceSpan, targetIndex, targetSpan):
+	def __init__(self, annotatedText, sourceIndex, sourceSpan, targetIndex, targetSpan, label=None):
 		if (not(isinstance(sourceIndex, int))):
 			raise ValueError('Argument sourceIndex not an int.')
 		if (not(isinstance(sourceSpan, tuple))):
@@ -16,6 +16,7 @@ class Candidate:
 		self.sourceSpan = sourceSpan
 		self.targetIndex = targetIndex
 		self.targetSpan = targetSpan
+		self.label = label
 		# ADD source and target variables?
 
 	def getSource(self):

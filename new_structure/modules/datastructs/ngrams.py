@@ -64,9 +64,23 @@ def parseNgrams(collocations, path, n, pos_1, pos_2):
 						collocations.addCollocation(adjective, noun, frequency)
 						currentAdjIndex -= 1
 
+
 def parseConcreteness(path):
 	concDict = {}
 	with open(path) as tsv:
 		for line in csv.reader(tsv, delimiter="\t"):
 			concDict[line[1]] = int(line[0])
 	return concDict
+
+# import pandas as pd
+#
+# def parseNgrams_2(collocations, path, n, pos_1, pos_2):
+# 	names = ['Freq']
+# 	names.extend(['Word' + str(i) for i in range(n)])
+# 	names.extend(['Pos' + str(i) for i in range(n)])
+# 	data = pd.read_csv(path, sep='\t', names=names)
+#
+# 	for row_ind in range(data.shape[0]):
+# 		# 1: Find the column of the pos1 word
+# 		col_ind =
+# 		# 2: Find the column of the pos2 word

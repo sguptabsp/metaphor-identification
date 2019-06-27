@@ -96,6 +96,7 @@ def lookUpDB(DB, verb, noun):
 		else:
 			return (True, result[1])
 	else:
+		print('-------------------- NOT IN DB')
 		return (False, 0.0)
 
 # MAIN FUNCTION

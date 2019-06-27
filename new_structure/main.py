@@ -1,12 +1,14 @@
 # Author : Thomas Buffagni
 # Latest revision : 03/26/2019
 
+from sklearn.externals import joblib
+
 import time
 
 
 # Metaphor labeling functions
 from new_structure.modules.cluster_module import clusteringFunction
-from new_structure.modules.darkthoughts import darkthoughtsFunction
+from new_structure.modules.darkthoughts import darkthoughtsFunction, darkthoughtsFunction_2
 from new_structure.modules.kmeans_abs_ratings_cosine_edit_distance import identify_metaphors_abstractness_cosine_edit_dist
 # Candidate finding functions
 from new_structure.modules.sample_functions import verbNounFinder, adjNounFinder
@@ -29,7 +31,7 @@ if __name__ == "__main__":
     # Registering the Candidate Finders and the Metaphor Labelers
     MI.addCFinder("verbNoun", verbNounFinder)
     MI.addCFinder("adjNoun", adjNounFinder)
-    MI.addMLabeler("darkthoughts", darkthoughtsFunction)
+    MI.addMLabeler("darkthoughts", darkthoughtsFunction_2)
     MI.addMLabeler("cluster", clusteringFunction)
     MI.addMLabeler("kmeans",identify_metaphors_abstractness_cosine_edit_dist)
 
@@ -37,8 +39,6 @@ if __name__ == "__main__":
     if MI.isMLabeler(args.mlabeler) and MI.isCFinder(args.cfinder):
 
         texts, sources, targets = getText(args)
-        cFinderFunction = MI.getCFinder(args.cfinder)
-        mLabelerFunction = MI.getMLabeler(args.mlabeler)
 
         # Loading the texts in the Metaphor Identification Object
         MI.addText(texts)
@@ -52,18 +52,38 @@ if __name__ == "__main__":
 
         #Step 2: Finding candidates
         if not args.cgenerator:
-            MI.findAllCandidates(cFinderFunction)
+            MI.findAllCandidates(args.cfinder)
             if args.verbose:
                 print(MI.getCandidates())
+            candidatesID = args.cfinder
         else:
             MI.allCandidatesFromColumns(sources, targets, [i for i in range(len(sources))])
+            candidatesID = 'fromFile'
 
         #Step 3: Labeling Metaphors
-        MI.labelAllMetaphors(mLabelerFunction, args.cfinder, verbose=args.verbose)
+        cand_type = args.cfinder
+        MI.labelAllMetaphors(args.mlabeler, candidatesID, cand_type, verbose=args.verbose)
         if args.verbose:
             print(MI.getAllMetaphors())
 
         print(MI.getAllMetaphors())
+        for k, mg in MI.metaphors[args.mlabeler].items():
+            print(mg.getResults())
+
+        # joblib.dump(MI.metaphors['darkthoughts'], 'darkthoughts_metaphors_verbNoun.pkl')
+        # Import candidates
+        # cand = joblib.load('verbNoun_candidates.pkl')
+        # MI.candidates[args.cfinder] = cand
+        # dt = joblib.load('darkthoughts_metaphors_verbNoun.pkl')
+        # c = joblib.load('cluster_metaphors.pkl')
+        # MI.metaphors['darkthoughts'] = dt
+        # MI.metaphors['cluster'] = c
+
+        # agree = MI.agreeMLabelers(["darkthoughts", "cluster"], candidatesID, cand_type, already_labeled=True)
+        # MI.percentageOfMetaphorical(["darkthoughts", "cluster"], candidatesID, cand_type)
+        # k = MI.cohenKappa("darkthoughts", "kmeans", candidatesID, cand_type)
+        # print(k)
+
 
     else:
         print("The candidate finder or the metaphor labeler is incorrect")

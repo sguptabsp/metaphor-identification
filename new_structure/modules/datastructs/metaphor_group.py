@@ -17,6 +17,25 @@ class MetaphorGroup:
 	def getSize(self):
 		return self.size
 
+	def getResults(self):
+		results = list()
+		for i in range(self.size):
+			results.append(self.metaphors[i].getResult())
+		return results
+
+	def getConfidences(self):
+		confidences = list()
+		for i in range(self.size):
+			confidences.append(self.metaphors[i].getConfidence())
+		return confidences
+
+	def filterByConfidence(self, min_confidence):
+		mg = MetaphorGroup()
+		for m in self.metaphors:
+			if m.getConfidence() >= min_confidence:
+				mg.addMetaphor(m)
+		return mg
+
 	def __iter__(self):
 		return iter(self.metaphors)
 

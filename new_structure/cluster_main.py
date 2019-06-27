@@ -1,7 +1,7 @@
-from modules.datastructs.clustered_data import ClusteredData
-from modules.parsing_functions import parseVerbNet, parseNouns, parseTroFi
-from modules.utils import writeToCSV
-from modules.cluster_module import buildDB
+from new_structure.modules.datastructs.clustered_data import ClusteredData
+from new_structure.modules.parsing_functions import parseVerbNet, parseNouns, parseTroFi
+from new_structure.modules.utils import writeToCSV
+from new_structure.modules.cluster_module import buildDB
 from nltk.parse.stanford import StanfordDependencyParser
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.corpus import wordnet
