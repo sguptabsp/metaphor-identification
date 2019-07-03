@@ -182,7 +182,8 @@ def find_standard_deviation(an_vectorized, clustering_labels, test_data_coordina
 
     return cluster_1_std, cluster_2_std
 
-def cross_validation(train_df,test_df,kmeans_clustering):
+
+def cross_validation(train_df, test_df, kmeans_clustering):
     scores = []
     cv = KFold(n_splits=10, random_state=42, shuffle=False)
     X = train_df.iloc[:, [0, 1]]
@@ -268,25 +269,26 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
 
             # confidence_dict[i] = numerator / denominator
 
-            confidence_dict[i] = 1-((data_point_center_distance)/(data_point_center_distance+center_distance_other_cluster))
+            confidence_dict[i] = 1 - (
+                    (data_point_center_distance) / (data_point_center_distance + center_distance_other_cluster))
 
         elif predicted_label_list[i] == 1:
             data_point_center_distance = distance.euclidean(centroid_list[1], test_data_coordinate_list[i])
             numerator = math.exp(-data_point_center_distance / cluster_2_standard_deviation ** 2)
             center_distance_other_cluster = distance.euclidean(centroid_list[0], test_data_coordinate_list[i])
-            log_numerator=math.log(numerator)
+            log_numerator = math.log(numerator)
             denominator_term1 = math.exp(-data_point_center_distance / cluster_2_standard_deviation ** 2)
-            denominator_term2= math.exp(
+            denominator_term2 = math.exp(
                 -center_distance_other_cluster / cluster_1_standard_deviation ** 2)
 
-            denominator=denominator_term1+denominator_term2
-            log_denominator=math.log(denominator)
+            denominator = denominator_term1 + denominator_term2
+            log_denominator = math.log(denominator)
 
             # confidence_dict[i] = log_numerator/ log_denominator
             # confidence_dict[i] = numerator / denominator
 
-            confidence_dict[i] = 1-((data_point_center_distance)/(data_point_center_distance+center_distance_other_cluster))
-
+            confidence_dict[i] = 1 - (
+                    (data_point_center_distance) / (data_point_center_distance + center_distance_other_cluster))
 
     # for i in range(len(test_data_coordinate_list)):
     #     if predicted_label_list[i] == 0:
@@ -345,7 +347,6 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     df_test_data = pd.DataFrame.from_records(data_list)
     # df = pd.concat([df], axis=0).reset_index()
     user_input_df = pd.concat([df_test_data], axis=0).reset_index()
-
 
     # an_vectorized = vectorize_data_abstractness(df)
     # an_vectorized_user_input = vectorize_data_abstractness(user_input_df)
