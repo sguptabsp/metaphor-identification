@@ -1,7 +1,0 @@
-25	X-rated	movie	jj	nn1
-25	x-ray	crystallography	jj	nn1
-36	x-ray	diffraction	jj	nn1
-27	x-ray	images	jj	nn2
-34	x-ray	machine	jj	nn1
-26	x-ray	sources	jj	nn2
-25	x-ray	vision	jj	nn1

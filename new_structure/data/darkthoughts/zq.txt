@@ -1,7 +1,0 @@
-1788	is	Zq	v	n
-103	are	zq	v	n
-394	will	ZQ	v	n
-64	are	zQ	v	n
-43	has	ZQ	v	n
-1431	is	zq	v	n
-40	has	Zq	v	n

@@ -1,0 +1,7 @@
+187	may	Qy	v	n
+212	are	qy	v	n
+114	can	Qy	v	n
+195	is	QY	v	n
+79	Q	QYes	v	n
+1449	is	Qy	v	n
+299	QNo	QYes	v	n

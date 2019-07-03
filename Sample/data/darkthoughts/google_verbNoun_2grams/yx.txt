@@ -1,0 +1,8 @@
+236	will	Yx	v	n
+2201	represents	yx	v	n
+1038	is	YX	v	n
+170	must	yx	v	n
+112	is	yxy	v	n
+76	can	Yx	v	n
+82	has	yx	v	n
+62	et	YX	v	n

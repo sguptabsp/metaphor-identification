@@ -1,0 +1,11 @@
+51	represents	qk	v	n
+133	is	QKD	v	n
+94	will	Qk	v	n
+188	can	qk	v	n
+114	is	qK	v	n
+469	are	qk	v	n
+2189	is	Qk	v	n
+903	must	qk	v	n
+231	can	Qk	v	n
+569	are	QK	v	n
+124	will	qk	v	n

@@ -1,0 +1,15 @@
+541	set	ZF	v	n
+69	can	ZFC	v	n
+582	is	Zfc	v	n
+94	are	ZFC	v	n
+85	was	ZF	v	n
+127	is	ZFS	v	n
+149	will	ZF	v	n
+642	is	ZFY	v	n
+269	has	ZF	v	n
+62	can	Zf	v	n
+84	set	ZFC	v	n
+477	et	ZF	v	n
+70	eld	zf	v	n
+1913	is	ZF	v	n
+221	are	Zf	v	n

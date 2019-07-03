@@ -1,0 +1,17 @@
+42	was	jx	v	n
+67	are	JXTA	v	n
+119	may	Jx	v	n
+55	can	jx	v	n
+1752	is	JXTA	v	n
+149	are	jx	v	n
+45	is	jxm	v	n
+88	defines	JXTA	v	n
+194	is	JX	v	n
+134	has	JXTA	v	n
+41	must	Jx	v	n
+42	has	jx	v	n
+255	are	Jx	v	n
+996	is	jx	v	n
+72	will	Jx	v	n
+98	et	JX	v	n
+115	can	Jx	v	n

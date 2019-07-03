@@ -1,0 +1,13 @@
+75	are	qQ	v	n
+59	states	qqq	v	n
+296	are	Qq	v	n
+1030	is	QQQ	v	n
+196	may	QQ	v	n
+77	will	Qq	v	n
+58	can	qQ	v	n
+133	has	QQ	v	n
+86	is	qq	v	n
+350	are	QQ	v	n
+94	can	Qq	v	n
+216	is	qQ	v	n
+1161	will	QQ	v	n
