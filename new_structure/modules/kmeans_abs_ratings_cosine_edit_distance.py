@@ -1,12 +1,16 @@
+import math
+
 import gensim
 import nltk
 import numpy as np
 import pandas as pd
 from gensim.models import KeyedVectors
-from sklearn.cluster import KMeans
-from sklearn.metrics import accuracy_score
-from sklearn.decomposition import PCA
 from scipy.spatial import distance
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import KFold
+
 from new_structure.modules.datastructs.metaphor import Metaphor
 from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
 from new_structure.utils import timeit
@@ -73,6 +77,7 @@ def vectorize_data(df):
     an_vectorized = np.asarray(an_vectorized)
     return an_vectorized
 
+
 def vectorize_data_abstractness(df):
     an_vectorized = []
 
@@ -105,6 +110,7 @@ def vectorize_data_abstractness(df):
 
     an_vectorized = np.asarray(an_vectorized)
     return an_vectorized
+
 
 def vectorize_data_abstractness_cosine(df):
     an_vectorized = []
@@ -139,43 +145,99 @@ def vectorize_data_abstractness_cosine(df):
     an_vectorized = np.asarray(an_vectorized)
     return an_vectorized
 
+
 def get_adj_noun_class(df, adjective, noun):
     row = df.loc[(df['adj'] == adjective) & (df['noun'] == noun)]
     adj_noun_class = row["class"].tolist()
     if adj_noun_class:
         return adj_noun_class[0]
 
+
 def k_mean_distance(data, cx, cy, i_centroid, cluster_labels):
     distances = [np.sqrt((x - cx) ** 2 + (y - cy) ** 2) for (x, y) in data[cluster_labels == i_centroid]]
     return distances
 
 
-def get_confidence(an_vectorized,kmeans_clustering,test_data_coordinates,predicted_data_labels):
-    confidence_dict={}
+def find_standard_deviation(an_vectorized, clustering_labels, test_data_coordinates, predicted_data_labels):
+    cluster_1_standard_deviation = None
+    cluster_2_standard_deviation = None
+    test_train_coordinates = np.concatenate((an_vectorized, test_data_coordinates), axis=0)
+    test_train_labels = np.concatenate((clustering_labels, predicted_data_labels), axis=0)
+
+    cluster_map = pd.DataFrame()
+    cluster_map['coordinatesx'] = test_train_coordinates[:, 0]
+    cluster_map['coordinatesy'] = test_train_coordinates[:, 1]
+    cluster_map['label'] = test_train_labels
+
+    cluster1_coordinates = cluster_map[cluster_map.label == 1][['coordinatesx', 'coordinatesy']]
+    cluster2_coordinates = cluster_map[cluster_map.label == 0][['coordinatesx', 'coordinatesy']]
+
+    cluster_1_standard_deviation = np.var(cluster1_coordinates, axis=0)
+    cluster_2_standard_deviation = np.var(cluster2_coordinates, axis=0)
+
+    cluster_1_std = math.sqrt(
+        cluster_1_standard_deviation['coordinatesx'] ** 2 + cluster_1_standard_deviation['coordinatesy'] ** 2)
+    cluster_2_std = math.sqrt(
+        cluster_2_standard_deviation['coordinatesx'] ** 2 + cluster_2_standard_deviation['coordinatesy'] ** 2)
+
+    return cluster_1_std, cluster_2_std
+
+def cross_validation(train_df,test_df,kmeans_clustering):
+    scores = []
+    cv = KFold(n_splits=10, random_state=42, shuffle=False)
+    X = train_df.iloc[:, [0, 1]]
+    y = train_df.iloc[:, 2]
+    for train_index, test_index in cv.split(train_df):
+        print("Train Index: ", type(train_index), train_index.tolist(), "\n")
+        print("Test Index: ", test_index.tolist())
+
+        train_index = train_index.tolist()
+        test_index = test_index.tolist()
+        print("x index={}  y index={}".format(X.index, y.index))
+
+        # col1=X[]
+
+        X_train = X[train_index]
+        X_test = X[test_index]
+        y_train = y[train_index]
+        y_test = y[test_index]
+        #     best_svr.fit(X_train, y_train)
+        #     Fitting the model after each iteration of cv
+        kmeans_clustering.fit(X_train, y_train)
+
+        scores.append(kmeans_clustering.score(X_test, y_test))
+
+
+def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, predicted_data_labels):
+    centroids = kmeans_clustering.cluster_centers_
+    clustering_labels = kmeans_clustering.labels_
+    cluster_1_standard_deviation, cluster_2_standard_deviation = find_standard_deviation(an_vectorized,
+                                                                                         clustering_labels,
+                                                                                         test_data_coordinates,
+                                                                                         predicted_data_labels)
+
+    confidence_dict = {}
     # pca = PCA(n_components=2).fit(an_vectorized)
     # an_vectorized_PCA = PCA(n_components=2).fit_transform(an_vectorized)
     # an_vectorized_PCA = kmeans_clustering.transform(an_vectorized)
-    centroids = kmeans_clustering.cluster_centers_
-    clustering_labels = kmeans_clustering.labels_
     # centroids_transformed = kmeans_clustering.transform(centroids)
-    #idx = kmeans_clustering.fit(an_vectorized)
+    # idx = kmeans_clustering.fit(an_vectorized)
     # clusters = kmeans_clustering.fit_predict(an_vectorized_PCA)
     # clusters = y1
-    X_dist = kmeans_clustering.transform(an_vectorized) **2
+    X_dist = kmeans_clustering.transform(an_vectorized) ** 2
     # an_vectorized_PCA_square = an_vectorized_PCA**2
     # do something useful...
-    import pandas as pd
     # df_conf = pd.DataFrame(an_vectorized_PCA_square.sum(axis=1).round(2), columns=['sqdist'])
     # df_conf['label'] = clustering_labels
 
     # df_conf.head()
     # print(df_conf.tail(10))
-    centroid_list=centroids.tolist()
+    centroid_list = centroids.tolist()
     distances = []
-    #for i in range(len(centroid_list[0])):
+    # for i in range(len(centroid_list[0])):
     for i, (cx, cy) in enumerate(centroids):
         mean_distance = k_mean_distance(an_vectorized, cx, cy, i, clustering_labels)
-        #mean_distance = k_mean_distance(an_vectorized_PCA, centroid_list[0][i], centroid_list[1][i], i, clusters)
+        # mean_distance = k_mean_distance(an_vectorized_PCA, centroid_list[0][i], centroid_list[1][i], i, clusters)
         distances.append(mean_distance)
 
     print(distances)
@@ -188,19 +250,51 @@ def get_confidence(an_vectorized,kmeans_clustering,test_data_coordinates,predict
 
     print(len(max_indices))
     # an_vectorized_PCA[max_indices, 0], an_vectorized_PCA[max_indices, 1]
-    cluster_0_farthest_point=an_vectorized[max_indices, 0]
-    cluster_1_farthest_point=an_vectorized[max_indices, 1]
-    cluster_0_max_distance=distance.euclidean(centroid_list[0], cluster_0_farthest_point.tolist())
-    cluster_1_max_distance=distance.euclidean(centroid_list[1], cluster_1_farthest_point.tolist())
-    test_data_coordinate_list=test_data_coordinates.tolist()
-    predicted_label_list=predicted_data_labels.tolist()
+    cluster_0_farthest_point = an_vectorized[max_indices, 0]
+    cluster_1_farthest_point = an_vectorized[max_indices, 1]
+    cluster_0_max_distance = distance.euclidean(centroid_list[0], cluster_0_farthest_point.tolist())
+    cluster_1_max_distance = distance.euclidean(centroid_list[1], cluster_1_farthest_point.tolist())
+    test_data_coordinate_list = test_data_coordinates.tolist()
+    predicted_label_list = predicted_data_labels.tolist()
     for i in range(len(test_data_coordinate_list)):
-        if predicted_label_list[i] == 0 :
-            data_point_center_distance=distance.euclidean(centroid_list[0], test_data_coordinate_list[i])
-            confidence_dict[i]=(cluster_0_max_distance-data_point_center_distance)/cluster_0_max_distance
+        if predicted_label_list[i] == 0:
+            data_point_center_distance = distance.euclidean(centroid_list[0], test_data_coordinate_list[i])
+
+            numerator = math.exp(-data_point_center_distance / cluster_1_standard_deviation ** 2)
+            center_distance_other_cluster = distance.euclidean(centroid_list[1], test_data_coordinate_list[i])
+
+            denominator = math.exp(-data_point_center_distance / cluster_1_standard_deviation ** 2) + math.exp(
+                -center_distance_other_cluster / cluster_2_standard_deviation ** 2)
+
+            # confidence_dict[i] = numerator / denominator
+
+            confidence_dict[i] = 1-((data_point_center_distance)/(data_point_center_distance+center_distance_other_cluster))
+
         elif predicted_label_list[i] == 1:
-            data_point_center_distance=distance.euclidean(centroid_list[1], test_data_coordinate_list[i])
-            confidence_dict[i]=(cluster_1_max_distance-data_point_center_distance)/cluster_1_max_distance
+            data_point_center_distance = distance.euclidean(centroid_list[1], test_data_coordinate_list[i])
+            numerator = math.exp(-data_point_center_distance / cluster_2_standard_deviation ** 2)
+            center_distance_other_cluster = distance.euclidean(centroid_list[0], test_data_coordinate_list[i])
+            log_numerator=math.log(numerator)
+            denominator_term1 = math.exp(-data_point_center_distance / cluster_2_standard_deviation ** 2)
+            denominator_term2= math.exp(
+                -center_distance_other_cluster / cluster_1_standard_deviation ** 2)
+
+            denominator=denominator_term1+denominator_term2
+            log_denominator=math.log(denominator)
+
+            # confidence_dict[i] = log_numerator/ log_denominator
+            # confidence_dict[i] = numerator / denominator
+
+            confidence_dict[i] = 1-((data_point_center_distance)/(data_point_center_distance+center_distance_other_cluster))
+
+
+    # for i in range(len(test_data_coordinate_list)):
+    #     if predicted_label_list[i] == 0:
+    #         data_point_center_distance = distance.euclidean(centroid_list[0], test_data_coordinate_list[i])
+    #         confidence_dict[i] = (cluster_0_max_distance - data_point_center_distance) / cluster_0_max_distance
+    #     elif predicted_label_list[i] == 1:
+    #         data_point_center_distance = distance.euclidean(centroid_list[1], test_data_coordinate_list[i])
+    #         confidence_dict[i] = (cluster_1_max_distance - data_point_center_distance) / cluster_1_max_distance
 
     print(an_vectorized[max_indices, 0], an_vectorized[max_indices, 1])
     # X_dist_farthestPoint1 = kmeans_clustering.transform(an_vectorized_PCA[max_indices]) ** 2
@@ -211,6 +305,7 @@ def get_confidence(an_vectorized,kmeans_clustering,test_data_coordinates,predict
     # print(an_vectorized_PCA_square1,an_vectorized_PCA_square2)
     # do something useful...
     return confidence_dict
+
 
 @timeit
 def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
@@ -251,6 +346,7 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     # df = pd.concat([df], axis=0).reset_index()
     user_input_df = pd.concat([df_test_data], axis=0).reset_index()
 
+
     # an_vectorized = vectorize_data_abstractness(df)
     # an_vectorized_user_input = vectorize_data_abstractness(user_input_df)
     # an_vectorized = vectorize_data_abstractness_cosine(df)
@@ -266,26 +362,26 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     kmeans_cluster_centers = kmeans_clustering.cluster_centers_
     y1 = idx.predict(an_vectorized_test_PCA)
 
-    label=kmeans_clustering.labels_
+    label = kmeans_clustering.labels_
 
     print(label)
+    # cross_validation(df,user_input_df,kmeans_clustering)
 
-    #
     # an_vectorized_conf_df= pd.DataFrame
     # an_vectorized_conf_df = pd.concat([an_vectorized,an_vectorized_user_input])
     # an_vectorized_conf_df=pd.append(an_vectorized)
     # conf_df= df.append(user_input_df)
     # an_vectorized_conf = vectorize_data(conf_df)
-    confidence =get_confidence(an_vectorized_training_PCA,kmeans_clustering,an_vectorized_test_PCA,y1)
+    confidence = get_confidence(an_vectorized_training_PCA, kmeans_clustering, an_vectorized_test_PCA, y1)
     print("Confidence of the corresponding words are : {} ".format(confidence))
     import matplotlib.pyplot as plt
     plt.scatter(an_vectorized[:, 0], an_vectorized[:, 1], c=kmeans_clustering.labels_, cmap='rainbow')
     plt.show()
     print('Accuracy is: ', accuracy_score(np.asarray(user_input_df['class']), y1))
     user_input_df['predict'] = y1
-    confidence_counter=-1
+    confidence_counter = -1
     for c in candidates:
-        confidence_counter+=1
+        confidence_counter += 1
         adj = c.getSource()
         noun = c.getTarget()
         candidate_df = user_input_df.loc[(user_input_df['adj'] == adj) & (user_input_df['noun'] == noun)]
@@ -306,11 +402,6 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
             # float_conf =float(result_class)
             results.addMetaphor(Metaphor(c, result, confidence[confidence_counter]))
     return results
-
-
-
-
-
 
 #
 #
