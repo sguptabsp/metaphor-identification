@@ -159,6 +159,11 @@ def k_mean_distance(data, cx, cy, i_centroid, cluster_labels):
     return distances
 
 
+def k_mean_1d_distance(data, cx, cy, i_centroid, cluster_labels):
+    distances = [np.sqrt((x - cx) ** 2 + (y - cy) ** 2) for (x, y) in data[cluster_labels == i_centroid]]
+    return distances
+
+
 def find_standard_deviation(an_vectorized, clustering_labels, test_data_coordinates, predicted_data_labels):
     cluster_1_standard_deviation = None
     cluster_2_standard_deviation = None
@@ -262,11 +267,11 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
         if predicted_label_list[i] == 0:
             data_point_center_distance = distance.euclidean(centroid_list[0], test_data_coordinate_list[i])
 
-            numerator = math.exp(-data_point_center_distance / cluster_1_standard_deviation ** 2)
+            # numerator = math.exp(-data_point_center_distance / cluster_1_standard_deviation ** 2)
             center_distance_other_cluster = distance.euclidean(centroid_list[1], test_data_coordinate_list[i])
 
-            denominator = math.exp(-data_point_center_distance / cluster_1_standard_deviation ** 2) + math.exp(
-                -center_distance_other_cluster / cluster_2_standard_deviation ** 2)
+            # denominator = math.exp(-data_point_center_distance / cluster_1_standard_deviation ** 2) + math.exp(
+            #     -center_distance_other_cluster / cluster_2_standard_deviation ** 2)
 
             # confidence_dict[i] = numerator / denominator
 
@@ -275,15 +280,15 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
 
         elif predicted_label_list[i] == 1:
             data_point_center_distance = distance.euclidean(centroid_list[1], test_data_coordinate_list[i])
-            numerator = math.exp(-data_point_center_distance / cluster_2_standard_deviation ** 2)
+            # numerator = math.exp(-data_point_center_distance / cluster_2_standard_deviation ** 2)
             center_distance_other_cluster = distance.euclidean(centroid_list[0], test_data_coordinate_list[i])
-            log_numerator = math.log(numerator)
-            denominator_term1 = math.exp(-data_point_center_distance / cluster_2_standard_deviation ** 2)
-            denominator_term2 = math.exp(
-                -center_distance_other_cluster / cluster_1_standard_deviation ** 2)
+            # log_numerator = math.log(numerator)
+            # denominator_term1 = math.exp(-data_point_center_distance / cluster_2_standard_deviation ** 2)
+            # denominator_term2 = math.exp(
+            #     -center_distance_other_cluster / cluster_1_standard_deviation ** 2)
 
-            denominator = denominator_term1 + denominator_term2
-            log_denominator = math.log(denominator)
+            # denominator = denominator_term1 + denominator_term2
+            # log_denominator = math.log(denominator)
 
             # confidence_dict[i] = log_numerator/ log_denominator
             # confidence_dict[i] = numerator / denominator
@@ -368,7 +373,7 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     # n_components = 2
     kmeans_clustering = KMeans(n_clusters=2, random_state=43)
     idx = kmeans_clustering.fit(an_vectorized_training_PCA)
-    kmeans_cluster_centers = kmeans_clustering.cluster_centers_
+    # kmeans_cluster_centers = kmeans_clustering.cluster_centers_
     y1 = idx.predict(an_vectorized_test_PCA)
 
     label = kmeans_clustering.labels_
@@ -382,6 +387,7 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     # conf_df= df.append(user_input_df)
     # an_vectorized_conf = vectorize_data(conf_df)
     confidence = get_confidence(an_vectorized_training_PCA, kmeans_clustering, an_vectorized_test_PCA, y1)
+
     print("Confidence of the corresponding words are : {} ".format(confidence))
     import matplotlib.pyplot as plt
     plt.scatter(an_vectorized[:, 0], an_vectorized[:, 1], c=kmeans_clustering.labels_, cmap='rainbow')
@@ -419,11 +425,11 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 #     results = MetaphorGroup()
 #
 #     MET_AN_EN = pd.read_table(
-#         '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_met_en.txt',
+#         '/home/shruti/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_met_en.txt',
 #         delim_whitespace=True, names=('adj', 'noun'))
 #     MET_AN_EN['class'] = 1
 #     LIT_AN_EN = pd.read_table(
-#         '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_nonmet_en.txt',
+#         '/home/shruti/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_nonmet_en.txt',
 #         delim_whitespace=True, names=('adj', 'noun'))
 #     LIT_AN_EN['class'] = 0
 #
@@ -441,7 +447,7 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 #     an_vectorized = []
 #     # Load Abstractness Rating
 #     # model = KeyedVectors.load_word2vec_format(
-#     #     '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/wiki.en.vec')
+#     #     '/home/shruti/iit/research_project/Research_Project/new_structure/modules/datastructs/wiki.en.vec')
 #     data = []
 #     for j in zip(df.adj, df.noun):
 #         temp = [j[0], j[1]]
@@ -449,7 +455,7 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 #     model = gensim.models.Word2Vec(data, min_count=1, size=200, window=5)
 #
 #     csv = pd.read_csv(
-#         "/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/AC_ratings_google3m_koeper_SiW.csv",
+#         "/home/shruti/iit/research_project/Research_Project/new_structure/modules/datastructs/AC_ratings_google3m_koeper_SiW.csv",
 #         error_bad_lines=False)
 #     csv = pd.DataFrame(csv)
 #     dict = {}
@@ -523,16 +529,17 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 #     results = MetaphorGroup()
 #
 #     MET_AN_EN = pd.read_table(
-#         '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_met_en.txt',
+#         '/home/shruti/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_met_en.txt',
 #         delim_whitespace=True, names=('adj', 'noun'))
 #     MET_AN_EN['class'] = 1
 #     LIT_AN_EN = pd.read_table(
-#         '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_nonmet_en.txt',
+#         '/home/shruti/iit/research_project/Research_Project/new_structure/modules/datastructs/training_adj_noun_nonmet_en.txt',
 #         delim_whitespace=True, names=('adj', 'noun'))
 #     LIT_AN_EN['class'] = 0
 #
 #     df = pd.concat([LIT_AN_EN, MET_AN_EN])
 #
+
 #     data_list = []
 #
 #     for c in candidates:
@@ -545,7 +552,7 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 #     an_vectorized = []
 #     # Load Abstractness Rating
 #     # model = KeyedVectors.load_word2vec_format(
-#     #     '/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/wiki.en.vec')
+#     #     '/home/shruti/iit/research_project/Research_Project/new_structure/modules/datastructs/wiki.en.vec')
 #     data = []
 #     for j in zip(df.adj, df.noun):
 #         temp = [j[0], j[1]]
@@ -553,7 +560,7 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 #     model = gensim.models.Word2Vec(data, min_count=1, size=200, window=5)
 #
 #     csv = pd.read_csv(
-#         "/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/AC_ratings_google3m_koeper_SiW.csv",
+#         "/home/shruti/iit/research_project/Research_Project/new_structure/modules/datastructs/AC_ratings_google3m_koeper_SiW.csv",
 #         error_bad_lines=False)
 #     csv = pd.DataFrame(csv)
 #     dict = {}
@@ -605,9 +612,9 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 #     # df['predict'] = idx
 #
 #     fields = ['adj', 'noun']
-#     MET_AN_EN_TEST = pd.read_excel('/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx', sheetname='MET_AN_EN', usecols=fields)
+#     MET_AN_EN_TEST = pd.read_excel('/home/shruti/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx', sheetname='MET_AN_EN', usecols=fields)
 #     MET_AN_EN_TEST['class'] = 1
-#     LIT_AN_EN_TEST = pd.read_excel('/home/shrutitejus/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx', sheetname='LIT_AN_EN', usecols=fields)
+#     LIT_AN_EN_TEST = pd.read_excel('/home/shruti/iit/research_project/Research_Project/new_structure/modules/datastructs/Datasets_ACL2014.xlsx', sheetname='LIT_AN_EN', usecols=fields)
 #     LIT_AN_EN_TEST['class'] = 0
 #
 #     df = pd.concat([LIT_AN_EN_TEST, MET_AN_EN_TEST])
