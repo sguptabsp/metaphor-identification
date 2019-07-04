@@ -159,8 +159,8 @@ def k_mean_distance(data, cx, cy, i_centroid, cluster_labels):
     return distances
 
 
-def k_mean_1d_distance(data, cx, cy, i_centroid, cluster_labels):
-    distances = [np.sqrt((x - cx) ** 2 + (y - cy) ** 2) for (x, y) in data[cluster_labels == i_centroid]]
+def k_mean_1d_distance(data, cx, i_centroid, cluster_labels):
+    distances = [(x - cx) for x in data[cluster_labels == i_centroid]]
     return distances
 
 
@@ -242,10 +242,17 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
     centroid_list = centroids.tolist()
     distances = []
     # for i in range(len(centroid_list[0])):
-    for i, (cx, cy) in enumerate(centroids):
-        mean_distance = k_mean_distance(an_vectorized, cx, cy, i, clustering_labels)
-        # mean_distance = k_mean_distance(an_vectorized_PCA, centroid_list[0][i], centroid_list[1][i], i, clusters)
-        distances.append(mean_distance)
+
+    if centroids.size <= 2:
+        for i, cx in enumerate(centroids):
+            mean_distance = k_mean_1d_distance(an_vectorized, cx, i, clustering_labels)
+            # mean_distance = k_mean_distance(an_vectorized_PCA, centroid_list[0][i], centroid_list[1][i], i, clusters)
+            distances.append(mean_distance)
+    else:
+        for i, (cx, cy) in enumerate(centroids):
+            mean_distance = k_mean_distance(an_vectorized, cx, cy, i, clustering_labels)
+            # mean_distance = k_mean_distance(an_vectorized_PCA, centroid_list[0][i], centroid_list[1][i], i, clusters)
+            distances.append(mean_distance)
 
     print(distances)
     #
