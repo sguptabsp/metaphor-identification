@@ -1,0 +1,10 @@
+219	became	WZO	v	n
+170	are	Wz	v	n
+41	can	wz	v	n
+218	is	Wz	v	n
+156	are	wz	v	n
+618	was	WZO	v	n
+174	are	WZ	v	n
+191	is	wz	v	n
+119	would	WZO	v	n
+286	is	WZ	v	n

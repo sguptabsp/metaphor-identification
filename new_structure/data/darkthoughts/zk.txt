@@ -1,9 +1,0 @@
-61	are	zk	v	n
-1663	may	Zk	v	n
-454	are	ZK	v	n
-44	denotes	Zk	v	n
-384	is	zk	v	n
-112	was	ZK	v	n
-84	has	Zk	v	n
-75	is	zK	v	n
-129	can	Zk	v	n

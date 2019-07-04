@@ -1,0 +1,11 @@
+1331	is	QHE	v	n
+85	can	QH	v	n
+1129	is	qh	v	n
+56	has	QHE	v	n
+115	is	qH	v	n
+83	will	QH	v	n
+234	are	Qh	v	n
+65	must	QH	v	n
+82	are	qh	v	n
+82	will	Qh	v	n
+424	would	QH	v	n

@@ -1,0 +1,6 @@
+source,target,result,confidence
+be,part,False,0.0
+divide,part,False,0.0
+talk,child,False,0.0
+eat,cat,False,0.0
+attack,castle,False,1.0

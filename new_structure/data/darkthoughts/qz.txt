@@ -1,3 +1,0 @@
-299	can	qz	v	n
-49	are	QZ	v	n
-1667	is	Qz	v	n

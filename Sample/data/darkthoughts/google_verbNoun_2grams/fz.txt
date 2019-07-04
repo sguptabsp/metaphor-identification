@@ -1,0 +1,14 @@
+61	can	FZ	v	n
+44	are	FZD	v	n
+67	may	Fz	v	n
+82	has	FZ	v	n
+54	can	fz	v	n
+494	is	FZD	v	n
+252	are	FZ	v	n
+107	was	Fz	v	n
+126	et	FZ	v	n
+150	will	Fz	v	n
+1605	is	FZP	v	n
+258	are	fz	v	n
+87	was	FZ	v	n
+680	are	Fz	v	n

@@ -1,0 +1,4 @@
+499	can	Xw	v	n
+123	is	xW	v	n
+171	are	Xw	v	n
+104	is	XW	v	n
