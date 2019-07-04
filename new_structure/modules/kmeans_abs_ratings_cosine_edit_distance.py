@@ -322,6 +322,8 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
     return confidence_dict
 
 
+accuracy_list = []
+
 @timeit
 def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
     results = MetaphorGroup()
@@ -401,7 +403,8 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     # import matplotlib.pyplot as plt
     # plt.scatter(an_vectorized[:, 0], an_vectorized[:, 1], c=kmeans_clustering.labels_, cmap='rainbow')
     # plt.show()
-    print('Accuracy is: ', accuracy_score(np.asarray(user_input_df['class']), y1))
+    accuracy_list.append(accuracy_score(np.asarray(user_input_df['class']), y1))
+    print('Accuracy is: ', accuracy_list)
     user_input_df['predict'] = y1
     confidence_counter = -1
     for c in candidates:
