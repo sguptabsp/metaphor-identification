@@ -52,8 +52,6 @@ def vectorize_data(df):
 
     model = get_cosine_similarity_model(df)
 
-    abstractness_rating_dict = get_abstractness_rating()
-
     for j in zip(df.adj, df.noun):
         a = j[0]
         n = j[1]
