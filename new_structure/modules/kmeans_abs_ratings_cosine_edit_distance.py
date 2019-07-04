@@ -313,7 +313,11 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
 @timeit
 def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
     results = MetaphorGroup()
-
+    candidates_list = candidates.candidates
+    print(len(candidates_list))
+    components = 2
+    if len(candidates_list) < 2:
+        components = len(candidates_list)
     MET_AN_EN = pd.read_table(
         './data/training_adj_noun_met_en.txt',
         delim_whitespace=True, names=('adj', 'noun'))
@@ -356,9 +360,12 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     an_vectorized = vectorize_data(df)
     an_vectorized_user_input = vectorize_data(user_input_df)
 
-    an_vectorized_training_PCA = PCA(n_components=2).fit_transform(an_vectorized)
-    an_vectorized_test_PCA = PCA(n_components=2).fit_transform(an_vectorized_user_input)
-
+    an_vectorized_training_PCA = PCA(n_components=components).fit_transform(an_vectorized)
+    # if components == 2:
+    an_vectorized_test_PCA = PCA(n_components=components).fit_transform(an_vectorized_user_input)
+    # else:
+    #     an_vectorized_test_PCA = an_vectorized_user_input
+    # n_components = 2
     kmeans_clustering = KMeans(n_clusters=2, random_state=43)
     idx = kmeans_clustering.fit(an_vectorized_training_PCA)
     kmeans_cluster_centers = kmeans_clustering.cluster_centers_
