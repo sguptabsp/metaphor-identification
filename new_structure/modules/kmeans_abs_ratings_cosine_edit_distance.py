@@ -319,6 +319,8 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
 def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
     results = MetaphorGroup()
     candidates_list = candidates.candidates
+    if not candidates_list:
+        return results
     print(len(candidates_list))
     components = 2
     if len(candidates_list) < 2:
