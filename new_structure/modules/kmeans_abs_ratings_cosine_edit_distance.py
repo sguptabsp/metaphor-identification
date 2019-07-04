@@ -218,10 +218,10 @@ def cross_validation(train_df, test_df, kmeans_clustering):
 def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, predicted_data_labels):
     centroids = kmeans_clustering.cluster_centers_
     clustering_labels = kmeans_clustering.labels_
-    cluster_1_standard_deviation, cluster_2_standard_deviation = find_standard_deviation(an_vectorized,
-                                                                                         clustering_labels,
-                                                                                         test_data_coordinates,
-                                                                                         predicted_data_labels)
+    # cluster_1_standard_deviation, cluster_2_standard_deviation = find_standard_deviation(an_vectorized,
+    #                                                                                      clustering_labels,
+    #                                                                                      test_data_coordinates,
+    #                                                                                      predicted_data_labels)
 
     confidence_dict = {}
     # pca = PCA(n_components=2).fit(an_vectorized)
@@ -264,10 +264,10 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
 
     print(len(max_indices))
     # an_vectorized_PCA[max_indices, 0], an_vectorized_PCA[max_indices, 1]
-    cluster_0_farthest_point = an_vectorized[max_indices, 0]
-    cluster_1_farthest_point = an_vectorized[max_indices, 1]
-    cluster_0_max_distance = distance.euclidean(centroid_list[0], cluster_0_farthest_point.tolist())
-    cluster_1_max_distance = distance.euclidean(centroid_list[1], cluster_1_farthest_point.tolist())
+    # cluster_0_farthest_point = an_vectorized[max_indices, 0]
+    # cluster_1_farthest_point = an_vectorized[max_indices, 1]
+    # cluster_0_max_distance = distance.euclidean(centroid_list[0], cluster_0_farthest_point.tolist())
+    # cluster_1_max_distance = distance.euclidean(centroid_list[1], cluster_1_farthest_point.tolist())
     test_data_coordinate_list = test_data_coordinates.tolist()
     predicted_label_list = predicted_data_labels.tolist()
     for i in range(len(test_data_coordinate_list)):
@@ -311,7 +311,7 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
     #         data_point_center_distance = distance.euclidean(centroid_list[1], test_data_coordinate_list[i])
     #         confidence_dict[i] = (cluster_1_max_distance - data_point_center_distance) / cluster_1_max_distance
 
-    print(an_vectorized[max_indices, 0], an_vectorized[max_indices, 1])
+    # print(an_vectorized[max_indices, 0], an_vectorized[max_indices, 1])
     # X_dist_farthestPoint1 = kmeans_clustering.transform(an_vectorized_PCA[max_indices]) ** 2
     # X_dist_farthestPoint2 = kmeans_clustering.transform(an_vectorized_PCA[max_indices]) ** 2
     # an_vectorized_PCA_square1 = X_dist_farthestPoint1 ** 2
@@ -398,9 +398,9 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     confidence = get_confidence(an_vectorized_training_PCA, kmeans_clustering, an_vectorized_test_PCA, y1)
 
     print("Confidence of the corresponding words are : {} ".format(confidence))
-    import matplotlib.pyplot as plt
-    plt.scatter(an_vectorized[:, 0], an_vectorized[:, 1], c=kmeans_clustering.labels_, cmap='rainbow')
-    plt.show()
+    # import matplotlib.pyplot as plt
+    # plt.scatter(an_vectorized[:, 0], an_vectorized[:, 1], c=kmeans_clustering.labels_, cmap='rainbow')
+    # plt.show()
     print('Accuracy is: ', accuracy_score(np.asarray(user_input_df['class']), y1))
     user_input_df['predict'] = y1
     confidence_counter = -1
