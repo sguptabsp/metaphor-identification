@@ -35,6 +35,9 @@ def get_abstractness_rating():
     return abstractness_rating_dict
 
 
+abstractness_rating_dict = get_abstractness_rating()
+
+
 def get_cosine_similarity_model(df):
     data = []
     for j in zip(df.adj, df.noun):
