@@ -251,7 +251,7 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
             confidence_dict[i] = 1 - (
                     (data_point_center_distance) / (data_point_center_distance + center_distance_other_cluster))
 
-        return confidence_dict
+    return confidence_dict
 
 
 accuracy_list = []
@@ -262,7 +262,6 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     candidates_list = candidates.candidates
     if not candidates_list:
         return results
-    print(len(candidates_list))
     components = 2
     if len(candidates_list) < 2:
         components = len(candidates_list)
