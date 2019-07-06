@@ -1,4 +1,5 @@
 import math
+import warnings
 
 import gensim
 import nltk
@@ -8,12 +9,12 @@ from gensim.models import KeyedVectors
 from scipy.spatial import distance
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
-from sklearn.metrics import accuracy_score
 from sklearn.model_selection import KFold
 
 from new_structure.modules.datastructs.metaphor import Metaphor
 from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
 
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 def create_word2vec_model():
     # Cosine Similarity model creation
@@ -303,8 +304,12 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     an_vectorized = vectorize_data(df)
     an_vectorized_user_input = vectorize_data(user_input_df)
 
-    an_vectorized_training_PCA = PCA(n_components=components).fit_transform(an_vectorized)
-    an_vectorized_test_PCA = PCA(n_components=components).fit_transform(an_vectorized_user_input)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        an_vectorized_training_PCA = PCA(n_components=components).fit_transform(an_vectorized)
+        an_vectorized_test_PCA = PCA(n_components=components).fit_transform(an_vectorized_user_input)
+    # an_vectorized_training_PCA = an_vectorized
+    # an_vectorized_test_PCA = an_vectorized_user_input
     kmeans_clustering = KMeans(n_clusters=2, random_state=43)
     idx = kmeans_clustering.fit(an_vectorized_training_PCA)
     y1 = idx.predict(an_vectorized_test_PCA)
