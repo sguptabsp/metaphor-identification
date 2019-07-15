@@ -2,6 +2,7 @@ import math
 import warnings
 
 import gensim
+import matplotlib.pyplot as plt
 import nltk
 import numpy as np
 import pandas as pd
@@ -9,12 +10,18 @@ from gensim.models import KeyedVectors
 from scipy.spatial import distance
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
+from sklearn.exceptions import UndefinedMetricWarning
 from sklearn.model_selection import KFold
+from sklearn.metrics.cluster import homogeneity_score
+from sklearn.metrics.cluster import v_measure_score
+from sklearn.metrics.cluster import completeness_score
 
 from new_structure.modules.datastructs.metaphor import Metaphor
 from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
 
 warnings.filterwarnings("ignore", category=FutureWarning)
+warnings.filterwarnings("ignore", category=UndefinedMetricWarning)
+
 
 def create_word2vec_model():
     # Cosine Similarity model creation
@@ -49,13 +56,18 @@ def get_cosine_similarity_model(df):
 
 def vectorize_data(df):
     an_vectorized = []
-
+    l = []
     model = get_cosine_similarity_model(df)
 
     for j in zip(df.adj, df.noun):
         a = j[0]
         n = j[1]
         l = []
+        abs = []
+        # abs2 = []
+        # abs3 = []
+        # cosi=[]
+        # edit=[]
         if '-' in a:
             s = a.split('-')
             ar_Adj = (float(abstractness_rating_dict[s[0]]) + float(abstractness_rating_dict[s[1]])) / 2
@@ -72,10 +84,17 @@ def vectorize_data(df):
         s = model.similarity(j[0], j[1])
         l.append(s)
         l.append(nltk.edit_distance(j[0], j[1]) / 10)
+        # abs1.append((ar_Adj) / 10)
+        # abs2.append((ar_Noun) / 10)
+        # abs3.append((np.sign(ar_Adj - ar_Noun)))
+        # cosi.append(model.similarity(j[0], j[1]))
+        # edit.append(nltk.edit_distance(j[0], j[1]) / 10)
+        # l = [abs1,abs2,abs3, cosi, edit]
+        # print(l)
 
         an_vectorized.append(list(l))
 
-    an_vectorized = np.asarray(an_vectorized)
+    # an_vectorized = np.asarray(l)
     return an_vectorized
 
 
@@ -256,9 +275,13 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
 
 
 accuracy_list = []
+word_pairs = []
+accuracy_confidence_list = []
 
 
 def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
+    # cross_validation_acc_presc(an_vectorized,df)
+
     results = MetaphorGroup()
     candidates_list = candidates.candidates
     if not candidates_list:
@@ -303,6 +326,9 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 
     an_vectorized = vectorize_data(df)
     an_vectorized_user_input = vectorize_data(user_input_df)
+    # cross_val_df = an_vectorized
+    # print("cross_valdf",cross_val_df.shape())
+    y_cross_val = df['class']
 
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
@@ -317,15 +343,29 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     confidence = get_confidence(an_vectorized_training_PCA, kmeans_clustering, an_vectorized_test_PCA, y1)
 
     print("Confidence of the corresponding words are : {} ".format(confidence))
-    accuracy_list.append(accuracy_score(np.asarray(user_input_df['class']), y1))
-    print('Accuracy is: ', accuracy_list)
+    # accuracy_list.append(accuracy_score(np.asarray(user_input_df['class']), y1))
+    # print('Accuracy is: ', accuracy_list)
+    cross_validation_acc_presc(an_vectorized, df)
+
     user_input_df['predict'] = y1
+    calc_homogenity_comp_vmeas(user_input_df,candidates)
+
     confidence_counter = -1
     for c in candidates:
         confidence_counter += 1
         adj = c.getSource()
         noun = c.getTarget()
         candidate_df = user_input_df.loc[(user_input_df['adj'] == adj) & (user_input_df['noun'] == noun)]
+        # print(candidate_df["adj"][confidence_counter])
+        # print(candidate_df["noun"][confidence_counter])
+        if candidate_df["class"][confidence_counter] != 2:
+            word_pairs.append(
+                "{}||{}".format(candidate_df["adj"][confidence_counter], candidate_df["noun"][confidence_counter]))
+            print(word_pairs)
+            if candidate_df["class"][confidence_counter] == candidate_df["predict"][confidence_counter]:
+                accuracy_confidence_list.append([1, confidence[confidence_counter]])
+            else:
+                accuracy_confidence_list.append([0, confidence[confidence_counter]])
         if len(candidate_df.index):
             result_class = candidate_df.iloc[0]['predict']
             if result_class.any() == 0:
@@ -334,4 +374,8 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
                 result = True
 
             results.addMetaphor(Metaphor(c, result, confidence[confidence_counter]))
+
+    plot_accuracy_confidence_histogram(word_pairs, accuracy_confidence_list)
+    # plot_accuracy_confidence(word_pairs, accuracy_confidence_list)
+
     return results
