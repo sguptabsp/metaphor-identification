@@ -379,3 +379,161 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     # plot_accuracy_confidence(word_pairs, accuracy_confidence_list)
 
     return results
+def cross_validation_acc_presc(an_vectorized,df):
+    # New Cross validation
+
+    from sklearn.model_selection import cross_validate
+    from sklearn.model_selection import cross_val_score
+
+    # MET_AN_EN = pd.read_table('/home/shruti/metaphor_idenfication/new_structure/data/training_adj_noun_met_en.txt', delim_whitespace=True, names=('adj', 'noun'))
+    # MET_AN_EN['class'] = 1
+    # LIT_AN_EN = pd.read_table('/home/shruti/metaphor_idenfication/new_structure/data/training_adj_noun_met_en.txt', delim_whitespace=True, names=('adj', 'noun'))
+    # LIT_AN_EN['class'] = 0
+    #
+    # fields = ['adj', 'noun']
+    # MET_AN_EN_TEST = pd.read_excel('/home/shruti/metaphor_idenfication/new_structure/data/Datasets_ACL2014.xlsx', sheetname='MET_AN_EN', usecols=fields)
+    # MET_AN_EN_TEST['class'] = 1
+    # LIT_AN_EN_TEST = pd.read_excel('/home/shruti/metaphor_idenfication/new_structure/data/Datasets_ACL2014.xlsx', sheetname='LIT_AN_EN', usecols=fields)
+    # LIT_AN_EN_TEST['class'] = 0
+    #
+    # df = pd.concat([MET_AN_EN, LIT_AN_EN, LIT_AN_EN_TEST, MET_AN_EN_TEST], ignore_index=True)
+    # df = pd.DataFrame(df)
+    #
+    # # df = pd.concat([LIT_AN_EN,MET_AN_EN] ,ignore_index=True)
+    # # df = pd.DataFrame(df)
+    #
+    # data = []
+    # for j in zip(df.adj, df.noun):
+    #     temp = [j[0], j[1]]
+    #     data.append(temp)
+    # model = gensim.models.Word2Vec(data, min_count=1, size=200, window=5)
+    # # model = KeyedVectors.load_word2vec_format('wiki.en.vec')
+    #
+    # an_vectorized = []
+    # for j in zip(df.adj, df.noun):
+    #     a = j[0]
+    #     n = j[1]
+    #     l = []
+    #     if '-' in a:
+    #         s = a.split('-')
+    #         ar_Adj = (float(dict[s[0]]) + float(dict[s[1]])) / 2
+    #     else:
+    #         ar_Adj = float(dict[a])
+    #     if '-' in n:
+    #         s = n.split('-')
+    #         ar_Noun = (float(dict[s[0]]) + float(dict[s[1]])) / 2
+    #     else:
+    #         ar_Noun = float(dict[n])
+    #     l.append((ar_Adj) / 10)
+    #     l.append((ar_Noun) / 10)
+    #     l.append((np.sign(ar_Adj - ar_Noun)))
+    #     l.append(model.similarity(j[0], j[1]))
+    #     l.append(nltk.edit_distance(j[0], j[1]) / 10)
+    #
+    #     # an_vectorized = np.asarray([ [(ar_Adj)/10],[(ar_Noun)/10], [np.sign(ar_Adj - ar_Noun)]])
+    #     an_vectorized.append(list(l))
+    #     # an_vectorized.append(( ar_Adj + ar_Noun+ np.sign(ar_Adj - ar_Noun))/10)
+    # an_vectorized = np.asarray(an_vectorized)
+
+    kmeans_clustering = KMeans(n_clusters=2, init='k-means++', random_state=43)
+    # idx = kmeans_clustering.fit_predict( an_vectorized )
+    # print(an_vectorized.shape)
+    # print('Accuracy is: ',accuracy_score(np.asarray(df['class']), idx))
+    # df['predict'] = idx
+    # df
+
+    # cross-validation
+
+    X = an_vectorized
+    y = df['class']
+    # cv = KFold(n_splits=2,random_state=49999999,shuffle=False)
+
+    # cv1 = ShuffleSplit(n_splits=2, random_state=0)
+    idx = kmeans_clustering.fit(X, y)
+    #     Ytrain = idx.predict(X_train)
+    # Ytest = idx.predict(X_test)
+
+    scoring = ['precision_macro', 'recall_macro']
+    cross_val_scores = cross_val_score(kmeans_clustering, X, y, cv=10)
+    print("Accuracy: %0.2f (+/- %0.2f)" % (cross_val_scores.mean(), cross_val_scores.std() * 2))
+    print("Crossvalscores:", cross_val_scores)
+
+    scores = cross_validate(kmeans_clustering, X, y, scoring=scoring,
+                            cv=10)
+    print("Scores Keys:", sorted(scores.keys()))
+
+    # print("Scores:train_precision_macro",scores['train_precision_macro'])
+
+    # print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+    print("Scores:")
+    for key, value in scores.items():
+        print(key)
+        print(value)
+        print("Avg score: %0.2f (+/- %0.2f)" % (value.mean(), value.std() * 2))
+
+
+
+def plot_accuracy_confidence(x, y):
+    plt.xlabel("X-axis")
+    plt.ylabel("Y-axis")
+    plt.title("Accuracy Confidence Comparison")
+    plt.figure(figsize=(41, 11))
+    labels = {0: "Accuracy", 1: "Confidence"}
+    if x and y:
+        for i in range(len(y[0])):
+            plt.plot(x, [pt[i] for pt in y], label=labels[i])
+        plt.legend()
+        print("Total word pairs in the graph = {}".format(len(x)))
+        plt.savefig("/tmp/accuracy_confidence_plot.png", dpi=100, quality=100)
+        plt.savefig("/tmp/accuracy_confidence_plot.png", dpi=100, quality=100)
+
+def plot_accuracy_confidence_histogram(x, y):
+    import numpy as np
+    import matplotlib.pyplot as plt
+    # makes the data
+    conf_list = []
+    acc_list=[]
+    for pair in y:
+        conf_list.append(round(pair[1],1))
+        if pair[0]== 1:
+            acc_list.append(round(pair[1],1))
+
+    if conf_list and acc_list:
+        y1 = np.asarray(conf_list)
+        y2 = np.asarray(acc_list)
+        print(y1)
+        print(y2)
+        colors = ['b', 'g']
+        # plots the histogram
+        fig, ax1 = plt.subplots()
+        ax1.hist([y1, y2], color=colors)
+        ax1.set_xlim(0.5, 1)
+        ax1.set_ylabel("Count")
+        # plt.show()
+        plt.savefig("/tmp/accuracy_confidence_plot_histogram.png", dpi=100, quality=100)
+
+truelabels=[]
+predictlabels=[]
+
+
+def calc_homogenity_comp_vmeas(user_input_df,candidates):
+
+    # user_input_df['predict'] = y1
+
+    confidence_counter = -1
+    for c in candidates:
+        confidence_counter += 1
+        adj = c.getSource()
+        noun = c.getTarget()
+        candidate_df = user_input_df.loc[(user_input_df['adj'] == adj) & (user_input_df['noun'] == noun)]
+        print(candidate_df["adj"][confidence_counter])
+        print(candidate_df["noun"][confidence_counter])
+        if candidate_df["class"][confidence_counter] != 2:
+            truelabels.append(candidate_df["class"][confidence_counter])
+            predictlabels.append(candidate_df["predict"][confidence_counter])
+    print("truelables:",truelabels)
+    print("predictlabels:",predictlabels)
+    homogenity_scr = homogeneity_score(truelabels,predictlabels)
+    vmeasure_scr = v_measure_score(truelabels,predictlabels)
+    completness_scr =completeness_score(truelabels,predictlabels)
+    print("homogenity_scr={},vmeasure_scr={},completness_scr={}".format(homogenity_scr,vmeasure_scr,completness_scr))
