@@ -15,8 +15,8 @@ from Sample.utils import timeit
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import KFold
 
-from new_structure.modules.datastructs.metaphor import Metaphor
-from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
+from Sample.modules.datastructs.metaphor import Metaphor
+from Sample.modules.datastructs.metaphor_group import MetaphorGroup
 
 
 def create_word2vec_model():

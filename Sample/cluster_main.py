@@ -1,7 +1,7 @@
 from Sample.modules.datastructs.clustered_data import ClusteredData
 from Sample.modules.parsing_functions import parseVerbNet, parseNouns, parseTroFi
 from Sample.modules.utils import writeToCSV
-from Sample.modules.cluster_module import buildDB, buildAlphabeticalDatabase
+from Sample.modules.cluster_module import buildDB
 from nltk.parse.stanford import StanfordDependencyParser
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.corpus import wordnet
@@ -106,5 +106,4 @@ if __name__ == '__main__':
 		print(tags)
 		tagsToCSV(tags)
 	'''
-	# buildDB()
-	buildAlphabeticalDatabase()
+	buildDB()

@@ -6,7 +6,7 @@ class Metaphor:
 		if (not(isinstance(confidence, float))):
 			raise ValueError('Argument confidence not a float.')
 		self.candidate = candidate
-		self.result = result
+		self.predictedLabel = result
 		self.confidence = confidence
 
 	def getSource(self):
@@ -15,13 +15,16 @@ class Metaphor:
 	def getTarget(self):
 		return self.candidate.getFullTarget()
 
-	def getResult(self):
-		return self.result
+	def getPredictedLabel(self):
+		return self.predictedLabel
 
 	def getConfidence(self):
 		return self.confidence
 
+	def getLabel(self):
+		return self.candidate.getLabel()
+
 	def __str__(self):
 		source = self.getSource()
 		target = self.getTarget()
-		return "Source: " + source + " || Target: " + target + " || Result: " + str(self.result) + " || Confidence: " + str(self.confidence)
+		return "Source: " + source + " || Target: " + target + " || Result: " + str(self.predictedLabel) + " || Confidence: " + str(self.confidence)

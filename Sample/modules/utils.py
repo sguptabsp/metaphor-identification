@@ -91,6 +91,8 @@ def parseCommandLine():
 	parser.add_argument("-cf", "--cfinder", type=str, default="adjNoun",
 						help="choose the candidate finding method: adjNoun, verbNoun")
 	parser.add_argument("-cg", "--cgenerator", default=False, action="store_true", help="Generate candidates from an excel files")
+	parser.add_argument("-csv", "--csv", type=str, help="Store the results in a csv file")
+
 	group = parser.add_mutually_exclusive_group()
 	group.add_argument("-f", "--file", type=str, help="look for metaphors in a text file")
 	group.add_argument("-s", "--string", type=str, help="look for metaphors in a specified string")

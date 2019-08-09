@@ -48,5 +48,8 @@ class Candidate:
 	def getFullTarget(self):
 		return self.__stringAdder(self.targetSpan[0], self.targetSpan[1])
 
+	def getLabel(self):
+		return self.label
+
 	def __str__(self):
 		return "Source: " + self.getFullSource() + " || Target: " + self.getFullTarget()

@@ -127,12 +127,6 @@ def darkthoughtsFunction_2(candidates, cand_type, verbose):
     concrDict = parseConcreteness(CONCRETENESS_FILE)
     categories = parseCategories(CAT_FILE)
 
-    # Create a cache
-    # Read files indexed on the first letter of the source if it is not already in the cache
-    # BONUS: From a list of candidate groups, create one big candidate group so we call the mlabeler only once for each sentence
-    # BONUS: Need to figure out how to split the big metaphor group (output of mlabeler) to match all the little original candidate groups
-    # BONUS: Rewrite the parseNgrams function to use pandas and the conditional selection of rows
-
     for c in candidates:
         source = c.getSource()
         target = c.getTarget()
