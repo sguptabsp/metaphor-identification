@@ -1,0 +1,10 @@
+327	is	Xz	v	n
+378	can	xz	v	n
+170	are	Xz	v	n
+95	coordinate	xz	v	n
+478	will	XZ	v	n
+823	is	xz	v	n
+182	are	XZ	v	n
+164	will	xz	v	n
+47	can	Xz	v	n
+60	represents	XZ	v	n

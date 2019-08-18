@@ -1,0 +1,6 @@
+703	is	jze	v	n
+215	et	JZ	v	n
+252	replied	jze	v	n
+99	are	jz	v	n
+856	was	jze	v	n
+1174	is	Jz	v	n
