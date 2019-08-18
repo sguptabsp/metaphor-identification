@@ -21,10 +21,14 @@ from sklearn.metrics.cluster import homogeneity_score
 from sklearn.metrics.cluster import v_measure_score
 from sklearn.model_selection import KFold
 
+from Sample.modules.datastructs.metaphor import Metaphor
+from Sample.modules.datastructs.metaphor_group import MetaphorGroup
+
 matplotlib.use('Agg')
 from matplotlib import pyplot as plt
-from new_structure.modules.datastructs.metaphor import Metaphor
-from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
+
+# from new_structure.modules.datastructs.metaphor import Metaphor
+# from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=UndefinedMetricWarning)
@@ -274,16 +278,16 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
     centroid_list = centroids.tolist()
     distances = []
 
-    if centroids.size <= 2:
-        for i, cx in enumerate(centroids):
-            mean_distance = k_mean_1d_distance(an_vectorized, cx, i, clustering_labels)
-
-            distances.append(mean_distance)
-    else:
-        for i, (cx, cy) in enumerate(centroids):
-            mean_distance = k_mean_distance(an_vectorized, cx, cy, i, clustering_labels)
-            # mean_distance = k_mean_distance(an_vectorized_PCA, centroid_list[0][i], centroid_list[1][i], i, clusters)
-            distances.append(mean_distance)
+    # if centroids.size <= 2:
+    #     for i, cx in enumerate(centroids):
+    #         mean_distance = k_mean_1d_distance(an_vectorized, cx, i, clustering_labels)
+    #
+    #         distances.append(mean_distance)
+    # else:
+    for i, (cx, cy) in enumerate(centroids):
+        mean_distance = k_mean_distance(an_vectorized, cx, cy, i, clustering_labels)
+        # mean_distance = k_mean_distance(an_vectorized_PCA, centroid_list[0][i], centroid_list[1][i], i, clusters)
+        distances.append(mean_distance)
 
     max_indices = []
     for label in np.unique(kmeans_clustering.labels_):
@@ -313,8 +317,10 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
 
 
 accuracy_list = []
+accuracy_list_wo_class2 = []
 word_pairs = []
 accuracy_confidence_list = []
+accuracy_confidence_list_wo_class2 = []
 training_data = None
 
 
@@ -368,16 +374,16 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     if not candidates_list:
         return results
     components = 2
-    if len(candidates_list) < 2:
-        components = len(candidates_list)
+    # if len(candidates_list) < 2:
+    #     components = len(candidates_list)
 
     global idx_kMeans_fit
-    if idx_kMeans_fit.get(components):
-
-        idx, kmeans_clustering, an_vectorized_training_PCA = idx_kMeans_fit.get(components)
-    else:
-        idx_kMeans_fit[components] = get_kMeans_fit(components)
-        idx, kmeans_clustering, an_vectorized_training_PCA = idx_kMeans_fit.get(components)
+    # if idx_kMeans_fit.get(components):
+    #
+    #     idx, kmeans_clustering, an_vectorized_training_PCA = idx_kMeans_fit.get(components)
+    # else:
+    # idx_kMeans_fit[components] = get_kMeans_fit(components)
+    idx, kmeans_clustering, an_vectorized_training_PCA = get_kMeans_fit(components)
 
     data_list = []
     df = get_training_data()
@@ -393,9 +399,11 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     df_test_data = pd.DataFrame.from_records(data_list)
 
     user_input_df = pd.concat([df_test_data], axis=0).reset_index()
+    user_input_df_wo_class2 = user_input_df.loc[user_input_df['class'] != 2]
 
     # an_vectorized = vectorize_data(df)
     an_vectorized_user_input = vectorize_data(user_input_df)
+    an_vectorized_user_input_wo_class2 = vectorize_data(user_input_df_wo_class2)
     # print("Printing an vectorized and uer input")
     # print(an_vectorized)
     # print(an_vectorized_user_input)
@@ -407,6 +415,8 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
         warnings.simplefilter("ignore")
         # an_vectorized_training_PCA = PCA(n_components=components).fit_transform(an_vectorized)
         an_vectorized_test_PCA = PCA(n_components=components).fit_transform(an_vectorized_user_input)
+        an_vectorized_test_PCA_wo_class2 = PCA(n_components=components).fit_transform(
+            an_vectorized_user_input_wo_class2)
     # an_vectorized_training_PCA = an_vectorized
     # an_vectorized_test_PCA = an_vectorized_user_input
     # kmeans_clustering = KMeans(n_clusters=2,n_init=1000,n_jobs=-1)
@@ -416,17 +426,24 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     # idx,kmeans_clustering,an_vectorized_training_PCA = idx_kMeans_fit
     # kmeans_clustering = kMeans_clustering
     y1 = idx.predict(an_vectorized_test_PCA)
-
+    y2 = idx.predict(an_vectorized_test_PCA_wo_class2)
     confidence = get_confidence(an_vectorized_training_PCA, kmeans_clustering, an_vectorized_test_PCA, y1)
+    # confidence_wo_class2 = get_confidence(an_vectorized_training_PCA, kmeans_clustering, an_vectorized_test_PCA_wo_class2, y2)
 
     print("Confidence of the corresponding words are : {} ".format(confidence))
+    # print("Confidence of the corresponding words are without class2: {} ".format(confidence_wo_class2))
     sentence_accuracy = accuracy_score(np.asarray(user_input_df['class']), y1)
+    sentence_accuracy_wo_class2 = accuracy_score(np.asarray(user_input_df_wo_class2['class']), y2)
     accuracy_list.append(sentence_accuracy)
+    accuracy_list_wo_class2.append(sentence_accuracy_wo_class2)
+
+
     print('Accuracy is: ', accuracy_list)
-    if len(accuracy_list) > 0 and accuracy_list[-1] > 0:
-        global acc_counter
-        acc_counter = acc_counter + 1
-    print("highest accuracy:", acc_counter)
+    print('Accuracy is without class2: ', accuracy_list_wo_class2)
+    # if len(accuracy_list) > 0 and accuracy_list[-1] > 0:
+    #     global acc_counter
+    #     acc_counter = acc_counter + 1
+    # print("highest accuracy:", acc_counter)
     # cross_validation_acc_presc(an_vectorized, df)
 
     user_input_df['predict'] = y1
