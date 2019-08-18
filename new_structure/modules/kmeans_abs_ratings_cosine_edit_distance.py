@@ -1,8 +1,12 @@
+import csv
+import datetime
 import math
 import warnings
+from collections import Counter
 
 import gensim
-import matplotlib.pyplot as plt
+import matplotlib
+# import matplotlib.pyplot as plt
 import nltk
 import numpy as np
 import pandas as pd
@@ -11,11 +15,14 @@ from scipy.spatial import distance
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.exceptions import UndefinedMetricWarning
-from sklearn.model_selection import KFold
+from sklearn.metrics import accuracy_score
+from sklearn.metrics.cluster import completeness_score
 from sklearn.metrics.cluster import homogeneity_score
 from sklearn.metrics.cluster import v_measure_score
-from sklearn.metrics.cluster import completeness_score
+from sklearn.model_selection import KFold
 
+matplotlib.use('Agg')
+from matplotlib import pyplot as plt
 from new_structure.modules.datastructs.metaphor import Metaphor
 from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
 
@@ -45,6 +52,20 @@ def get_abstractness_rating():
 abstractness_rating_dict = get_abstractness_rating()
 
 
+def get_kMeans_fit(components):
+    df = get_training_data()
+    an_vectorized = vectorize_data(df)
+    # components = 2
+    # if len(candidates_list) < 2:
+    #     components = len(candidates_list)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        an_vectorized_training_PCA = PCA(n_components=components).fit_transform(an_vectorized)
+    kMeans_clustering1 = KMeans(n_clusters=2, n_init=1000, n_jobs=-1)
+    idx_kMeans_fit = kMeans_clustering1.fit(an_vectorized_training_PCA)
+    return idx_kMeans_fit, kMeans_clustering1, an_vectorized_training_PCA
+
+
 def get_cosine_similarity_model(df):
     data = []
     for j in zip(df.adj, df.noun):
@@ -54,11 +75,27 @@ def get_cosine_similarity_model(df):
     return model
 
 
+csv_columns = ['Source', 'Target', 'TrueLabel', 'PredictLabel', 'Confidence', 'Accuracy']
+csv_file = "Results" + str(datetime.datetime.now()) + ".csv"
+
+
+def create_csv_w_headers():
+    try:
+        with open(csv_file, 'w') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+            writer.writeheader()
+    except IOError:
+        print("I/O error")
+
+
+create_csv_w_headers()
+
+
 def vectorize_data(df):
     an_vectorized = []
     l = []
     model = get_cosine_similarity_model(df)
-
+    name = 0
     for j in zip(df.adj, df.noun):
         a = j[0]
         n = j[1]
@@ -84,6 +121,7 @@ def vectorize_data(df):
         s = model.similarity(j[0], j[1])
         l.append(s)
         l.append(nltk.edit_distance(j[0], j[1]) / 10)
+
         # abs1.append((ar_Adj) / 10)
         # abs2.append((ar_Noun) / 10)
         # abs3.append((np.sign(ar_Adj - ar_Noun)))
@@ -277,18 +315,22 @@ def get_confidence(an_vectorized, kmeans_clustering, test_data_coordinates, pred
 accuracy_list = []
 word_pairs = []
 accuracy_confidence_list = []
+training_data = None
 
 
-def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
-    # cross_validation_acc_presc(an_vectorized,df)
-
-    results = MetaphorGroup()
-    candidates_list = candidates.candidates
-    if not candidates_list:
-        return results
-    components = 2
-    if len(candidates_list) < 2:
-        components = len(candidates_list)
+def get_training_data():
+    global training_data
+    # global user_data
+    try:
+        if not training_data.empty:
+            return training_data
+    except:
+        """training data is empty"""
+    # try:
+    #     if not user_data.empty:
+    #         return user_data
+    # except:
+    #     """user data is empty"""
     MET_AN_EN = pd.read_table(
         './data/training_adj_noun_met_en.txt',
         delim_whitespace=True, names=('adj', 'noun'))
@@ -309,8 +351,36 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     LIT_AN_EN_TEST['class'] = 0
 
     df = pd.concat([LIT_AN_EN, MET_AN_EN, MET_AN_EN_TEST, LIT_AN_EN_TEST])
+    # df = pd.concat([LIT_AN_EN, MET_AN_EN])
+    # userdf = pd.concat([LIT_AN_EN_TEST,MET_AN_EN_TEST])
+    training_data = df
+    return df
+
+
+acc_counter = 0
+idx_kMeans_fit = {}
+
+
+def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verbose: str) -> MetaphorGroup:
+    # cross_validation_acc_presc(an_vectorized,df)
+    results = MetaphorGroup()
+    candidates_list = candidates.candidates
+    if not candidates_list:
+        return results
+    components = 2
+    if len(candidates_list) < 2:
+        components = len(candidates_list)
+
+    global idx_kMeans_fit
+    if idx_kMeans_fit.get(components):
+
+        idx, kmeans_clustering, an_vectorized_training_PCA = idx_kMeans_fit.get(components)
+    else:
+        idx_kMeans_fit[components] = get_kMeans_fit(components)
+        idx, kmeans_clustering, an_vectorized_training_PCA = idx_kMeans_fit.get(components)
 
     data_list = []
+    df = get_training_data()
 
     for c in candidates:
         dataframe_data = {}
@@ -324,34 +394,50 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 
     user_input_df = pd.concat([df_test_data], axis=0).reset_index()
 
-    an_vectorized = vectorize_data(df)
+    # an_vectorized = vectorize_data(df)
     an_vectorized_user_input = vectorize_data(user_input_df)
+    # print("Printing an vectorized and uer input")
+    # print(an_vectorized)
+    # print(an_vectorized_user_input)
     # cross_val_df = an_vectorized
     # print("cross_valdf",cross_val_df.shape())
-    y_cross_val = df['class']
+    # y_cross_val = df['class']
 
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
-        an_vectorized_training_PCA = PCA(n_components=components).fit_transform(an_vectorized)
+        # an_vectorized_training_PCA = PCA(n_components=components).fit_transform(an_vectorized)
         an_vectorized_test_PCA = PCA(n_components=components).fit_transform(an_vectorized_user_input)
     # an_vectorized_training_PCA = an_vectorized
     # an_vectorized_test_PCA = an_vectorized_user_input
-    kmeans_clustering = KMeans(n_clusters=2, random_state=43)
-    idx = kmeans_clustering.fit(an_vectorized_training_PCA)
+    # kmeans_clustering = KMeans(n_clusters=2,n_init=1000,n_jobs=-1)
+    # idx = kmeans_clustering.fit(an_vectorized_training_PCA)
+    # y_train = kmeans_clustering.fit_predict(an_vectorized_training_PCA)
+
+    # idx,kmeans_clustering,an_vectorized_training_PCA = idx_kMeans_fit
+    # kmeans_clustering = kMeans_clustering
     y1 = idx.predict(an_vectorized_test_PCA)
 
     confidence = get_confidence(an_vectorized_training_PCA, kmeans_clustering, an_vectorized_test_PCA, y1)
 
     print("Confidence of the corresponding words are : {} ".format(confidence))
-    # accuracy_list.append(accuracy_score(np.asarray(user_input_df['class']), y1))
-    # print('Accuracy is: ', accuracy_list)
-    cross_validation_acc_presc(an_vectorized, df)
+    sentence_accuracy = accuracy_score(np.asarray(user_input_df['class']), y1)
+    accuracy_list.append(sentence_accuracy)
+    print('Accuracy is: ', accuracy_list)
+    if len(accuracy_list) > 0 and accuracy_list[-1] > 0:
+        global acc_counter
+        acc_counter = acc_counter + 1
+    print("highest accuracy:", acc_counter)
+    # cross_validation_acc_presc(an_vectorized, df)
 
     user_input_df['predict'] = y1
-    calc_homogenity_comp_vmeas(user_input_df,candidates)
+    # calc_homogenity_comp_vmeas_training(df, y_train)
+
+    calc_homogenity_comp_vmeas(user_input_df, candidates)
 
     confidence_counter = -1
     for c in candidates:
+        results_dict = {}
+
         confidence_counter += 1
         adj = c.getSource()
         noun = c.getTarget()
@@ -361,11 +447,27 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
         if candidate_df["class"][confidence_counter] != 2:
             word_pairs.append(
                 "{}||{}".format(candidate_df["adj"][confidence_counter], candidate_df["noun"][confidence_counter]))
+            results_dict["Source"] = candidate_df["adj"][confidence_counter]
+            results_dict["Target"] = candidate_df["noun"][confidence_counter]
+            results_dict["TrueLabel"] = candidate_df["class"][confidence_counter]
+            results_dict["PredictLabel"] = candidate_df["predict"][confidence_counter]
+            results_dict["Confidence"] = confidence[confidence_counter]
+
             print(word_pairs)
             if candidate_df["class"][confidence_counter] == candidate_df["predict"][confidence_counter]:
                 accuracy_confidence_list.append([1, confidence[confidence_counter]])
+                results_dict["Accuracy"] = 1
+
             else:
                 accuracy_confidence_list.append([0, confidence[confidence_counter]])
+                results_dict["Accuracy"] = 0
+            try:
+                with open(csv_file, 'a') as csvfile:
+                    writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+                    # writer.writeheader()
+                    writer.writerow(results_dict)
+            except IOError:
+                print("I/O error")
         if len(candidate_df.index):
             result_class = candidate_df.iloc[0]['predict']
             if result_class.any() == 0:
@@ -375,11 +477,19 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
 
             results.addMetaphor(Metaphor(c, result, confidence[confidence_counter]))
 
-    plot_accuracy_confidence_histogram(word_pairs, accuracy_confidence_list)
+    # plot_accuracy_confidence_histogram(word_pairs, accuracy_confidence_list)
+    # plot_each_accuracy_confidence_histogram(word_pairs, accuracy_confidence_list)
+    try:
+        # plot_histogram(accuracy_confidence_list)
+        plot_accuracy_confidence_ratio_histogram(accuracy_confidence_list)
+    except Exception as e:
+        print("exception during plotting the graph -> {}".format(e))
     # plot_accuracy_confidence(word_pairs, accuracy_confidence_list)
 
     return results
-def cross_validation_acc_presc(an_vectorized,df):
+
+
+def cross_validation_acc_presc(an_vectorized, df):
     # New Cross validation
 
     from sklearn.model_selection import cross_validate
@@ -435,15 +545,7 @@ def cross_validation_acc_presc(an_vectorized,df):
     #     # an_vectorized.append(( ar_Adj + ar_Noun+ np.sign(ar_Adj - ar_Noun))/10)
     # an_vectorized = np.asarray(an_vectorized)
 
-    kmeans_clustering = KMeans(n_clusters=2, init='k-means++', random_state=43)
-    # idx = kmeans_clustering.fit_predict( an_vectorized )
-    # print(an_vectorized.shape)
-    # print('Accuracy is: ',accuracy_score(np.asarray(df['class']), idx))
-    # df['predict'] = idx
-    # df
-
-    # cross-validation
-
+    kmeans_clustering = KMeans(n_clusters=2, n_jobs=-1, n_init=1000)
     X = an_vectorized
     y = df['class']
     # cv = KFold(n_splits=2,random_state=49999999,shuffle=False)
@@ -472,7 +574,6 @@ def cross_validation_acc_presc(an_vectorized,df):
         print("Avg score: %0.2f (+/- %0.2f)" % (value.mean(), value.std() * 2))
 
 
-
 def plot_accuracy_confidence(x, y):
     plt.xlabel("X-axis")
     plt.ylabel("Y-axis")
@@ -487,16 +588,18 @@ def plot_accuracy_confidence(x, y):
         plt.savefig("/tmp/accuracy_confidence_plot.png", dpi=100, quality=100)
         plt.savefig("/tmp/accuracy_confidence_plot.png", dpi=100, quality=100)
 
+
 def plot_accuracy_confidence_histogram(x, y):
     import numpy as np
     import matplotlib.pyplot as plt
     # makes the data
     conf_list = []
-    acc_list=[]
+    acc_list = []
+
     for pair in y:
-        conf_list.append(round(pair[1],1))
-        if pair[0]== 1:
-            acc_list.append(round(pair[1],1))
+        conf_list.append(round(pair[1], 1))
+        if pair[0] == 1:
+            acc_list.append(round(pair[1], 1))
 
     if conf_list and acc_list:
         y1 = np.asarray(conf_list)
@@ -507,17 +610,275 @@ def plot_accuracy_confidence_histogram(x, y):
         # plots the histogram
         fig, ax1 = plt.subplots()
         ax1.hist([y1, y2], color=colors)
-        ax1.set_xlim(0.5, 1)
+        ax1.set_xlim(0, 1)
         ax1.set_ylabel("Count")
         # plt.show()
-        plt.savefig("/tmp/accuracy_confidence_plot_histogram.png", dpi=100, quality=100)
-
-truelabels=[]
-predictlabels=[]
+        plt.savefig("/tmp/accuracy_confidence_plot_histogram_200.png", dpi=100, quality=100)
+        plt.close()
 
 
-def calc_homogenity_comp_vmeas(user_input_df,candidates):
+def plot_accuracy_confidence_ratio_histogram(y):
+    # makes the data
+    # conf_list = []
+    # acc_list = []
+    #
+    # acc_list_size=[]
+    #
+    # for pair in y:
+    #     conf_list.append(round(pair[1], 1))
+    #
+    #     if pair[0] == 1:
+    #         acc_list.append(pair[0])
+    #
+    #
+    # if conf_list and acc_list:
+    #     y1 = np.asarray(conf_list)
+    #     y2 = np.asarray(acc_list)
+    #     print(y1)
+    #     print(y2)
+    #     y1_size = len(conf_list)
+    #
+    #     y2_size = len(acc_list)
+    #     # bar_2_bePlotted =
+    #     colors = ['b', 'g']
+    #     # plots the histogram
+    #     fig, ax1 = plt.subplots()
+    #     ax1.hist([y1, y2], color=colors)
+    #     ax1.set_xlim(0, 1)
+    #     ax1.set_ylabel("Count")
+    #     # plt.show()
+    #     plt.savefig("/tmp/accuracy_confidence_plot_histogram.png", dpi=100, quality=100)
+    #     plt.close()
 
+    conf_list = []
+    acc_list = []
+    for pair in y:
+        conf_list.append(round(pair[1], 1))
+
+        if pair[0] == 1:
+            acc_list.append(round(pair[1], 1))
+    counter_acclist = Counter(acc_list)
+    counter_conflist = Counter(conf_list)
+
+    x_list = []
+    y_list = []
+    for k, v in counter_conflist.items():
+        x_list.append(k)
+        acc_count_for_k = counter_acclist.get(k, 0)
+        ratio = acc_count_for_k / v
+
+        y_list.append(ratio)
+
+    pos = list(range(len(conf_list)))
+    width = 0.005
+    # ax = plt.subplot(111)
+    len_conf_list = len(conf_list)
+    # N=2
+    # x = np.linspace(0,50,N)
+    fig, ax = plt.subplots()
+    z1 = conf_list
+    y1 = acc_list
+
+    # k = [11, 12, 13]
+    # for i in range(0,len_conf_list):
+    if len(conf_list) > 1:
+        # plt.bar(pos,
+        #         # using df['pre_score'] data,
+        #         z1,
+        #         # of width
+        #         width,
+        #         # with alpha 0.5
+        #         alpha=0.5,
+        #         # with color
+        #         color='r',
+        #         # with label the first value in first_name
+        #         label=conf_list[0])
+
+        # Create a bar with mid_score data,
+        # in position pos + some width buffer,
+        plt.bar(x_list,
+                # using df['mid_score'] data,
+                y_list,
+                # of width
+                width,
+                # with alpha 0.5
+                alpha=0.5,
+                # with color
+                color='b',
+                # with label the second value in first_name
+                label=x_list[0])
+
+    # Set the y axis label
+    ax.set_xlabel('Confidence')
+    ax.set_ylabel('Accuracy Estimator')
+
+    # Set the chart's title
+    ax.set_title('Accuracy and Confidence')
+
+    # # Set the position of the x ticks
+    # ax.set_xticks([p + 1.5 * width for p in pos])
+    #
+    # # Set the labels for the x ticks
+    # ax.set_xticklabels(df['first_name'])
+
+    # Setting the x-axis and y-axis limits
+    # if len(pos)!=0:
+    #     plt.xlim(min(pos) - width, max(pos) + width * 4)
+    # plt.ylim([0, max(df['pre_score'] + df['mid_score'] + df['post_score'])])
+
+    # ax = plt.subplot(111)
+    # ax.bar(x-0.2, y, width=0.2, color='b', align='center')
+    # ax.bar(x, z, width=0.2, color='g', align='center')
+    # ax.bar(x + 0.2, k, width=0.2, color='r', align='center')
+    # ax.xaxis_date()
+    # plt.xlim(min(pos) - width, max(pos) + width * 4)
+    plt.legend(['Confidence', 'Accuracy'], loc='upper right')
+    # plt.show()
+    plt.savefig("/home/shrutitejus/Desktop/confidence accuracy graphs/accuracy_confidence_plot_bar_200_32.png", dpi=100,
+                quality=100)
+    plt.close()
+
+
+file_counter = 1
+counter_2 = 1
+
+
+def plot_each_accuracy_confidence_histogram(x, y):
+    # import numpy as np
+    # import matplotlib.pyplot as plttruelables
+
+    # makes the data
+
+    try:
+
+        conf_list = []
+        acc_list = []
+        global file_counter
+        for pair in y:
+            conf_list.append(pair[1])
+            acc_list.append(pair[0])
+            # for pair in y:
+            #     if pair[0] == 1:
+            #         acc_list.append(pair[1])
+            #     else:
+            #         conf_list.append(pair[1])
+
+            # if conf_list and acc_list:
+            #
+            #     conf_count = -10 if len(conf_list) > 9 else len(conf_list) * -1
+            #     acc_count = -10 if len(acc_list) > 9 else len(acc_list) * -1
+
+            y1 = conf_list
+            # y1_size = len(conf_list)
+            y2 = acc_list
+            # y2_size = len(acc_list)
+            print(y1)
+            print(y2)
+            colors = ['r', 'g']
+            # plots the histogram
+            fig, ax1 = plt.subplots()
+            # if acc_count <0 :
+            ax1.hist([y1, y2], color=colors)
+            ax1.set_xlim(0, 1)
+            ax1.set_ylabel("Count")
+            # plt.show()
+            global counter_2
+            if file_counter == counter_2 * 10:
+                plt.savefig("/tmp/accuracy_confidence_plot_histogram{}.png".format(counter_2), dpi=100, quality=100)
+                counter_2 = counter_2 + 1
+            plt.close()
+            file_counter = file_counter + 1
+    except Exception as e:
+        print(e)
+
+
+def plot_histogram(y):
+    # x = [
+    #     datetime.datetime(2011, 1, 4, 0, 0),
+    #     datetime.datetime(2011, 1, 5, 0, 0),
+    #     datetime.datetime(2011, 1, 6, 0, 0)
+    # ]
+    # x = date2num(x)
+
+    conf_list = []
+    acc_list = []
+    for pair in y:
+        # if pair[0]==1:
+        acc_list.append(pair[0])
+        conf_list.append(round(pair[1], 2))
+    pos = list(range(len(conf_list)))
+    width = 0.25
+    # ax = plt.subplot(111)
+    len_conf_list = len(conf_list)
+    # N=2
+    # x = np.linspace(0,50,N)
+    fig, ax = plt.subplots()
+    z1 = conf_list
+    y1 = acc_list
+    # k = [11, 12, 13]
+    # for i in range(0,len_conf_list):
+    if len(conf_list) > 1:
+        plt.bar(pos,
+                # using df['pre_score'] data,
+                z1,
+                # of width
+                width,
+                # with alpha 0.5
+                alpha=0.5,
+                # with color
+                color='r',
+                # with label the first value in first_name
+                label=conf_list[0])
+
+        # Create a bar with mid_score data,
+        # in position pos + some width buffer,
+        plt.bar([p + width for p in pos],
+                # using df['mid_score'] data,
+                y1,
+                # of width
+                width,
+                # with alpha 0.5
+                alpha=0.5,
+                # with color
+                color='g',
+                # with label the second value in first_name
+                label=conf_list[1])
+
+    # Set the y axis label
+    ax.set_xlabel('Adjective-noun pair number')
+    ax.set_ylabel('Confidence & Accuracy Value')
+
+    # Set the chart's title
+    ax.set_title('Accuracy and Confidence')
+
+    # # Set the position of the x ticks
+    # ax.set_xticks([p + 1.5 * width for p in pos])
+    #
+    # # Set the labels for the x ticks
+    # ax.set_xticklabels(df['first_name'])
+
+    # Setting the x-axis and y-axis limits
+    if len(pos) != 0:
+        plt.xlim(min(pos) - width, max(pos) + width * 4)
+    # plt.ylim([0, max(df['pre_score'] + df['mid_score'] + df['post_score'])])
+
+    # ax = plt.subplot(111)
+    # ax.bar(x-0.2, y, width=0.2, color='b', align='center')
+    # ax.bar(x, z, width=0.2, color='g', align='center')
+    # ax.bar(x + 0.2, k, width=0.2, color='r', align='center')
+    # ax.xaxis_date()
+    # plt.xlim(min(pos) - width, max(pos) + width * 4)
+    plt.legend(['Confidence', 'Accuracy'], loc='upper left')
+    # plt.show()
+    plt.savefig("/tmp/accuracy_confidence_plot_histogram_final_54_with0Accuracy_changedcolor.png", dpi=100, quality=100)
+    plt.close()
+
+
+truelabels = []
+predictlabels = []
+
+
+def calc_homogenity_comp_vmeas(user_input_df, candidates):
     # user_input_df['predict'] = y1
 
     confidence_counter = -1
@@ -531,9 +892,40 @@ def calc_homogenity_comp_vmeas(user_input_df,candidates):
         if candidate_df["class"][confidence_counter] != 2:
             truelabels.append(candidate_df["class"][confidence_counter])
             predictlabels.append(candidate_df["predict"][confidence_counter])
-    print("truelables:",truelabels)
-    print("predictlabels:",predictlabels)
-    homogenity_scr = homogeneity_score(truelabels,predictlabels)
-    vmeasure_scr = v_measure_score(truelabels,predictlabels)
-    completness_scr =completeness_score(truelabels,predictlabels)
-    print("homogenity_scr={},vmeasure_scr={},completness_scr={}".format(homogenity_scr,vmeasure_scr,completness_scr))
+    print("truelables:", truelabels)
+    print("predictlabels:", predictlabels)
+    homogenity_scr = homogeneity_score(truelabels, predictlabels)
+    vmeasure_scr = v_measure_score(truelabels, predictlabels)
+    completness_scr = completeness_score(truelabels, predictlabels)
+    print("homogenity_scr={},vmeasure_scr={},completness_scr={}".format(homogenity_scr, vmeasure_scr, completness_scr))
+
+
+def calc_homogenity_comp_vmeas_training(df, y_train):
+    # user_input_df['predict'] = y1
+
+    # confidence_counter = -1
+    # for c in candidates:
+    #     confidence_counter += 1
+    #     adj = c.getSource()
+    #     noun = c.getTarget()
+    #     candidate_df = user_input_df.loc[(user_input_df['adj'] == adj) & (user_input_df['noun'] == noun)]
+    #     print(candidate_df["adj"][confidence_counter])
+    #     print(candidate_df["noun"][confidence_counter])
+    #     if candidate_df["class"][confidence_counter] != 2:
+    #         truelabels.append(candidate_df["class"][confidence_counter])
+    #         predictlabels.append(candidate_df["predict"][confidence_counter])
+    # print("truelables:",truelabels)
+    # print("predictlabels:",predictlabels)
+    # homogenity_scr = homogeneity_score(truelabels,predictlabels)
+    # vmeasure_scr = v_measure_score(truelabels,predictlabels)
+    # completness_scr =completeness_score(truelabels,predictlabels)
+    # print("homogenity_scr={},vmeasure_scr={},completness_scr={}".format(homogenity_scr,vmeasure_scr,completness_scr))
+
+    truelabels = df['class']
+    predictlabels = y_train
+    homogenity_scr = homogeneity_score(truelabels, predictlabels)
+    vmeasure_scr = v_measure_score(truelabels, predictlabels)
+    completness_scr = completeness_score(truelabels, predictlabels)
+    print("truelables:", truelabels)
+    print("predictlabels:", predictlabels)
+    print("homogenity_scr={},vmeasure_scr={},completness_scr={}".format(homogenity_scr, vmeasure_scr, completness_scr))
