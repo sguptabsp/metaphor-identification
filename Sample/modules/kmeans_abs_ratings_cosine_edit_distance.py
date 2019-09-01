@@ -499,6 +499,7 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     try:
         # plot_histogram(accuracy_confidence_list)
         plot_accuracy_confidence_ratio_histogram(accuracy_confidence_list)
+        plot_accuracy_confidence_boxplot(accuracy_confidence_list)
     except Exception as e:
         print("exception during plotting the graph -> {}".format(e))
     # plot_accuracy_confidence(word_pairs, accuracy_confidence_list)
@@ -754,6 +755,217 @@ def plot_accuracy_confidence_ratio_histogram(y):
     plt.savefig("/home/shrutitejus/Desktop/confidence accuracy graphs/accuracy_confidence_plot_bar_200_32.png", dpi=100,
                 quality=100)
     plt.close()
+
+
+def plot_accuracy_confidence_boxplot(y):
+    # makes the data
+    # conf_list = []
+    # acc_list = []
+    #
+    # acc_list_size=[]
+    #
+    # for pair in y:
+    #     conf_list.append(round(pair[1], 1))
+    #
+    #     if pair[0] == 1:
+    #         acc_list.append(pair[0])
+    #
+    #
+    # if conf_list and acc_list:
+    #     y1 = np.asarray(conf_list)
+    #     y2 = np.asarray(acc_list)
+    #     print(y1)
+    #     print(y2)
+    #     y1_size = len(conf_list)
+    #
+    #     y2_size = len(acc_list)
+    #     # bar_2_bePlotted =
+    #     colors = ['b', 'g']
+    #     # plots the histogram
+    #     fig, ax1 = plt.subplots()
+    #     ax1.hist([y1, y2], color=colors)
+    #     ax1.set_xlim(0, 1)
+    #     ax1.set_ylabel("Count")
+    #     # plt.show()
+    #     plt.savefig("/tmp/accuracy_confidence_plot_histogram.png", dpi=100, quality=100)
+    #     plt.close()
+
+    conf_list = []
+    acc_list = []
+    bin1 = []
+    bin2 = []
+    bin3 = []
+    bin4 = []
+    bin5 = []
+    bin6 = []
+    bin7 = []
+    bin8 = []
+    bin9 = []
+    bin1_countAcc = 0
+    bin2_countAcc = 0
+    bin3_countAcc = 0
+    bin4_countAcc = 0
+    bin5_countAcc = 0
+    bin6_countAcc = 0
+    bin7_countAcc = 0
+    bin8_countAcc = 0
+    bin9_countAcc = 0
+
+    for pair in y:
+        conf_list.append(round(pair[1], 3))
+
+    for pair in y:
+        if pair[1] >= 0.1 and pair[1] < 0.2:
+            bin1.append(pair[1])
+            if pair[0] == 1:
+                bin1_countAcc += 1
+        if pair[1] >= 0.2 and pair[1] < 0.3:
+            bin2.append(pair[1])
+            if pair[0] == 1:
+                bin2_countAcc += 1
+        if pair[1] >= 0.3 and pair[1] < 0.4:
+            bin3.append(pair[1])
+            if pair[0] == 1:
+                bin3_countAcc += 1
+        if pair[1] >= 0.4 and pair[1] < 0.5:
+            bin4.append(pair[1])
+            if pair[0] == 1:
+                bin4_countAcc += 1
+        if pair[1] >= 0.5 and pair[1] < 0.6:
+            bin5.append(pair[1])
+            if pair[0] == 1:
+                bin5_countAcc += 1
+        if pair[1] >= 0.6 and pair[1] < 0.7:
+            bin6.append(pair[1])
+            if pair[0] == 1:
+                bin6_countAcc += 1
+        if pair[1] >= 0.7 and pair[1] < 0.8:
+            bin7.append(pair[1])
+            if pair[0] == 1:
+                bin7_countAcc += 1
+        if pair[1] >= 0.8 and pair[1] < 0.9:
+            bin8.append(pair[1])
+            if pair[0] == 1:
+                bin8_countAcc += 1
+        if pair[1] >= 0.9 and pair[1] <= 1:
+            bin9.append(pair[1])
+            if pair[0] == 1:
+                bin9_countAcc += 1
+
+    size_bin1 = len(bin1)
+    size_bin2 = len(bin2)
+    size_bin3 = len(bin3)
+    size_bin4 = len(bin4)
+    size_bin5 = len(bin5)
+    size_bin6 = len(bin6)
+    size_bin7 = len(bin7)
+    size_bin8 = len(bin8)
+    size_bin9 = len(bin9)
+
+    prob_success_dict = {}
+
+    if size_bin1 != 0:
+        prob_success_bin1 = bin1_countAcc / size_bin1
+        prob_success_dict.update({0.1: prob_success_bin1})
+    if size_bin2 != 0:
+        prob_success_bin2 = bin2_countAcc / size_bin2
+        prob_success_dict.update({0.2: prob_success_bin2})
+
+    if size_bin3 != 0:
+        prob_success_bin3 = bin3_countAcc / size_bin3
+        prob_success_dict.update({0.3: prob_success_bin3})
+
+    if size_bin4 != 0:
+        prob_success_bin4 = bin4_countAcc / size_bin4
+        prob_success_dict.update({0.4: prob_success_bin4})
+
+    if size_bin5 != 0:
+        prob_success_bin5 = bin5_countAcc / size_bin5
+        prob_success_dict.update({0.5: prob_success_bin5})
+
+    if size_bin6 != 0:
+        prob_success_bin6 = bin6_countAcc / size_bin6
+        prob_success_dict.update({0.6: prob_success_bin6})
+
+    if size_bin7 != 0:
+        prob_success_bin7 = bin7_countAcc / size_bin7
+        prob_success_dict.update({0.7: prob_success_bin7})
+
+    if size_bin8 != 0:
+        prob_success_bin8 = bin8_countAcc / size_bin8
+        prob_success_dict[0.8] = prob_success_bin8
+
+    if size_bin9 != 0:
+        prob_success_bin9 = bin9_countAcc / size_bin9
+        prob_success_dict[0.9] = prob_success_bin9
+
+    len(prob_success_dict)
+
+    for k, v in prob_success_dict.items():
+        if k == 0.1:
+            dist1 = np.random.binomial(len(bin1), prob_success_bin1, size=200)
+
+        if k == 0.2:
+            dist2 = np.random.binomial(len(bin2), prob_success_bin2, size=200)
+        if k == 0.3:
+            dist3 = np.random.binomial(len(bin3), prob_success_bin3, size=200)
+        if k == 0.4:
+            dist4 = np.random.binomial(len(bin4), prob_success_bin4, size=200)
+        if k == 0.5:
+            dist5 = np.random.binomial(len(bin5), prob_success_bin5, size=200)
+        if k == 0.6:
+            dist6 = np.random.binomial(len(bin6), prob_success_bin6, size=200)
+        if k == 0.7:
+            dist7 = np.random.binomial(len(bin7), prob_success_bin7, size=200)
+        if k == 0.8:
+            dist8 = np.random.binomial(len(bin8), prob_success_bin8, size=200)
+        if k == 0.9:
+            dist9 = np.random.binomial(len(bin9), prob_success_bin9, size=200)
+    bin_size_list = [size_bin1,
+                     size_bin2,
+                     size_bin3,
+                     size_bin4,
+                     size_bin5,
+                     size_bin6,
+                     size_bin7,
+                     size_bin8,
+                     size_bin9, ]
+
+    bin_count_acc_list = [bin1_countAcc,
+                          bin2_countAcc,
+                          bin3_countAcc,
+                          bin4_countAcc,
+                          bin5_countAcc,
+                          bin6_countAcc,
+                          bin7_countAcc,
+                          bin8_countAcc,
+                          bin9_countAcc]
+
+    std_dev_for_bins = [0] * 10
+
+    for i in range(0, 9):
+        if bin_size_list[i]:
+            prob = bin_count_acc_list[i] / bin_size_list[i]
+            std_dev_for_bins[i] = math.sqrt(prob * (1 - prob)) / math.sqrt(bin_size_list[i])
+
+    # std_bins =[std_bin1,std_bin2,std_bin3,]
+
+    data_to_plot2 = [bin1, bin2, bin3, bin4, bin5, bin6, bin7, bin8, bin9]
+    # print('@@@@@@@@@@@@',data_to_plot)
+
+    # Create a figure instance
+    fig = plt.figure(1, figsize=(9, 6))
+
+    # Create an axes instance
+    ax = fig.add_subplot(111)
+
+    # Create the boxplot
+    bp = ax.boxplot(data_to_plot2)
+
+    # Save the figure
+    fig.savefig('fig4.png', bbox_inches='tight')
+    plt.close()
+
 
 
 file_counter = 1
