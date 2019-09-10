@@ -350,11 +350,11 @@ def get_training_data():
     fields = ['adj', 'noun']
     MET_AN_EN_TEST = pd.read_excel(
         './data/Datasets_ACL2014.xlsx',
-        sheetname='MET_AN_EN', usecols=fields)
+        sheet_name='MET_AN_EN', usecols=fields)
     MET_AN_EN_TEST['class'] = 1
     LIT_AN_EN_TEST = pd.read_excel(
         './data/Datasets_ACL2014.xlsx',
-        sheetname='LIT_AN_EN', usecols=fields)
+        sheet_name='LIT_AN_EN', usecols=fields)
     LIT_AN_EN_TEST['class'] = 0
 
     df = pd.concat([LIT_AN_EN, MET_AN_EN, MET_AN_EN_TEST, LIT_AN_EN_TEST])
