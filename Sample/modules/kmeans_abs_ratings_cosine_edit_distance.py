@@ -682,38 +682,6 @@ def plot_accuracy_confidence_ratio_histogram(y):
 
 
 def plot_accuracy_confidence_boxplot(y):
-    # makes the data
-    # conf_list = []
-    # acc_list = []
-    #
-    # acc_list_size=[]
-    #
-    # for pair in y:
-    #     conf_list.append(round(pair[1], 1))
-    #
-    #     if pair[0] == 1:
-    #         acc_list.append(pair[0])
-    #
-    #
-    # if conf_list and acc_list:
-    #     y1 = np.asarray(conf_list)
-    #     y2 = np.asarray(acc_list)
-    #     print(y1)
-    #     print(y2)
-    #     y1_size = len(conf_list)
-    #
-    #     y2_size = len(acc_list)
-    #     # bar_2_bePlotted =
-    #     colors = ['b', 'g']
-    #     # plots the histogram
-    #     fig, ax1 = plt.subplots()
-    #     ax1.hist([y1, y2], color=colors)
-    #     ax1.set_xlim(0, 1)
-    #     ax1.set_ylabel("Count")
-    #     # plt.show()
-    #     plt.savefig("../output/accuracy_confidence_plot_histogram.png", dpi=100, quality=100)
-    #     plt.close()
-
     conf_list = []
     acc_list = []
     bin1 = []
