@@ -3,3 +3,6 @@ pandas
 scikit-learn
 gensim
 xlrd
+editdistance
+matplotlib
+tqdm
