@@ -1,6 +1,7 @@
 import csv
 import datetime
 import math
+import time
 import warnings
 from collections import Counter
 
@@ -80,7 +81,7 @@ def get_cosine_similarity_model(df):
 
 
 csv_columns = ['Source', 'Target', 'TrueLabel', 'PredictLabel', 'Confidence', 'Accuracy']
-csv_file = "Results" + str(datetime.datetime.now()) + ".csv"
+csv_file = "results" + str(int(time.time())) + ".csv"
 
 
 def create_csv_w_headers():
@@ -752,7 +753,7 @@ def plot_accuracy_confidence_ratio_histogram(y):
     # plt.xlim(min(pos) - width, max(pos) + width * 4)
     plt.legend(['Confidence', 'Accuracy'], loc='upper right')
     # plt.show()
-    plt.savefig("/home/shrutitejus/Desktop/confidence accuracy graphs/accuracy_confidence_plot_bar_200_32.png", dpi=100,
+    plt.savefig("accuracy_confidence_plot_bar_{}.png".format(int(time.time())), dpi=100,
                 quality=100)
     plt.close()
 
