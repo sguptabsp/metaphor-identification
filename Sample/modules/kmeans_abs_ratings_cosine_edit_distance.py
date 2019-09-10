@@ -728,11 +728,11 @@ def plot_accuracy_confidence_ratio_histogram(y):
                 label=x_list[0])
 
     # Set the y axis label
-    ax.set_xlabel('Confidence')
-    ax.set_ylabel('Accuracy Estimator')
+    ax.set_xlabel('Accuracy')
+    ax.set_ylabel('Confidence')
 
     # Set the chart's title
-    ax.set_title('Accuracy and Confidence')
+    ax.set_title('Accuracy vs Confidence')
 
     # # Set the position of the x ticks
     # ax.set_xticks([p + 1.5 * width for p in pos])
