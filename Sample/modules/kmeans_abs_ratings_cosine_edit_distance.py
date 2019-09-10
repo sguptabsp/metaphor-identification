@@ -637,38 +637,6 @@ def plot_accuracy_confidence_histogram(x, y):
 
 
 def plot_accuracy_confidence_ratio_histogram(y):
-    # makes the data
-    # conf_list = []
-    # acc_list = []
-    #
-    # acc_list_size=[]
-    #
-    # for pair in y:
-    #     conf_list.append(round(pair[1], 1))
-    #
-    #     if pair[0] == 1:
-    #         acc_list.append(pair[0])
-    #
-    #
-    # if conf_list and acc_list:
-    #     y1 = np.asarray(conf_list)
-    #     y2 = np.asarray(acc_list)
-    #     print(y1)
-    #     print(y2)
-    #     y1_size = len(conf_list)
-    #
-    #     y2_size = len(acc_list)
-    #     # bar_2_bePlotted =
-    #     colors = ['b', 'g']
-    #     # plots the histogram
-    #     fig, ax1 = plt.subplots()
-    #     ax1.hist([y1, y2], color=colors)
-    #     ax1.set_xlim(0, 1)
-    #     ax1.set_ylabel("Count")
-    #     # plt.show()
-    #     plt.savefig("../output/accuracy_confidence_plot_histogram.png", dpi=100, quality=100)
-    #     plt.close()
-
     conf_list = []
     acc_list = []
     for pair in y:
@@ -687,36 +655,10 @@ def plot_accuracy_confidence_ratio_histogram(y):
         ratio = acc_count_for_k / v
 
         y_list.append(ratio)
-
-    pos = list(range(len(conf_list)))
     width = 0.005
-    # ax = plt.subplot(111)
-    len_conf_list = len(conf_list)
-    # N=2
-    # x = np.linspace(0,50,N)
     fig, ax = plt.subplots()
-    z1 = conf_list
-    y1 = acc_list
-
-    # k = [11, 12, 13]
-    # for i in range(0,len_conf_list):
     if len(conf_list) > 1:
-        # plt.bar(pos,
-        #         # using df['pre_score'] data,
-        #         z1,
-        #         # of width
-        #         width,
-        #         # with alpha 0.5
-        #         alpha=0.5,
-        #         # with color
-        #         color='r',
-        #         # with label the first value in first_name
-        #         label=conf_list[0])
-
-        # Create a bar with mid_score data,
-        # in position pos + some width buffer,
         plt.bar(x_list,
-                # using df['mid_score'] data,
                 y_list,
                 # of width
                 width,
@@ -733,26 +675,7 @@ def plot_accuracy_confidence_ratio_histogram(y):
 
     # Set the chart's title
     ax.set_title('Accuracy vs Confidence')
-
-    # # Set the position of the x ticks
-    # ax.set_xticks([p + 1.5 * width for p in pos])
-    #
-    # # Set the labels for the x ticks
-    # ax.set_xticklabels(df['first_name'])
-
-    # Setting the x-axis and y-axis limits
-    # if len(pos)!=0:
-    #     plt.xlim(min(pos) - width, max(pos) + width * 4)
-    # plt.ylim([0, max(df['pre_score'] + df['mid_score'] + df['post_score'])])
-
-    # ax = plt.subplot(111)
-    # ax.bar(x-0.2, y, width=0.2, color='b', align='center')
-    # ax.bar(x, z, width=0.2, color='g', align='center')
-    # ax.bar(x + 0.2, k, width=0.2, color='r', align='center')
-    # ax.xaxis_date()
-    # plt.xlim(min(pos) - width, max(pos) + width * 4)
     plt.legend(['Confidence', 'Accuracy'], loc='upper right')
-    # plt.show()
     plt.savefig("accuracy_confidence_plot_bar_{}.png".format(int(time.time())), dpi=100,
                 quality=100)
     plt.close()
