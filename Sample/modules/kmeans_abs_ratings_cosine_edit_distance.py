@@ -604,8 +604,8 @@ def plot_accuracy_confidence(x, y):
             plt.plot(x, [pt[i] for pt in y], label=labels[i])
         plt.legend()
         print("Total word pairs in the graph = {}".format(len(x)))
-        plt.savefig("/tmp/accuracy_confidence_plot.png", dpi=100, quality=100)
-        plt.savefig("/tmp/accuracy_confidence_plot.png", dpi=100, quality=100)
+        plt.savefig("../output/accuracy_confidence_plot.png", dpi=100, quality=100)
+        plt.savefig("../output/accuracy_confidence_plot.png", dpi=100, quality=100)
 
 
 def plot_accuracy_confidence_histogram(x, y):
@@ -632,7 +632,7 @@ def plot_accuracy_confidence_histogram(x, y):
         ax1.set_xlim(0, 1)
         ax1.set_ylabel("Count")
         # plt.show()
-        plt.savefig("/tmp/accuracy_confidence_plot_histogram_200.png", dpi=100, quality=100)
+        plt.savefig("../output/accuracy_confidence_plot_histogram_200.png", dpi=100, quality=100)
         plt.close()
 
 
@@ -666,7 +666,7 @@ def plot_accuracy_confidence_ratio_histogram(y):
     #     ax1.set_xlim(0, 1)
     #     ax1.set_ylabel("Count")
     #     # plt.show()
-    #     plt.savefig("/tmp/accuracy_confidence_plot_histogram.png", dpi=100, quality=100)
+    #     plt.savefig("../output/accuracy_confidence_plot_histogram.png", dpi=100, quality=100)
     #     plt.close()
 
     conf_list = []
@@ -788,7 +788,7 @@ def plot_accuracy_confidence_boxplot(y):
     #     ax1.set_xlim(0, 1)
     #     ax1.set_ylabel("Count")
     #     # plt.show()
-    #     plt.savefig("/tmp/accuracy_confidence_plot_histogram.png", dpi=100, quality=100)
+    #     plt.savefig("../output/accuracy_confidence_plot_histogram.png", dpi=100, quality=100)
     #     plt.close()
 
     conf_list = []
@@ -1014,7 +1014,7 @@ def plot_each_accuracy_confidence_histogram(x, y):
             # plt.show()
             global counter_2
             if file_counter == counter_2 * 10:
-                plt.savefig("/tmp/accuracy_confidence_plot_histogram{}.png".format(counter_2), dpi=100, quality=100)
+                plt.savefig("../output/accuracy_confidence_plot_histogram{}.png".format(counter_2), dpi=100, quality=100)
                 counter_2 = counter_2 + 1
             plt.close()
             file_counter = file_counter + 1
@@ -1100,7 +1100,7 @@ def plot_histogram(y):
     # plt.xlim(min(pos) - width, max(pos) + width * 4)
     plt.legend(['Confidence', 'Accuracy'], loc='upper left')
     # plt.show()
-    plt.savefig("/tmp/accuracy_confidence_plot_histogram_final_54_with0Accuracy_changedcolor.png", dpi=100, quality=100)
+    plt.savefig("../output/accuracy_confidence_plot_histogram_final_54_with0Accuracy_changedcolor.png", dpi=100, quality=100)
     plt.close()
 
 
