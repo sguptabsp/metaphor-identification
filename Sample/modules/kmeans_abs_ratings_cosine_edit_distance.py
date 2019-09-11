@@ -795,24 +795,24 @@ def plot_accuracy_confidence_boxplot(y):
 
     for k, v in prob_success_dict.items():
         if k == 0.1:
-            dist1 = np.random.binomial(len(bin1), prob_success_bin1, size=200)
+            dist1 = np.random.binomial(len(bin1), prob_success_bin1, size=len(bin1))
 
         if k == 0.2:
-            dist2 = np.random.binomial(len(bin2), prob_success_bin2, size=200)
+            dist2 = np.random.binomial(len(bin2), prob_success_bin2, size=len(bin2))
         if k == 0.3:
-            dist3 = np.random.binomial(len(bin3), prob_success_bin3, size=200)
+            dist3 = np.random.binomial(len(bin3), prob_success_bin3, size=len(bin3))
         if k == 0.4:
-            dist4 = np.random.binomial(len(bin4), prob_success_bin4, size=200)
+            dist4 = np.random.binomial(len(bin4), prob_success_bin4, size=len(bin4))
         if k == 0.5:
-            dist5 = np.random.binomial(len(bin5), prob_success_bin5, size=200)
+            dist5 = np.random.binomial(len(bin5), prob_success_bin5, size=len(bin5))
         if k == 0.6:
-            dist6 = np.random.binomial(len(bin6), prob_success_bin6, size=200)
+            dist6 = np.random.binomial(len(bin6), prob_success_bin6, size=len(bin6))
         if k == 0.7:
-            dist7 = np.random.binomial(len(bin7), prob_success_bin7, size=200)
+            dist7 = np.random.binomial(len(bin7), prob_success_bin7, size=len(bin7))
         if k == 0.8:
-            dist8 = np.random.binomial(len(bin8), prob_success_bin8, size=200)
+            dist8 = np.random.binomial(len(bin8), prob_success_bin8, size=len(bin8))
         if k == 0.9:
-            dist9 = np.random.binomial(len(bin9), prob_success_bin9, size=200)
+            dist9 = np.random.binomial(len(bin9), prob_success_bin9, size=len(bin9))
     bin_size_list = [size_bin1,
                      size_bin2,
                      size_bin3,
@@ -841,7 +841,7 @@ def plot_accuracy_confidence_boxplot(y):
             std_dev_for_bins[i] = math.sqrt(prob * (1 - prob)) / math.sqrt(bin_size_list[i])
 
     # std_bins =[std_bin1,std_bin2,std_bin3,]
-
+    data_to_plot = [dist1, dist2, dist3, dist4, dist5,dist6,dist7,dist8,dist9]
     data_to_plot2 = [bin1, bin2, bin3, bin4, bin5, bin6, bin7, bin8, bin9]
     # print('@@@@@@@@@@@@',data_to_plot)
 
@@ -852,7 +852,7 @@ def plot_accuracy_confidence_boxplot(y):
     ax = fig.add_subplot(111)
 
     # Create the boxplot
-    bp = ax.boxplot(data_to_plot2)
+    bp = ax.boxplot(data_to_plot)
 
     # Save the figure
     fig.savefig('fig4.png', bbox_inches='tight')
