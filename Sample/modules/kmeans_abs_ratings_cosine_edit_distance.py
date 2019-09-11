@@ -1,5 +1,4 @@
 import csv
-import datetime
 import math
 import time
 import warnings
@@ -438,7 +437,6 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     accuracy_list.append(sentence_accuracy)
     accuracy_list_wo_class2.append(sentence_accuracy_wo_class2)
 
-
     print('Accuracy is: ', accuracy_list)
     print('Accuracy is without class2: ', accuracy_list_wo_class2)
     # if len(accuracy_list) > 0 and accuracy_list[-1] > 0:
@@ -841,7 +839,7 @@ def plot_accuracy_confidence_boxplot(y):
             std_dev_for_bins[i] = math.sqrt(prob * (1 - prob)) / math.sqrt(bin_size_list[i])
 
     # std_bins =[std_bin1,std_bin2,std_bin3,]
-    data_to_plot = [dist1, dist2, dist3, dist4, dist5,dist6,dist7,dist8,dist9]
+    data_to_plot = [dist1, dist2, dist3, dist4, dist5, dist6, dist7, dist8, dist9]
     data_to_plot2 = [bin1, bin2, bin3, bin4, bin5, bin6, bin7, bin8, bin9]
     # print('@@@@@@@@@@@@',data_to_plot)
 
@@ -857,7 +855,6 @@ def plot_accuracy_confidence_boxplot(y):
     # Save the figure
     fig.savefig('fig4.png', bbox_inches='tight')
     plt.close()
-
 
 
 file_counter = 1
@@ -905,7 +902,8 @@ def plot_each_accuracy_confidence_histogram(x, y):
             # plt.show()
             global counter_2
             if file_counter == counter_2 * 10:
-                plt.savefig("../output/accuracy_confidence_plot_histogram{}.png".format(counter_2), dpi=100, quality=100)
+                plt.savefig("../output/accuracy_confidence_plot_histogram{}.png".format(counter_2), dpi=100,
+                            quality=100)
                 counter_2 = counter_2 + 1
             plt.close()
             file_counter = file_counter + 1
@@ -991,7 +989,8 @@ def plot_histogram(y):
     # plt.xlim(min(pos) - width, max(pos) + width * 4)
     plt.legend(['Confidence', 'Accuracy'], loc='upper left')
     # plt.show()
-    plt.savefig("../output/accuracy_confidence_plot_histogram_final_54_with0Accuracy_changedcolor.png", dpi=100, quality=100)
+    plt.savefig("../output/accuracy_confidence_plot_histogram_final_54_with0Accuracy_changedcolor.png", dpi=100,
+                quality=100)
     plt.close()
 
 
