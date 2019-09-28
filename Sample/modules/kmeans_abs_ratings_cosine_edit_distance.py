@@ -497,8 +497,9 @@ def identify_metaphors_abstractness_cosine_edit_dist(candidates, cand_type, verb
     # plot_each_accuracy_confidence_histogram(word_pairs, accuracy_confidence_list)
     try:
         # plot_histogram(accuracy_confidence_list)
-        plot_accuracy_confidence_ratio_histogram(accuracy_confidence_list)
-        plot_accuracy_confidence_boxplot(accuracy_confidence_list)
+        # plot_accuracy_confidence_ratio_histogram(accuracy_confidence_list)
+        # plot_accuracy_confidence_boxplot(accuracy_confidence_list)
+        plot_accuracy_percentage_conf_bin(accuracy_confidence_list)
     except Exception as e:
         print("exception during plotting the graph -> {}".format(e))
     # plot_accuracy_confidence(word_pairs, accuracy_confidence_list)
@@ -679,9 +680,71 @@ def plot_accuracy_confidence_ratio_histogram(y):
     plt.close()
 
 
-def plot_accuracy_confidence_boxplot(y):
+def plot_accuracy_percentage_conf_bin(y):
+    print(y)
     conf_list = []
     acc_list = []
+    for pair in y:
+        conf_list.append(round(pair[1], 2))
+
+        if pair[0] == 1:
+            acc_list.append(round(pair[1], 2))
+    counter_acclist = Counter(acc_list)
+    counter_conflist = Counter(conf_list)
+
+    x_list = []
+    y_list = []
+    x_ticks = []
+    for k, v in counter_conflist.items():
+        x_list.append(k)
+        acc_count_for_k = counter_acclist.get(k, 0)
+        percentage_accuracy_bin = acc_count_for_k / v
+        y_list.append(percentage_accuracy_bin)
+        x_ticks.append("{}/{}".format(acc_count_for_k, v))
+    width = 0.005
+    fig, ax = plt.subplots()
+    if len(conf_list) > 1:
+        plt.bar(x_list,
+                y_list,
+                # of width
+                width,
+                # with alpha 0.5
+                alpha=0.5,
+                # with color
+                color='b',
+                # with label the second value in first_name
+                label=x_list[0])
+
+    # Set the y axis label
+    ax.set_xlabel('Confidence bins')
+    ax.set_ylabel('Accuracy Percentage')
+
+    # Set the chart's title
+    ax.set_title('Accuracy vs Confidence')
+    # ax.set_xticks(x_ticks
+    totals = []
+    # find the values and append to list
+    for i in ax.patches:
+        totals.append(i.get_height())
+
+    # set individual bar lables using above list
+    total = sum(totals)
+
+    # set individual bar lables using above list
+    index = 0
+    for i in ax.patches:
+        # get_x pulls left or right; get_height pushes up or down
+        ax.text(i.get_x(), i.get_height(), x_ticks[index], fontsize=11,
+                color='dimgrey')
+        index += 1
+    # ax.set_xticklabels(labels)
+    plt.legend(['Confidence', 'Accuracy'], loc='upper left')
+    plt.savefig("acccuracy1_percentage_bin_{}.png".format(int(time.time())), dpi=100,
+                quality=100)
+    plt.close()
+
+def plot_accuracy_confidence_boxplot(y):
+    conf_list = []
     bin1 = []
     bin2 = []
     bin3 = []
@@ -703,7 +766,7 @@ def plot_accuracy_confidence_boxplot(y):
 
     for pair in y:
         conf_list.append(round(pair[1], 3))
-
+    print("y", y)
     for pair in y:
         if pair[1] >= 0.1 and pair[1] < 0.2:
             bin1.append(pair[1])
@@ -751,9 +814,11 @@ def plot_accuracy_confidence_boxplot(y):
     size_bin7 = len(bin7)
     size_bin8 = len(bin8)
     size_bin9 = len(bin9)
+    print("bin7", bin7)
 
     prob_success_dict = {}
-
+    prob_success_bin1 = prob_success_bin2 = prob_success_bin3 = prob_success_bin4 = prob_success_bin5 = prob_success_bin6 = prob_success_bin7 = prob_success_bin8 = prob_success_bin9 = 0
+    dist1 = dist2 = dist3 = dist4 = dist5 = dist6 = dist7 = dist8 = dist9 = []
     if size_bin1 != 0:
         prob_success_bin1 = bin1_countAcc / size_bin1
         prob_success_dict.update({0.1: prob_success_bin1})
@@ -793,24 +858,25 @@ def plot_accuracy_confidence_boxplot(y):
 
     for k, v in prob_success_dict.items():
         if k == 0.1:
-            dist1 = np.random.binomial(len(bin1), prob_success_bin1, size=len(bin1))
+            dist1 = np.random.binomial(len(bin1), prob_success_bin1, size=bin1_countAcc)
 
         if k == 0.2:
-            dist2 = np.random.binomial(len(bin2), prob_success_bin2, size=len(bin2))
+            dist2 = np.random.binomial(len(bin2), prob_success_bin2, size=bin2_countAcc)
         if k == 0.3:
-            dist3 = np.random.binomial(len(bin3), prob_success_bin3, size=len(bin3))
+            dist3 = np.random.binomial(len(bin3), prob_success_bin3, size=bin3_countAcc)
         if k == 0.4:
-            dist4 = np.random.binomial(len(bin4), prob_success_bin4, size=len(bin4))
+            dist4 = np.random.binomial(len(bin4), prob_success_bin4, size=bin4_countAcc)
         if k == 0.5:
-            dist5 = np.random.binomial(len(bin5), prob_success_bin5, size=len(bin5))
+            dist5 = np.random.binomial(len(bin5), prob_success_bin5, size=bin5_countAcc)
         if k == 0.6:
-            dist6 = np.random.binomial(len(bin6), prob_success_bin6, size=len(bin6))
+            dist6 = np.random.binomial(len(bin6), prob_success_bin6, size=bin6_countAcc)
         if k == 0.7:
-            dist7 = np.random.binomial(len(bin7), prob_success_bin7, size=len(bin7))
+            dist7 = np.random.binomial(len(bin7), prob_success_bin7, size=bin7_countAcc)
+            print(dist7)
         if k == 0.8:
-            dist8 = np.random.binomial(len(bin8), prob_success_bin8, size=len(bin8))
+            dist8 = np.random.binomial(len(bin8), prob_success_bin8, size=bin8_countAcc)
         if k == 0.9:
-            dist9 = np.random.binomial(len(bin9), prob_success_bin9, size=len(bin9))
+            dist9 = np.random.binomial(len(bin9), prob_success_bin9, size=bin9_countAcc)
     bin_size_list = [size_bin1,
                      size_bin2,
                      size_bin3,
@@ -833,10 +899,10 @@ def plot_accuracy_confidence_boxplot(y):
 
     std_dev_for_bins = [0] * 10
 
-    for i in range(0, 9):
-        if bin_size_list[i]:
-            prob = bin_count_acc_list[i] / bin_size_list[i]
-            std_dev_for_bins[i] = math.sqrt(prob * (1 - prob)) / math.sqrt(bin_size_list[i])
+    # for i in range(0, 9):
+    #     if bin_size_list[i]:
+    #         prob = bin_count_acc_list[i] / bin_size_list[i]
+    #         std_dev_for_bins[i] = math.sqrt(prob * (1 - prob)) / math.sqrt(bin_size_list[i])
 
     # std_bins =[std_bin1,std_bin2,std_bin3,]
     data_to_plot = [dist1, dist2, dist3, dist4, dist5, dist6, dist7, dist8, dist9]
@@ -850,10 +916,13 @@ def plot_accuracy_confidence_boxplot(y):
     ax = fig.add_subplot(111)
 
     # Create the boxplot
-    bp = ax.boxplot(data_to_plot)
+    ax.boxplot(data_to_plot)
+    ax.set_title('Accuracy vs Confidence bins')
+    ax.set_xlabel('Confidence bins')
+    ax.set_ylabel('Box plot of Binomial distribution of Accuracy values ')
 
     # Save the figure
-    fig.savefig('fig4.png', bbox_inches='tight')
+    fig.savefig('fig5.png', bbox_inches='tight')
     plt.close()
 
 
