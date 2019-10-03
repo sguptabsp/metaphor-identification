@@ -698,7 +698,8 @@ def plot_accuracy_percentage_conf_bin(y):
     for k, v in counter_conflist.items():
         x_list.append(k)
         acc_count_for_k = counter_acclist.get(k, 0)
-        percentage_accuracy_bin = acc_count_for_k / v
+        # acc_count_for_v=counter_acclist.get(v,0)
+        percentage_accuracy_bin = acc_count_for_k / (v)
         y_list.append(percentage_accuracy_bin)
         x_ticks.append("{}/{}".format(acc_count_for_k, v))
     width = 0.005

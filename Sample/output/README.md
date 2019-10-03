@@ -6,12 +6,12 @@
     - Numerator: The counts of confidence values with accuracy =1 
     - Denominator: Total points for that confidence bin
 
--   Image 1 : With around 50 points
+-   Image 1 : With around 34 points
 <img src="https://github.com/sguptabsp/metaphor-identification/blob/plot-accuracy-vs-confidence/Sample/output/acccuracy1_percentage_bin_1569695890.png?raw=true"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
 
--   Image 2 : With around 200 points
+-   Image 2 : With around 157 points
 <img src="https://github.com/sguptabsp/metaphor-identification/blob/plot-accuracy-vs-confidence/Sample/output/acccuracy1_percentage_bin_1570039181.png?raw=true"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
