@@ -738,7 +738,7 @@ def plot_accuracy_percentage_conf_bin(y):
                 color='dimgrey')
         index += 1
     # ax.set_xticklabels(labels)
-    plt.legend(['counts_acc1/total_counts', 'Accuracy'], loc='upper left')
+    # plt.legend(['counts_acc1/total_counts', 'Accuracy'], loc='upper left')
     plt.savefig("acccuracy1_percentage_bin_{}.png".format(int(time.time())), dpi=100,
                 quality=100)
     plt.close()
