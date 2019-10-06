@@ -9,7 +9,6 @@
      style="float: left; margin-right: 10px;" />
 
 **********************************************************************************************************************************   
-- IMAGE 2: 
 -   This graph shows for each confidence bin on the x-axis what is the percentage contribution for accuracy =1 for that bin.
 -   The markings above each bar indicates the following:
     - Numerator: The counts of confidence values with accuracy =1 
