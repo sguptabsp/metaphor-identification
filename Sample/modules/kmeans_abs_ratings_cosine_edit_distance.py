@@ -6,12 +6,14 @@ from collections import Counter
 from operator import itemgetter
 
 import gensim
-import matplotlib
+import mplcursors
 # import matplotlib.pyplot as plt
 import nltk
 import numpy as np
 import pandas as pd
 from gensim.models import KeyedVectors
+# matplotlib.use( 'Agg' )
+from matplotlib import pyplot as plt
 from scipy.spatial import distance
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
@@ -24,9 +26,6 @@ from sklearn.model_selection import KFold
 
 from Sample.modules.datastructs.metaphor import Metaphor
 from Sample.modules.datastructs.metaphor_group import MetaphorGroup
-
-matplotlib.use( 'Agg' )
-from matplotlib import pyplot as plt
 
 # from new_structure.modules.datastructs.metaphor import Metaphor
 # from new_structure.modules.datastructs.metaphor_group import MetaphorGroup
@@ -715,7 +714,22 @@ def plot_scatter_movingAvg(y):
     x = conf_counter
     y = acc_counter
 
-    plt.scatter( x, y, s=2.7, c="b", alpha=0.8, label="{}_words_average".format( splits ) )
+    annotate_label_list = []
+
+    for i in range( 0, len( x ) ):
+        annotate_label_list.append( "{},{}".format( round( x[i], 1 ), round( y[i], 1 ) ) )
+
+    plt.scatter( x, y, s=2.7, c="g", alpha=0.8, label="{}_words_average".format( splits ) )
+    for i, txt in enumerate( annotate_label_list ):
+        if i % 47 == 0:
+            if y[i] > 0.7:
+                y_coor = y[i] + 0.15
+            elif y[i] > 0.5:
+                y_coor = y[i] + 0.1
+            else:
+                y_coor = y[i] - 0.2
+            xytext = (x[i] - 0.4, y_coor)
+            # plt.annotate( txt, (x[i], y[i]),xytext=xytext,arrowprops=dict(facecolor='black', shrink=0.05) )
     plt.xlim( 0.4, 1 )
     plt.ylim( 0.1, 1.1 )
     plt.xlabel( "Confidence" )
@@ -723,7 +737,9 @@ def plot_scatter_movingAvg(y):
     plt.legend( loc='lower left' )
     plt.savefig( "scatter_{}_words_average_accuracy.png".format( splits ), dpi=200,
                  quality=100 )
-    plt.close()
+    mplcursors.cursor( hover=True )
+    # plt.show()
+
 
 
 # def plot_scatter_movingAvg_with_bin(y):
