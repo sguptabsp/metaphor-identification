@@ -7,7 +7,8 @@
     <img src="https://github.com/sguptabsp/metaphor-identification/blob/plot-accuracy-vs-confidence/Sample/output/scatter_5_words_average_accuracy.png?raw=true"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
-- **********************************************************************************************************************************   
+
+**********************************************************************************************************************************   
 - IMAGE 2: 
 -   This graph shows for each confidence bin on the x-axis what is the percentage contribution for accuracy =1 for that bin.
 -   The markings above each bar indicates the following:
