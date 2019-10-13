@@ -1,3 +1,6 @@
+psutil
+
+plotly
 nltk
 pandas
 scikit-learn
