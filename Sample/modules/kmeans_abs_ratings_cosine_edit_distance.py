@@ -6,14 +6,16 @@ from collections import Counter
 from operator import itemgetter
 
 import gensim
-import mplcursors
 # import matplotlib.pyplot as plt
 import nltk
 import numpy as np
 import pandas as pd
+import plotly.graph_objects as go
 from gensim.models import KeyedVectors
 # matplotlib.use( 'Agg' )
 from matplotlib import pyplot as plt
+from plotly.offline import plot
+from scipy import stats
 from scipy.spatial import distance
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
@@ -699,7 +701,7 @@ def plot_scatter_movingAvg(y):
     for pair in sorted_list_pair:
         conf_list.append( pair[1] )
         acc_list.append( pair[0] )
-    splits = 5
+    splits = 10
     conf_counter = [sum( conf_list[i:i + splits] ) / splits
                     for i in range( len( conf_list ) - splits + 1 )]
     acc_counter = [sum( acc_list[i:i + splits] ) / splits
@@ -714,31 +716,83 @@ def plot_scatter_movingAvg(y):
     x = conf_counter
     y = acc_counter
 
-    annotate_label_list = []
+    # Generated linear fit
+    slope, intercept, r_value, p_value, std_err = stats.linregress( x, y )
+    # line = slope * x + intercept
+    line = [i * slope + intercept for i in x]
+    # Creating the dataset, and generating the plot
+    trace1 = go.Scatter(
+        x=x,
+        y=y,
+        mode='lines+markers',
+        marker=go.Marker( color='rgb(255, 127, 14)' ),
+        name='Moving avg point of 10 accuracy values'
+    )
 
-    for i in range( 0, len( x ) ):
-        annotate_label_list.append( "{},{}".format( round( x[i], 1 ), round( y[i], 1 ) ) )
+    trace2 = go.Scatter(
+        x=x,
+        y=line,
+        mode='lines',
+        marker=go.Marker( color='rgb(31, 119, 180)' ),
+        name='Regression line fit'
+    )
 
-    plt.scatter( x, y, s=2.7, c="g", alpha=0.8, label="{}_words_average".format( splits ) )
-    for i, txt in enumerate( annotate_label_list ):
-        if i % 47 == 0:
-            if y[i] > 0.7:
-                y_coor = y[i] + 0.15
-            elif y[i] > 0.5:
-                y_coor = y[i] + 0.1
-            else:
-                y_coor = y[i] - 0.2
-            xytext = (x[i] - 0.4, y_coor)
-            # plt.annotate( txt, (x[i], y[i]),xytext=xytext,arrowprops=dict(facecolor='black', shrink=0.05) )
-    plt.xlim( 0.4, 1 )
-    plt.ylim( 0.1, 1.1 )
-    plt.xlabel( "Confidence" )
-    plt.ylabel( "Avg accuracy - {} words".format( splits ) )
-    plt.legend( loc='lower left' )
-    plt.savefig( "scatter_{}_words_average_accuracy.png".format( splits ), dpi=200,
-                 quality=100 )
-    mplcursors.cursor( hover=True )
-    # plt.show()
+    layout = go.Layout(
+        title='Moving avg of accuracy of 10 points vs confidence',
+        plot_bgcolor='rgb(229, 229, 229)',
+        xaxis=go.XAxis( zerolinecolor='rgb(255,255,255)', gridcolor='rgb(255,255,255)', range=[0.7, 1],
+                        title=go.layout.xaxis.Title(
+                            text="Confidence",
+                            font=dict(
+                                family="Courier New, monospace",
+                                size=18,
+                                color="#7f7f7f"
+                            )
+                        ) ),
+        yaxis=go.YAxis( zerolinecolor='rgb(255,255,255)', gridcolor='rgb(255,255,255)', title=go.layout.yaxis.Title(
+            text=" Moving avg of Accuracy for 10 points",
+            font=dict(
+                family="Courier New, monospace",
+                size=18,
+                color="#7f7f7f"
+            )
+        ) ),
+
+    )
+
+    data = [trace1, trace2]
+    fig = go.Figure( data=data, layout=layout )
+    # fig.update_xaxes( tickvals=[0,1.1] )
+    plot( fig, filename='Linear-Fit-in-python' )
+
+    # flig = go.Figure(data=go.Scatter( x=x, y=y ) )
+    # fig.write_image( "fig1.png" )
+    # url = plot([go.Scatter( x=x, y=y )])
+    # annotate_label_list = []
+    #
+    # for i in range( 0, len( x ) ):
+    #     annotate_label_list.append( "{},{}".format( round( x[i], 1 ), round( y[i], 1 ) ) )
+    #
+    # plt.scatter( x, y, s=2.7, c="g", alpha=0.8, label="{}_words_average".format( splits ) )
+    # for i, txt in enumerate( annotate_label_list ):
+    #     if i % 47 == 0:
+    #         if y[i] > 0.7:
+    #             y_coor = y[i] + 0.15
+    #         elif y[i] > 0.5:
+    #             y_coor = y[i] + 0.1
+    #         else:
+    #             y_coor = y[i] - 0.2
+    #         xytext = (x[i] - 0.4, y_coor)
+    #         # plt.annotate( txt, (x[i], y[i]),xytext=xytext,arrowprops=dict(facecolor='black', shrink=0.05) )
+    # plt.xlim( 0.4, 1 )
+    # plt.ylim( 0.1, 1.1 )
+    # plt.xlabel( "Confidence" )
+    # plt.ylabel( "Avg accuracy - {} words".format( splits ) )
+    # plt.legend( loc='lower left' )
+    # plt.savefig( "scatter_{}_words_average_accuracy.png".format( splits ), dpi=200,
+    #              quality=100 )
+    # mplcursors.cursor( hover=True )
+    # # plt.show()
 
 
 
