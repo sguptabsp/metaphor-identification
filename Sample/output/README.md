@@ -2,11 +2,13 @@
 ## Experimental Graphs
 ### Kmeans
 ##### Scatter Plot
--   This graph shows average accuracy for each grouping of 10 words on the x-axis vs the confidence values in the y-axis.
-    -   Image of accuracy vs confidence of 150+ words with grouping of 10 words
-    <img src="https://github.com/sguptabsp/metaphor-identification/blob/plot-accuracy-vs-confidence/Sample/output/scatter_10_words_average_accuracy.png?raw=true"
+-   This graph shows accuracy fraction for each grouping of 5 words(sorted by confidence values) on the y-axis vs the confidence values in the x-axis.
+     -  Image of accuracy vs confidence of 150+ words with grouping of 5 words
+    <img src="https://github.com/sguptabsp/metaphor-identification/blob/plot-accuracy-vs-confidence/Sample/output/scatter_5_words_average_accuracy.png?raw=true"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
+
+**********************************************************************************************************************************   
 -   This graph shows for each confidence bin on the x-axis what is the percentage contribution for accuracy =1 for that bin.
 -   The markings above each bar indicates the following:
     - Numerator: The counts of confidence values with accuracy =1 
